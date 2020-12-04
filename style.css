@@ -4,11 +4,24 @@
   grid-template-rows: repeat(3,100px);
 }
 
-.cell {
+#user-game-container {
+  display: grid;
+  grid-template-columns: repeat(3,100px);
+  grid-template-rows: repeat(3,100px);
+}
+
+#user-game-container .cell {
 border: 0.5px solid grey;
 border-radius: 50%;
 margin: 10px;
 }
+
+.cell {
+    border: 0.5px dotted grey;
+border-radius: 50%;
+margin: 10px;
+}
+
 
 /* .white {
   background-color: white;

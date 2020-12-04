@@ -3,40 +3,55 @@ let i = 0;
 let j = 0;
 let score = 0;
 let userClicks = [];
+let speed = 1000;
+let dots = 2;
 
-function initTimer(seconds){
-	const milliseconds = seconds * 1000;
-	setTimeout(updateTimer, milliseconds);
+// function initTimer(seconds){
+// 	const milliseconds = seconds * 1000;
+// 	setTimeout(updateTimer, milliseconds);
+// }
+
+
+
+// function updateTimer() {
+//   let timesUp = true
+//   console.log(`now ${timesUp}`)
+// }
+
+
+function nextRound(level) {
+    let initArray = [];
+    speed - 80;
+    dots++
+    newgame();
+    console.log("next round!")
 }
 
 
-
-function updateTimer() {
-  let timesUp = true
-  console.log(`now ${timesUp}`)
-}
 
 function makeCircleArray(level, cb) {
   do {
     let val = Math.floor(Math.random() * 9)
-    initArray.push(val)
+    initArray.push(`game-${val}`)
     i++
   }
-  while (i < 5)
+  while (i < dots)
   console.log(initArray)
+  
 }
 
 
 function showCircle(item, index) {
   setTimeout(function () {
     let num = initArray[j];
-    document.getElementById(num).style.backgroundColor = "red";
+    let element = document.getElementById(num)
+    element.style.backgroundColor = "red";
     window.setTimeout(function () {
-      document.getElementById(num).style.backgroundColor = "white";
+      element.style.backgroundColor = "white";
     }, 500);
     console.log(initArray[j])
     j++;
-  }, 1000 * index);
+  }, speed * index);
 };
 
 function showEachCircle(level,captureUserClicks) {
@@ -45,24 +60,19 @@ function showEachCircle(level,captureUserClicks) {
 }
 
 function captureUserClicks(clicked_id, callback) {
-  userClicks.push(clicked_id);
-  if (userClicks.length === 5) {
+  userClicks.push(`game-${clicked_id}`);
+  if (userClicks.length === 2) {
   compareArraysClicks();
 }
 }
 
 function compareArraysClicks() {
- let timesUp = false;
-  initTimer(5)
-  let userArray = userClicks.toString();
+ let userArray = userClicks.toString();
   let gameArray = initArray.toString();
   if (gameArray === userArray) {
     alert("hooray");
     console.log("yay", userClicks);
-    // return nextRound;
-  } if (timesUp === true) {
-  alert("time's up!");
-  console.log("boo", userClicks);
+    nextRound();
   } else {
     alert("boo");
   console.log("boo", userClicks);}
@@ -71,6 +81,6 @@ function compareArraysClicks() {
 
 
 function newgame(){
-  const circlesFirstLevel = makeCircleArray(1);
+  const circlesFirstLevel = makeCircleArray();
  showEachCircle(circlesFirstLevel, captureUserClicks);
 }
