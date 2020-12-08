@@ -22,6 +22,17 @@ border-radius: 50%;
 margin: 10px;
 }
 
+#score-box {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid grey;
+}
+
+#score {
+    color: black;
+    content: 0;
+}
+
 
 /* .white {
   background-color: white;

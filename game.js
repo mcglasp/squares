@@ -12,13 +12,15 @@ var dots = 2;
 //  setTimeout(updateTimer, milliseconds);
 // }
 
-function updateScore() {
-    var score = score + dots
-console.log(score)
-return score
+
+
+function updateScore(a, b) {
+    score = a + b - 2
+    document.getElementById("score").innerHTML = `${score}`;
 }
 
 function endGame() {
+    console.log("you've reached endgame")
     var dots = 0;
     var speed = 1000;
     alert(`Soz, you lost :( Never mind, at least you scored ${score}`)
@@ -45,7 +47,7 @@ function levelUp() {
     console.log("levelling up!")
     console.log(`this many dots ${dots}`)
     resetArray()
-    updateScore()
+    // updateScore()
     return dots
 }
 
@@ -106,21 +108,21 @@ function captureUserClicks(clicked_id, callback) {
   if (userClicks.length === initArray.length) {
   compareArraysClicks();
 }
-console.log(userClicks)
 }
 
 function compareArraysClicks() {
  var userArray = userClicks.toString();
   var gameArray = initArray.toString();
   if (gameArray === userArray) {
-    alert("hooray");
-    console.log("go to level up and reset");
-    levelUp() 
+    updateScore(dots,score);
+    levelUp(); 
   } else {
-    alert("boo");
-  console.log("boo", userClicks);}
+  updateScore(dots,score);
   endGame();
 }
+}
+
+// (userClicks.length === initArray.length && gameArray !== userArray) 
 
 function startGame() {
     // let initArray = [];
@@ -131,5 +133,4 @@ function startGame() {
 function newgame(){
     console.log("newgame here we are")
   const whichLevel = makeCircleArray();
- showEachCircle(whichLevel, captureUserClicks);
-}
+ showEachCircle(whichLevel, captureUserClicks)}
