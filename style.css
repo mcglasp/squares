@@ -1,14 +1,36 @@
-#game-container {
-  display: grid;
-  grid-template-columns: repeat(3,100px);
-  grid-template-rows: repeat(3,100px);
+#all {
+    max-width: 500px;
+  margin: auto;
 }
 
-#user-game-container {
-  display: grid;
-  grid-template-columns: repeat(3,100px);
-  grid-template-rows: repeat(3,100px);
+#newgame {
+    display: block;
+    z-index: 15;
+    background-color: red;
 }
+
+    
+    /* #star-six {
+      width: 0;
+      height: 0;
+      border-left: 25px solid transparent;
+      border-right: 25px solid transparent;
+      border-bottom: 50px solid white;
+      position: relative;
+      z-index: 10;
+    }
+    #star-six:after {
+      width: 0;
+      height: 0;
+      border-left: 25px solid transparent;
+      border-right: 25px solid transparent;
+      border-top: 50px solid white;
+      position: absolute;
+      content: "";
+      top: 200px;
+      left: -50px;
+      z-index: 10;
+    } */
 
 #user-game-container .cell {
 border: 0.5px solid grey;
@@ -16,10 +38,21 @@ border-radius: 50%;
 margin: 10px;
 }
 
+
+
 .cell {
     border: 0.5px dotted grey;
 border-radius: 50%;
 margin: 10px;
+background-color:white;
+}
+
+.cell:hover {
+    background-color: red;
+}
+
+.cell:active {
+    background-color: darkred;
 }
 
 #score-box {
@@ -34,11 +67,59 @@ margin: 10px;
 }
 
 
-/* .white {
-  background-color: white;
-
-} */
+.blue {
+    background: blue;
+}
 
 .red {
   background-color: red;
+}
+
+@media screen and (orientation:landscape) {
+    #game-container {
+        position: absolute;
+        top: 100px;
+      height: 200px;
+    width: 400px;
+    background-color: grey;
+  display: grid;
+  grid-template-columns: repeat(4,100px);
+  grid-template-rows: repeat(2,100px);
+}
+
+#user-game-container {
+    position: absolute;
+    top: 300px;
+    height: 200px;
+    width: 400px;
+    background-color: black;  
+    display: grid;
+  grid-template-columns: repeat(4,100px);
+  grid-template-rows: repeat(2,100px);
+}
+}
+
+
+@media screen and (orientation:portrait) {
+    #game-container {
+        position: absolute;
+        top: 0px;
+      height: 400px;
+    width: 200px;
+    background-color: grey;
+  display: grid;
+  grid-template-columns: repeat(2,100px);
+  grid-template-rows: repeat(4,100px);
+}
+
+#user-game-container {
+    position: absolute;
+    top:400px;
+    height: 400px;
+    width: 200px;
+    background-color: black;  
+    display: grid;
+  grid-template-columns: repeat(2,100px);
+  grid-template-rows: repeat(4,100px);
+}
 }
