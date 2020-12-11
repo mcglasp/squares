@@ -1,45 +1,52 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+Milestone 2 project
 
-Welcome USER_NAME,
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
 
-## Gitpod Reminders
+**STRATEGY**
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+The purpose of this project is to create a fun game and accessible game. The intended user — or player — is a smartphone user looking to occupy themselves in those in those moments in the day in which we have a few snatched minutes to kill. 
 
-`python3 -m http.server`
+**User Stories**
 
-A blue button should appear to click: *Make Public*,
+* As a working 25-year old I spend a lot of time on public transport... or waiting for it to turn up. I'd like something to occupy me whilst I do that.
 
-Another blue button should appear to click: *Open Browser*.
+* As a parent of teenagers, I spend a lot my time running errands; waiting outside friends' houses to pick them up, for example. I always have my phone with me, so something I can do while I'm waiting would be great!
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+* As a young teen with an iPhone I'm looking for ways to avoid questions from my parents, and games that I can load instantly are a good way to look busy.
 
-A blue button should appear to click: *Make Public*,
+Essentially, this game aims to be a five-minute boredom-buster. As the user stories illustrate, there are many situations in everyday life that call for a few moments mindless escapism — queuing at the Post Office, for example — and this project aims to meet that need. It should be extremely quick to load, effortless to learn, and with a difficulty increase that does not frustrate, while still offering a developing level of challenge.
 
-Another blue button should appear to click: *Open Browser*.
+Above all it should be designed with a strictly mobile-first approach. It will, of course, be playable by iPad and laptop/desktop users, but it is expected that game play will be overwhelmingly via handheld devices in the situations outlined above.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+There are a great many competitors in the market, of course, the most obvious among them being Two Dots:
 
-## Updates Since The Instructional Video
+Two Dots
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+An addictive puzzle game, Two Dots requires the player to match adjacent sequences of coloured dots to clear them from the board and meet a round-specific challenge. It's extremely accesible, with a gentle learning curve offers quick-to-access gameplay. However, as you progress, it does become significantly more challenging and strategy-based, making it less suitable for 5-minute, ad-hoc gameplay.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+SCREENSHOT HERE
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+**SCOPE**
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+My project does not aim to compete with established apps as are mentioned above, which offer significant and deep levels of gameplay, building on years of development. The aim with this project is to create a simple puzzle game which could form the basis of a far larger development project in future. My game will work well, entertain the user, give the user what they're looking for (easy and quick access to simple gameplay), be simple to interact with and visually appealling. The feature list will therefore necessarily be far more conservative than a website project:
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+* Possible game features:
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+Simply puzzle game
+Progression through levels based on success, with increasing difficulty
+Top-score storage/player-acheivement memory
+Touchscreen interactivity
+Desktop (mouse/trackpad) interactivity
+Desktop (keyboard) interactivity
+Level-dependent design elements
+Global scoreboard
+Interaction with other players
+Live multiplayer challenges
+Bonus rounds (dependent on level acheived, or seasonal)
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+* Site/homepage features:
+Developer contact information
+Header/footer
+Links to sister sites/games
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
 
---------
-
-Happy coding!
