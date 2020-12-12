@@ -32,7 +32,7 @@ var level = {
 
 
 
-function updateScore(a, b) {
+function updateScore(a, b, c) {
     score = a + b - 2
     document.getElementById("score").innerHTML = `${score}`;
 }
@@ -52,11 +52,12 @@ function first() {
 }
 
 function levelUp() {
+    level.round++
     level.dots++
     resetGameArray()
         console.log(`dots ${level.dots}`)
 
-    return level.dots
+    return level.dots + level.round
 }
 
 function resetGameArray() {
@@ -117,12 +118,12 @@ function compareArraysClicks() {
  var userArray = userClicks.toString();
   var gameArray = initArray.toString();
   if (gameArray === userArray) {
-    updateScore(level.dots,level.speed, score);
+    updateScore(level.dots, level.round, score);
     levelUp()
   } else if (timesUp == true){
       endGame()
   } else {
-  updateScore(level.dots, level.speed, score);
+  updateScore(level.dots, level.round, score);
   endGame();
 }
 }
@@ -131,7 +132,7 @@ function compareArraysClicks() {
 
 function startGame() {
 
-    const firstLevel = makeCircleArray(first)
+    const firstLevel = makeCircleArray(level)
     showEachCircle(firstLevel, captureUserClicks)
 }
 

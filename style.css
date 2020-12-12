@@ -123,6 +123,6 @@ border-radius: 5%;
 }
 
 .glow {
-  box-shadow: 0 0 10px 0 #aab9cd inset, 0 0 10px 4px #aab9cd;
+  box-shadow: 0 0 10px 0 #fff inset, 0 0 10px 4px #fff;
 }
 
