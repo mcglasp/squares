@@ -3,25 +3,31 @@ var i = 0;
 var j = 0;
 var score = 0;
 var userClicks = [];
-var speed = 1000;
-var dots = 2;
+// var speed = 1000;
+// var dots = 2;
 var timesUp = false
 
-function timer(){
-    var timesUp = true
-    console.log(timesUp)
+var level = {
+    dots: 2,
+    speed: 1000,
+    round: 0,
 }
 
-function zeroTimer(){
-    var timesUp = false
-    console.log(timesUp)
-}
+// function timer(){
+//     var timesUp = true
+//     console.log(timesUp)
+// }
 
-function updateTimer(){
-    setTimeout(timer, 1000)
-}
+// function zeroTimer(){
+//     var timesUp = false
+//     console.log(timesUp)
+// }
 
-$(".cell").click(zeroTimer)
+// function updateTimer(){
+//     setTimeout(timer, 1000)
+// }
+
+// $(".cell").click(zeroTimer)
 
 
 
@@ -32,9 +38,7 @@ function updateScore(a, b) {
 }
 
 function endGame() {
-    var dots = 0;
-    var speed = 1000;
-    alert(`Soz, you lost :( Never mind, at least you scored ${score}`)
+    alert(`You lost :( Never mind, at least you scored ${score}`)
 }
 
 
@@ -42,26 +46,31 @@ function endGame() {
 
 
 function first() {
-    var dots = 2
-    var speed = 1000
+    level.dots = 2;
+    level.speed = 1000;
     return dots
 }
 
 function levelUp() {
-    dots++
-    resetArray()
-    return dots
+    level.dots++
+    resetGameArray()
+        console.log(`dots ${level.dots}`)
+
+    return level.dots
 }
 
-function resetArray() {
+function resetGameArray() {
     initArray = [];
-    resetClicks();
+    resetUserClicks();
+    console.log(`initArray ${initArray}`)
     return initArray;
 }
 
-function resetClicks() {
+function resetUserClicks() {
     userClicks = [];
     newgame()
+        console.log(`userClicks ${userClicks}`)
+
     return userClicks;
 }
 
@@ -74,7 +83,7 @@ function makeCircleArray(level) {
     initArray.push(`game-${val}`)
     i++
   }
-  while (i < dots)
+  while (i < level.dots)
   return initArray;
 }
 
@@ -88,12 +97,12 @@ function showCircle(item, j) {
       element.style.backgroundColor = "white";
     }, 500);
     j++;
-  }, speed * j);
+  }, level.speed * j);
 };
 
 function showEachCircle(captureUserClicks) {
   initArray.forEach(showCircle);
-  updateTimer();
+//   updateTimer();
   }
 
 
@@ -108,12 +117,12 @@ function compareArraysClicks() {
  var userArray = userClicks.toString();
   var gameArray = initArray.toString();
   if (gameArray === userArray) {
-    updateScore(dots,score);
+    updateScore(level.dots,level.speed, score);
     levelUp()
   } else if (timesUp == true){
       endGame()
   } else {
-  updateScore(dots,score);
+  updateScore(level.dots, level.speed, score);
   endGame();
 }
 }
@@ -129,7 +138,7 @@ function startGame() {
 function newgame(){
     // changeColor(dots);
     setTimeout(function() {
-    const whichLevel = makeCircleArray();
+    const whichLevel = makeCircleArray(level);
  showEachCircle(whichLevel, captureUserClicks)}
   ,1000)};
 
