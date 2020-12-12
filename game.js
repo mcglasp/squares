@@ -92,9 +92,9 @@ function showCircle(item, j) {
   setTimeout(function () {
     var num = initArray[j];
     var element = document.getElementById(num)
-    element.style.backgroundColor = "red";
+    element.classList.add("glow")
     window.setTimeout(function () {
-      element.style.backgroundColor = "white";
+      element.classList.remove("glow")
     }, 500);
     j++;
   }, level.speed * j);

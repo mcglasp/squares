@@ -1,6 +1,11 @@
+body {
+background-color:black;
+}
+
 #all {
     max-width: 500px;
   margin: auto;
+  
 }
 
 #newgame {
@@ -9,46 +14,26 @@
     background-color: red;
 }
 
-    
-    /* #star-six {
-      width: 0;
-      height: 0;
-      border-left: 25px solid transparent;
-      border-right: 25px solid transparent;
-      border-bottom: 50px solid white;
-      position: relative;
-      z-index: 10;
-    }
-    #star-six:after {
-      width: 0;
-      height: 0;
-      border-left: 25px solid transparent;
-      border-right: 25px solid transparent;
-      border-top: 50px solid white;
-      position: absolute;
-      content: "";
-      top: 200px;
-      left: -50px;
-      z-index: 10;
-    } */
+
 
 #user-game-container .cell {
-border: 0.5px solid grey;
-border-radius: 50%;
 margin: 10px;
+background-color:#aad9cd;
+border-radius: 5%;
 }
 
 
 
 .cell {
-    border: 0.5px dotted grey;
-border-radius: 50%;
+    /* border: 0.5px dotted #fff; */
+/* border-radius: 60% 60% 40% 40% / 50% 50% 50% 50%  */
 margin: 10px;
-background-color:white;
+background-color:#aad9cd;
+border-radius: 5%;
 }
 
 .cell:hover {
-    background-color: red;
+    background-color: #fff;
 }
 
 .cell:active {
@@ -81,7 +66,7 @@ background-color:white;
         top: 100px;
       height: 200px;
     width: 400px;
-    background-color: grey;
+    background-color: black;
   display: grid;
   grid-template-columns: repeat(4,100px);
   grid-template-rows: repeat(2,100px);
@@ -106,7 +91,7 @@ background-color:white;
         top: 0px;
       height: 400px;
     width: 200px;
-    background-color: grey;
+    background-color: #fff;
   display: grid;
   grid-template-columns: repeat(2,100px);
   grid-template-rows: repeat(4,100px);
@@ -117,9 +102,27 @@ background-color:white;
     top:400px;
     height: 400px;
     width: 200px;
-    background-color: black;  
+    background-color: #fff;  
     display: grid;
   grid-template-columns: repeat(2,100px);
   grid-template-rows: repeat(4,100px);
 }
 }
+
+
+/* Prio-soft via Code Pen */
+.cell {
+  border-color: #aab9cd;
+  color: #fff;
+  box-shadow: 0 0 40px 40px #aab9cd inset, 0 0 0 0 #aab9cd;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+}
+.cell:hover {
+  box-shadow: 0 0 10px 0 #aab9cd inset, 0 0 10px 4px #aab9cd;
+}
+
+.glow {
+  box-shadow: 0 0 10px 0 #aab9cd inset, 0 0 10px 4px #aab9cd;
+}
+
