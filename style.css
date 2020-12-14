@@ -1,25 +1,38 @@
 body {
 background-color:black;
+margin: auto;
 }
 
 #all {
-    max-width: 500px;
+    /* max-width: 500px; */
   margin: auto;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  align-content: center;
   
 }
 
 #newgame {
     display: block;
+    margin: auto;
+    position: absolute;
+    top: 335px;
     z-index: 15;
-    background-color: red;
+    background: rgb(246,247,249);
+background: linear-gradient(266deg, rgba(246,247,249,1) 0%, rgb(49, 49, 49) 100%, rgba(7,56,152,1) 100%, rgba(254,255,255,1) 100%);
+    height: 60px;
+    width: 100%;
+    font-size: 2rem;
 }
 
-.game-container {
+#game-container, #user-game-container {
     position: absolute;
+    margin: auto;
     background-color: black;
   display: grid;
-  grid-template-columns: repeat(4,100px);
-  grid-template-rows: repeat(2,100px);
+  align-content: center;
+  /* justify-items: center; */
 }
 
 .cell {
@@ -38,15 +51,15 @@ border-radius: 5%;
   box-shadow: 0 0 10px 0 #aab9cd inset, 0 0 10px 4px #aab9cd;
 }
 
-.cell:hover {
+/* .cell:hover {
     background-color: #fff;
-}
+} */
 
 .cell:active {
     background-color: darkred;
 }
 
-#score-box {
+/* #score-box {
     padding: 10px;
     margin: 10px;
     border: 1px solid grey;
@@ -55,7 +68,7 @@ border-radius: 5%;
 #score {
     color: black;
     content: 0;
-}
+} */
 
 
 .blue {
@@ -69,29 +82,46 @@ border-radius: 5%;
 @media screen and (orientation:landscape) {
     #game-container {
         top: 100px;
-      height: 200px;
-    width: 400px;
+      
+      grid-template-columns: repeat(3,100px);
+  grid-template-rows: repeat(3,100px);
 }
 
 #user-game-container {
     top: 300px;
-    height: 200px;
-    width: 400px;
+    /* height: 200px;
+    width: 400px; */
+      grid-template-columns: repeat(3,100px);
+  grid-template-rows: repeat(3,100px);
 }
 }
 
 
 @media screen and (orientation:portrait) {
     #game-container {
-        top: 0px;
-      height: 400px;
-    width: 200px;
+        top: 30px;
+      /* height: 400px;
+    width: 200px; */
+grid-template-columns: repeat(3,100px);
+  grid-template-rows: repeat(3,100px);
+  /* grid-column-gap: 10px;
+  grid-row-gap: 10px;; */
+  
 }
 
 #user-game-container {
     top:400px;
+    /* 
     height: 400px;
-    width: 200px;
+    width: 200px; */
+grid-template-columns: repeat(3,100px);
+  grid-template-rows: repeat(3,100px);
+  /* grid-row-gap: 10px;
+  grid-column-gap: 10px; */
+}
+
+.cell:hover {
+  box-shadow: none;
 }
 }
 
