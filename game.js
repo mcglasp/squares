@@ -44,10 +44,10 @@ var level = {
 
 
 
-function updateScore(a, b, c) {
-    score = a + b - 2
-    document.getElementById("score").innerHTML = `${score}`;
-}
+// function updateScore(a, b, c) {
+//     score = a + b - 2
+//     document.getElementById("score").innerHTML = `${score}`;
+// }
 
 function endGame() {
     alert(`You lost :( Never mind, at least you scored ${score}`)
@@ -94,7 +94,7 @@ function resetUserClicks() {
 function makeCircleArray(level) {
     var i = 0;
   do {
-    var val = Math.floor(Math.random() * 8)
+    var val = Math.floor(Math.random() * 9)
     initArray.push(`game-${val}`)
     i++
   }
@@ -131,7 +131,7 @@ function compareArraysClicks() {
  var userArray = userClicks.toString();
   var gameArray = initArray.toString();
   if (gameArray === userArray) {
-    updateScore(level.dots, level.round, score);
+    // updateScore(level.dots, level.round, score);
     levelUp()
   } else if (timesUp == true){
       endGame()
