@@ -5,7 +5,7 @@ var score = 0;
 var userClicks = [];
 var k;
 var l;
-// var flashArray = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+var flashArray = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
 
 // var speed = 1000;
 // var dots = 2;
@@ -20,11 +20,11 @@ var level = {
 
 
 
-// function speed() {
-//     var k = Math.floor(Math.random() * 9)
-//     console.log(flashArray[k])
-//     return flashArray[k];
-//   }
+function speed() {
+    var k = Math.floor(Math.random() * 9)
+    console.log(flashArray[k])
+    return flashArray[k];
+  }
 // function timer(){
 //     var timesUp = true
 //     console.log(timesUp)
@@ -112,7 +112,7 @@ function showCircle(item, j) {
       element.classList.remove("glow")
     }, 400);
     j++;
-  }, level.speed * j);
+  }, speed() * j);
 };
 
 function showEachCircle(captureUserClicks) {

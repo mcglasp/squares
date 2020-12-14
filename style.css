@@ -1,42 +1,52 @@
 body {
 background-color:black;
-margin: auto;
+max-height: 80%;
 }
 
-#all {
-    /* max-width: 500px; */
-  margin: auto;
-  position: relative;
-  height: 100vh;
-  width: 100vw;
-  align-content: center;
-  
+.center{
+    margin: auto;
+    height: 80vh;
 }
 
 #newgame {
     display: block;
     margin: auto;
-    position: absolute;
-    top: 335px;
+    /* position: absolute; */
+    /* top: 270px; */
     z-index: 15;
-    background: rgb(246,247,249);
-background: linear-gradient(266deg, rgba(246,247,249,1) 0%, rgb(49, 49, 49) 100%, rgba(7,56,152,1) 100%, rgba(254,255,255,1) 100%);
-    height: 60px;
+
+    height: 40px;
     width: 100%;
     font-size: 2rem;
 }
 
 #game-container, #user-game-container {
-    position: absolute;
-    margin: auto;
+    display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+    /* position: absolute; */
+    margin: 0 auto;
     background-color: black;
-  display: grid;
-  align-content: center;
+
   /* justify-items: center; */
 }
 
+#game-container {
+    top: 30px;
+}
+
+#user-game-container {
+top:340px;
+}
+
+
 .cell {
-margin: 10px;
+     width: 32%;
+  padding-bottom: 32%;
+  margin-bottom: 2%; /* (100-32*3)/2 */
+  position: relative;
+/* margin: 10px; */
 background-color:#aad9cd;
 border-radius: 5%;
 /* Prio-soft via Code Pen */
@@ -79,51 +89,13 @@ border-radius: 5%;
   background-color: red;
 }
 
-@media screen and (orientation:landscape) {
-    #game-container {
-        top: 100px;
-      
-      grid-template-columns: repeat(3,100px);
-  grid-template-rows: repeat(3,100px);
-}
-
-#user-game-container {
-    top: 300px;
-    /* height: 200px;
-    width: 400px; */
-      grid-template-columns: repeat(3,100px);
-  grid-template-rows: repeat(3,100px);
-}
-}
 
 
-@media screen and (orientation:portrait) {
-    #game-container {
-        top: 30px;
-      /* height: 400px;
-    width: 200px; */
-grid-template-columns: repeat(3,100px);
-  grid-template-rows: repeat(3,100px);
-  /* grid-column-gap: 10px;
-  grid-row-gap: 10px;; */
-  
-}
-
-#user-game-container {
-    top:400px;
-    /* 
-    height: 400px;
-    width: 200px; */
-grid-template-columns: repeat(3,100px);
-  grid-template-rows: repeat(3,100px);
-  /* grid-row-gap: 10px;
-  grid-column-gap: 10px; */
-}
 
 .cell:hover {
   box-shadow: none;
 }
-}
+
 
 
 
