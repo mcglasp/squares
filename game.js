@@ -3,16 +3,28 @@ var i = 0;
 var j = 0;
 var score = 0;
 var userClicks = [];
+var k;
+var l;
+// var flashArray = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+
 // var speed = 1000;
 // var dots = 2;
 var timesUp = false
 
 var level = {
     dots: 2,
-    speed: 1000,
     round: 0,
+    speed: 1000
 }
 
+
+
+
+// function speed() {
+//     var k = Math.floor(Math.random() * 9)
+//     console.log(flashArray[k])
+//     return flashArray[k];
+//   }
 // function timer(){
 //     var timesUp = true
 //     console.log(timesUp)
@@ -45,19 +57,21 @@ function endGame() {
 
 
 
-function first() {
-    level.dots = 2;
-    level.speed = 1000;
-    return dots
-}
+// function first() {
+//     level.dots = 2;
+//     level.speed = 1000;
+//     // return level.dots + level.speed
+// }
 
 function levelUp() {
     level.round++
-    level.dots++
+    if (level.round % 3 === 0) {
+level.dots++;
+level.speed-=60
+    }
     resetGameArray()
         console.log(`dots ${level.dots}`)
-
-    return level.dots + level.round
+    return level.dots + level.round + level.speed
 }
 
 function resetGameArray() {
@@ -96,14 +110,13 @@ function showCircle(item, j) {
     element.classList.add("glow")
     window.setTimeout(function () {
       element.classList.remove("glow")
-    }, 500);
+    }, 400);
     j++;
   }, level.speed * j);
 };
 
 function showEachCircle(captureUserClicks) {
   initArray.forEach(showCircle);
-//   updateTimer();
   }
 
 
@@ -123,7 +136,7 @@ function compareArraysClicks() {
   } else if (timesUp == true){
       endGame()
   } else {
-  updateScore(level.dots, level.round, score);
+//   updateScore(level.dots, level.round, score);
   endGame();
 }
 }
@@ -143,7 +156,11 @@ function newgame(){
  showEachCircle(whichLevel, captureUserClicks)}
   ,1000)};
 
-
+//   function controlFlashSpeed() {
+//     var k = 
+//     console.log(flashArray[k])
+//     return k;
+//   }
 //   styling rules
 
 
