@@ -10,6 +10,7 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
+      <header class="navbar glow">glow</header>
   <div class="container center">
     <div id="game-container" class="game-container">
       <div id="game-0" class="cell"></div>
@@ -21,9 +22,12 @@
       <div id="game-6" class="cell"></div>
       <div id="game-7" class="cell"></div>
       <div id="game-8" class="cell"></div>
+        <p class="info-text-l">&uarr; match the sequence...</p>
     </div>
-     <button id="newgame" class="btn btn-light" onclick="startGame()">Slide to start</button>
+     <button id="newgame" onclick="startGame()"><span class="glow">&nbsp;start</span></button>
+     <p class="info-text-r">...below &darr;</p>
         <div id="user-game-container" class="game-container">
+            
       <div id="0" class="cell" onclick="captureUserClicks(this.id)"></div>
       <div id="1" class="cell" onclick="captureUserClicks(this.id)"></div>
       <div id="2" class="cell" onclick="captureUserClicks(this.id)"></div>

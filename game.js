@@ -107,9 +107,9 @@ function showCircle(item, j) {
   setTimeout(function () {
     var num = initArray[j];
     var element = document.getElementById(num)
-    element.classList.add("glow")
+    element.classList.add("cell-glow")
     window.setTimeout(function () {
-      element.classList.remove("glow")
+      element.classList.remove("cell-glow")
     }, 400);
     j++;
   }, speed() * j);
@@ -156,12 +156,7 @@ function newgame(){
  showEachCircle(whichLevel, captureUserClicks)}
   ,1000)};
 
-//   function controlFlashSpeed() {
-//     var k = 
-//     console.log(flashArray[k])
-//     return k;
-//   }
-//   styling rules
+
 
 
 

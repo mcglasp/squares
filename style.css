@@ -1,11 +1,11 @@
 body {
 background-color:black;
-max-height: 80%;
+max-height: 80vh;
 }
 
 .center{
     margin: auto;
-    height: 80vh;
+    height: 90vh;
 }
 
 #newgame {
@@ -13,31 +13,67 @@ max-height: 80%;
     margin: auto;
     /* position: absolute; */
     /* top: 270px; */
-    z-index: 15;
+    /* z-index: 15; */
+background: black;
+    /* height: 40px; */
+    width: fit-content;
 
-    height: 40px;
-    width: 100%;
-    font-size: 2rem;
+justify-items: space-between;
+align-items: center;
+/* text-align: center; */
+}
+
+#newgame span {
+    letter-spacing: 1.5rem;
+}
+
+.info-text-l {
+    /* display: inline; */
+    color: #fff;
+    font-size: 0.5rem;
+    text-transform:uppercase;
+    text-align: left;
+    padding: 0px;
+    margin: 0px;
+}
+
+.info-text-r {
+    display: block;
+    color: #fff;
+    font-size: 0.5rem;
+    text-transform:uppercase;
+    text-align: right;
+    margin-bottom: 0px;
 }
 
 #game-container, #user-game-container {
     display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-
+padding-top: 10px;
+padding-left: 10px;
+padding-right: 10px;
+padding-bottom: 0px;
     /* position: absolute; */
     margin: 0 auto;
     background-color: black;
-
+border: #aab9cd 1px solid;
+/* border-right: #aab9cd 1px solid; */
   /* justify-items: center; */
 }
 
 #game-container {
-    top: 30px;
+    /* top: 30px; */
+    width: 200px;
+    /* border-top: #aab9cd 1px solid; */
+
 }
 
 #user-game-container {
-top:340px;
+/* top:340px; */
+padding: 15px;
+/* border-top: #aab9cd 1px solid; */
+
 }
 
 
@@ -100,7 +136,24 @@ border-radius: 5%;
 
 
 
-.glow {
+.cell-glow {
   box-shadow: 0 0 10px 0 #fff inset, 0 0 10px 4px #fff;
 }
 
+/* Glow Effect from W3 Schools */
+
+.glow {
+  color: #fff;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
