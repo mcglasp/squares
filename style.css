@@ -4,47 +4,74 @@ max-height: 80vh;
 }
 
 .center{
-    margin: auto;
+    margin: 0 auto;
     height: 90vh;
 }
 
+.center-text {
+    text-align: center;
+}
+
+button {
+    border:none;
+}
+
 #newgame {
-    display: block;
-    margin: auto;
+    /* display: block; */
+    
     /* position: absolute; */
     /* top: 270px; */
     /* z-index: 15; */
 background: black;
     /* height: 40px; */
     width: fit-content;
-
-justify-items: space-between;
-align-items: center;
-/* text-align: center; */
+margin: 0 auto;
+/* justify-items: space-between; */
+/* align-items: center; */
+text-align: center;
 }
 
-#newgame span {
+/* #newgame span {
     letter-spacing: 1.5rem;
+    
+} */
+.slim {
+    height: 10px;
 }
-
 .info-text-l {
-    /* display: inline; */
     color: #fff;
-    font-size: 0.5rem;
+    font-size: 3vw;
     text-transform:uppercase;
     text-align: left;
     padding: 0px;
-    margin: 0px;
+    /* margin: 6px; */
+    position: relative;
+    top: -8px;
+    background: black;
+    padding: 0 5px;
+    left: 8px;
+    width: fit-content;
 }
 
 .info-text-r {
-    display: block;
+  
     color: #fff;
-    font-size: 0.5rem;
+font-size: 3vw;
     text-transform:uppercase;
     text-align: right;
-    margin-bottom: 0px;
+    padding: 0px;
+    /* margin: 6px; */
+    position: relative;
+    /* top: 10px; */
+    /* top: 23px; */
+    background: black;
+    padding: 0 5px;
+    right: 15px;
+    float: right;
+    /* width: fit-content; */
+    /* width: fit-content */
 }
+
 
 #game-container, #user-game-container {
     display: flex;
@@ -53,26 +80,23 @@ align-items: center;
 padding-top: 10px;
 padding-left: 10px;
 padding-right: 10px;
-padding-bottom: 0px;
+/* padding-bottom: 10px; */
     /* position: absolute; */
     margin: 0 auto;
     background-color: black;
 border: #aab9cd 1px solid;
-/* border-right: #aab9cd 1px solid; */
-  /* justify-items: center; */
+padding-bottom: 6px;
 }
 
 #game-container {
     /* top: 30px; */
-    width: 200px;
+    width: 80%;
     /* border-top: #aab9cd 1px solid; */
 
 }
 
 #user-game-container {
-/* top:340px; */
-padding: 15px;
-/* border-top: #aab9cd 1px solid; */
+
 
 }
 
@@ -80,7 +104,7 @@ padding: 15px;
 .cell {
      width: 32%;
   padding-bottom: 32%;
-  margin-bottom: 2%; /* (100-32*3)/2 */
+  margin-bottom: 2%; 
   position: relative;
 /* margin: 10px; */
 background-color:#aad9cd;
