@@ -129,6 +129,18 @@ border-radius: 5%;
   box-shadow: 0 0 10px 0 #fff inset, 0 0 10px 4px #fff;
 }
 
+.cell-glow-blue {
+  box-shadow: 0 0 10px 0 rgb(0, 238, 255) inset, 0 0 10px 4px rgb(0, 238, 255);
+}
+
+.cell-glow-pink {
+  box-shadow: 0 0 10px 0 rgb(255, 14, 134) inset, 0 0 10px 4px rgb(255, 14, 134);
+}
+
+.cell-glow-green {
+  box-shadow: 0 0 10px 0 rgb(22, 255, 1) inset, 0 0 10px 4px rgb(22, 255, 1);
+}
+
 /* Glow Effect from W3 Schools */
 
 .glow {

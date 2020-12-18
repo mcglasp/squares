@@ -5,10 +5,15 @@ var score = 0;
 var userClicks = [];
 var k;
 var l;
-var flashArray = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
-
+var flashArray = [300, 400, 500, 600, 700, 800, 900, 1000];
+// let colors = ['blue', 'red', 'pink', 'green']
+var x = 0;
+var colors = ['blue','pink','green'];
 // var speed = 1000;
 // var dots = 2;
+
+
+
 var timesUp = false
 
 var level = {
@@ -22,7 +27,7 @@ var level = {
 
 function speed() {
     var k = Math.floor(Math.random() * 9)
-    console.log(flashArray[k])
+    
     return flashArray[k];
   }
 // function timer(){
@@ -69,23 +74,21 @@ function levelUp() {
 level.dots++;
 level.speed-=60
     }
-    resetGameArray()
-        console.log(`dots ${level.dots}`)
+    resetGameArray();
+    resetUserClicks(nextRound);
+        
     return level.dots + level.round + level.speed
 }
 
 function resetGameArray() {
     initArray = [];
-    resetUserClicks();
-    console.log(`initArray ${initArray}`)
     return initArray;
 }
 
-function resetUserClicks() {
+function resetUserClicks(callback) {
     userClicks = [];
-    newgame()
-        console.log(`userClicks ${userClicks}`)
-
+    // nextRound()
+    callback();
     return userClicks;
 }
 
@@ -99,35 +102,47 @@ function makeCircleArray(level) {
     i++
   }
   while (i < level.dots)
+  console.log(`${initArray}`)
   return initArray;
 }
 
 
-function showCircle(item, j) {
+
+      
+
+
+
+function showCircle(num, j) {
+    let y = x
+    x++;
   setTimeout(function () {
+    var color = colors[y % colors.length];
     var num = initArray[j];
     var element = document.getElementById(num)
-    element.classList.add("cell-glow")
+    element.classList.add(`cell-glow-${color}`)
     window.setTimeout(function () {
-      element.classList.remove("cell-glow")
+      element.classList.remove(`cell-glow-${color}`)
     }, 400);
     j++;
   }, speed() * j);
 };
 
 function showEachCircle(captureUserClicks) {
-  initArray.forEach(showCircle);
+    let x = 0;
+  initArray.forEach(showCircle, x++);
   }
 
 
 function captureUserClicks(clicked_id, callback) {
     userClicks.push(`game-${clicked_id}`);
+    
   if (userClicks.length === initArray.length) {
   compareArraysClicks();
 }
 }
 
 function compareArraysClicks() {
+    console.log(userClicks)
  var userArray = userClicks.toString();
   var gameArray = initArray.toString();
   if (gameArray === userArray) {
@@ -141,15 +156,16 @@ function compareArraysClicks() {
 }
 }
 
+
+
 // (userClicks.length === initArray.length && gameArray !== userArray) 
 
 function startGame() {
-
     const firstLevel = makeCircleArray(level)
     showEachCircle(firstLevel, captureUserClicks)
 }
 
-function newgame(){
+function nextRound(){
     // changeColor(dots);
     setTimeout(function() {
     const whichLevel = makeCircleArray(level);
