@@ -1,42 +1,36 @@
-var initArray = [];
-var i = 0;
-var j = 0;
-var score = 0;
-var userClicks = [];
-var k;
-var l;
-var flashArray = [300, 400, 500, 600, 700, 800, 900, 1000];
-// let colors = ['blue', 'red', 'pink', 'green']
-var x = 0;
-var colors = ['blue','pink','green'];
-// var speed = 1000;
-// var dots = 2;
+let initArray = [];
+let i = 0;
+let j = 0;
+let score = 0;
+let userClicks = [];
+let k;
+let l;
+let flashArray = [500, 600, 700, 800, 900, 1000];
+let x = 0;
+let colors = ['blue', 'pink', 'green'];
 
 
 
-var timesUp = false
+let timesUp = false
 
-var level = {
+let level = {
     dots: 2,
     round: 0,
-    speed: 1000
 }
 
 
-
-
 function speed() {
-    var k = Math.floor(Math.random() * 9)
-    
+    let k = Math.floor(Math.random() * 6)
+    console.log(flashArray[k])
     return flashArray[k];
-  }
+}
 // function timer(){
-//     var timesUp = true
+//     let timesUp = true
 //     console.log(timesUp)
 // }
 
 // function zeroTimer(){
-//     var timesUp = false
+//     let timesUp = false
 //     console.log(timesUp)
 // }
 
@@ -44,23 +38,21 @@ function speed() {
 //     setTimeout(timer, 1000)
 // }
 
-// $(".cell").click(zeroTimer)
 
-
-
-
-// function updateScore(a, b, c) {
-//     score = a + b - 2
-//     document.getElementById("score").innerHTML = `${score}`;
-// }
 
 function endGame() {
     alert(`You lost :( Never mind, at least you scored ${score}`)
 }
 
+function showScore() {
+    let scorebox = document.getElementById("score");
+    scorebox.innerHTML = score;
+}
 
-
-
+function showRound() {
+    let roundbox = document.getElementById("round");
+    roundbox.innerHTML = level.round;
+}
 
 // function first() {
 //     level.dots = 2;
@@ -69,15 +61,15 @@ function endGame() {
 // }
 
 function levelUp() {
+    score = score += 5
     level.round++
     if (level.round % 3 === 0) {
-level.dots++;
-level.speed-=60
+        level.dots++;
     }
     resetGameArray();
     resetUserClicks(nextRound);
-        
-    return level.dots + level.round + level.speed
+
+    return level.dots + level.round + score
 }
 
 function resetGameArray() {
@@ -94,66 +86,73 @@ function resetUserClicks(callback) {
 
 
 
+// let initArray = [];
+
 function makeCircleArray(level) {
-    var i = 0;
-  do {
-    var val = Math.floor(Math.random() * 9)
-    initArray.push(`game-${val}`)
-    i++
-  }
-  while (i < level.dots)
-  console.log(`${initArray}`)
-  return initArray;
+    let i = 0;
+    var last_val = null;
+    do {
+        let val = Math.floor(Math.random() * 9);
+        if (val == last_val) continue; {
+            initArray.push(`game-${val}`);
+            i++;
+            last_val = val;
+        }
+
+    } while (i < level.dots);
+    console.log(`${initArray}`);
+    return initArray;
 }
 
 
 
-      
+
 
 
 
 function showCircle(num, j) {
+    let k;
     let y = x
     x++;
-  setTimeout(function () {
-    var color = colors[y % colors.length];
-    var num = initArray[j];
-    var element = document.getElementById(num)
-    element.classList.add(`cell-glow-${color}`)
-    window.setTimeout(function () {
-      element.classList.remove(`cell-glow-${color}`)
-    }, 400);
-    j++;
-  }, speed() * j);
+    setTimeout(function () {
+        let color = colors[y % colors.length];
+        let num = initArray[j];
+        let element = document.getElementById(num)
+        element.classList.add(`cell-glow-${color}`)
+        window.setTimeout(function () {
+            element.classList.remove(`cell-glow-${color}`)
+        }, 300);
+        j++;
+    }, speed() * j);
+
 };
 
 function showEachCircle(captureUserClicks) {
-    let x = 0;
-  initArray.forEach(showCircle, x++);
-  }
+    initArray.forEach(showCircle);
+}
 
 
 function captureUserClicks(clicked_id, callback) {
     userClicks.push(`game-${clicked_id}`);
-    
-  if (userClicks.length === initArray.length) {
-  compareArraysClicks();
-}
+
+    if (userClicks.length === initArray.length) {
+        compareArraysClicks();
+    }
 }
 
 function compareArraysClicks() {
     console.log(userClicks)
- var userArray = userClicks.toString();
-  var gameArray = initArray.toString();
-  if (gameArray === userArray) {
-    // updateScore(level.dots, level.round, score);
-    levelUp()
-  } else if (timesUp == true){
-      endGame()
-  } else {
-//   updateScore(level.dots, level.round, score);
-  endGame();
-}
+    let userArray = userClicks.toString();
+    let gameArray = initArray.toString();
+    if (gameArray === userArray) {
+        // updateScore(level.dots, level.round, score);
+        levelUp()
+    } else if (timesUp == true) {
+        endGame()
+    } else {
+        //   updateScore(level.dots, level.round, score);
+        endGame();
+    }
 }
 
 
@@ -165,12 +164,16 @@ function startGame() {
     showEachCircle(firstLevel, captureUserClicks)
 }
 
-function nextRound(){
+function nextRound() {
     // changeColor(dots);
-    setTimeout(function() {
-    const whichLevel = makeCircleArray(level);
- showEachCircle(whichLevel, captureUserClicks)}
-  ,1000)};
+    setTimeout(function () {
+        const whichLevel = makeCircleArray(level);
+        showEachCircle(whichLevel, captureUserClicks)
+    }
+        , 1000)
+        showScore();
+        showRound();
+};
 
 
 

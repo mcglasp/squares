@@ -1,15 +1,19 @@
 body {
 background-color:black;
-max-height: 70vh;
+
 }
 
 .center{
     margin: 0 auto;
-    height: 70vh;
-}
+max-width: 90vw;}
+
 
 .center-text {
     text-align: center;
+}
+
+.small {
+    font-size: 2vw;
 }
 
 button {
@@ -103,27 +107,24 @@ border-radius: 5%;
     background-color: black;
 }
 
-/* #score-box {
-    padding: 10px;
-    margin: 10px;
-    border: 1px solid grey;
+.display-box {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    margin: 0 10px;
+    font-size: 3vw;
+    color: white;
 }
 
-#score {
-    color: black;
-    content: 0;
-} */
+
+.info {
+    margin: 20px 0;
+}
 
 
-
-
-
-
-
-
-
-
-
+.right {
+    text-align: right;
+}
 
 .cell-glow {
   box-shadow: 0 0 10px 0 #fff inset, 0 0 10px 4px #fff;
