@@ -24,19 +24,12 @@ function speed() {
     console.log(flashArray[k])
     return flashArray[k];
 }
-// function timer(){
-//     let timesUp = true
-//     console.log(timesUp)
-// }
 
-// function zeroTimer(){
-//     let timesUp = false
-//     console.log(timesUp)
-// }
+function instructions() {
+    document.getElementById("instr-overlay").style.display = "block";
+}
 
-// function updateTimer(){
-//     setTimeout(timer, 1000)
-// }
+
 
 
 
@@ -175,8 +168,35 @@ function nextRound() {
         showRound();
 };
 
+let p = 10;
+let q = 2;
+
+function specTest() {
+ return p + q
+}
+
+// credit W3
+
+var txt = ["match the sequence","...","on the keypad below"];
+var letter = 0;
+var inst = 0;
+var lspeed = 150;
+function typeWriter() { 
+    if (inst < txt.length) {
+  if (letter < txt[inst].length) {
+    document.getElementById("instr-text").innerHTML += txt[inst].charAt(letter);
+    letter++;
+    setTimeout(typeWriter, lspeed);
+    }  
+} inst++;
+}
+
+function lines() {
+    txt.forEach(typeWriter);
+    inst++;
+}
 
 
-
-
+typeWriter()
+// lines()
 
