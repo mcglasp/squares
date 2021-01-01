@@ -120,12 +120,12 @@ border-radius: 5%;
   border-color: #aab9cd;
   color: #fff;
   box-shadow: 0 0 25px 25px #aab9cd inset, 0 0 0 0 #aab9cd;
-  -webkit-transition: all 150ms ease-in-out;
-  transition: all 150ms ease-in-out;
+  -webkit-transition: all 50ms ease-in-out;
+  transition: all 50ms ease-in-out;
   /* end credit */
 }
 .cell:hover {
-  box-shadow: 0 0 10px 0 #aab9cd inset, 0 0 10px 4px #aab9cd;
+  box-shadow: 0 0 10px 0 #aab9cd , 0 0 10px 0px #aab9cd;
 }
 
 .cell:active {
@@ -156,15 +156,15 @@ border-radius: 5%;
 }
 
 .cell-glow-blue {
-  box-shadow: 0 0 10px 0 rgb(0, 238, 255) inset, 0 0 10px 4px rgb(0, 238, 255);
+  box-shadow: 0 0 50px 0 rgb(0, 238, 255) inset, 0 0 50px 4px rgb(0, 238, 255);
 }
 
 .cell-glow-pink {
-  box-shadow: 0 0 10px 0 rgb(255, 14, 134) inset, 0 0 10px 4px rgb(255, 14, 134);
+  box-shadow: 0 0 50px 0 rgb(255, 14, 134) inset, 0 0 85px 4px rgb(255, 14, 134);
 }
 
 .cell-glow-green {
-  box-shadow: 0 0 10px 0 rgb(22, 255, 1) inset, 0 0 10px 4px rgb(22, 255, 1);
+  box-shadow: 0 0 50px 0 rgb(22, 255, 1) inset, 0 0 50px 4px rgb(22, 255, 1);
 }
 
 /* Glow Effect from W3 Schools */

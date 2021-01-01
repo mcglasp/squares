@@ -5,11 +5,15 @@ let score = 0;
 let userClicks = [];
 let k;
 let l;
-let flashArray = [500, 600, 700, 800, 900, 1000];
+let flashArray1 = [500, 600, 700, 800];
+let flashArray2 = [450, 550, 650, 750];
+let flashArray3 = [300, 380, 420, 600];
+let flashArray4 = [200, 250, 300, 400];
 let x = 0;
 let colors = ['blue', 'pink', 'green'];
 
-
+let flashAudio = new Audio('sound.mp3');
+let padAudio = new Audio('sound.mp3')
 
 let timesUp = false
 
@@ -18,19 +22,25 @@ let level = {
     round: 0,
 }
 
+function padSound() {
+padAudio.play();
+}
+
 
 function speed() {
-    let k = Math.floor(Math.random() * 6)
-    console.log(flashArray[k])
-    return flashArray[k];
-}
-
-function instructions() {
-    document.getElementById("instr-overlay").style.display = "block";
-}
-
-
-
+    let k = Math.floor(Math.random() * 4)
+    if (level.round < 3) {
+        console.log(flashArray1[k])
+        return flashArray1[k]
+    } if (level.round >= 3 && level.round < 8) {
+         console.log(flashArray2[k])
+        return flashArray2[k]
+    } else if (level.round >= 8) {
+          console.log(flashArray3[k])
+          return flashArray3[k]
+        }
+    }
+    
 
 
 function endGame() {
@@ -50,7 +60,7 @@ function showRound() {
 // function first() {
 //     level.dots = 2;
 //     level.speed = 1000;
-//     // return level.dots + level.speed
+//     return level.dots + level.speed
 // }
 
 function levelUp() {
@@ -91,17 +101,10 @@ function makeCircleArray(level) {
             i++;
             last_val = val;
         }
-
     } while (i < level.dots);
-    console.log(`${initArray}`);
+    console.log(`COMPUTER-${initArray}`);
     return initArray;
 }
-
-
-
-
-
-
 
 function showCircle(num, j) {
     let k;
@@ -112,12 +115,12 @@ function showCircle(num, j) {
         let num = initArray[j];
         let element = document.getElementById(num)
         element.classList.add(`cell-glow-${color}`)
+        audio.play()
         window.setTimeout(function () {
             element.classList.remove(`cell-glow-${color}`)
         }, 300);
         j++;
     }, speed() * j);
-
 };
 
 function showEachCircle(captureUserClicks) {
@@ -125,32 +128,28 @@ function showEachCircle(captureUserClicks) {
 }
 
 
-function captureUserClicks(clicked_id, callback) {
+function captureUserClicks(clicked_id) {
     userClicks.push(`game-${clicked_id}`);
-
     if (userClicks.length === initArray.length) {
         compareArraysClicks();
+        console.log(`user ${userClicks}`)
     }
 }
 
 function compareArraysClicks() {
-    console.log(userClicks)
     let userArray = userClicks.toString();
     let gameArray = initArray.toString();
     if (gameArray === userArray) {
-        // updateScore(level.dots, level.round, score);
         levelUp()
     } else if (timesUp == true) {
         endGame()
     } else {
-        //   updateScore(level.dots, level.round, score);
         endGame();
     }
 }
 
 
 
-// (userClicks.length === initArray.length && gameArray !== userArray) 
 
 function startGame() {
     const firstLevel = makeCircleArray(level)
@@ -158,22 +157,13 @@ function startGame() {
 }
 
 function nextRound() {
-    // changeColor(dots);
     setTimeout(function () {
         const whichLevel = makeCircleArray(level);
         showEachCircle(whichLevel, captureUserClicks)
-    }
-        , 1000)
+    }, 1000)
         showScore();
         showRound();
 };
-
-let p = 10;
-let q = 2;
-
-function specTest() {
- return p + q
-}
 
 // credit W3
 
