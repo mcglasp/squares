@@ -50,3 +50,6 @@ Header/footer
 Links to sister sites/games
 
 
+Testing notes:
+
+Expected behaviour: speed of appearance of flashes would vary, but still display consequtively. Found behaviour: very occassionally the timings would 'leapfrog' each other cause flashes to appear in the wrong order, thereby making it impossible for the user to correctly match the pattern through skill rather than luck.

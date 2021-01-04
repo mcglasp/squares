@@ -1,3 +1,4 @@
+
 let initArray = [];
 let i = 0;
 let j = 0;
@@ -5,46 +6,56 @@ let score = 0;
 let userClicks = [];
 let k;
 let l;
-let flashArray1 = [500, 600, 700, 800];
-let flashArray2 = [450, 550, 650, 750];
-let flashArray3 = [300, 380, 420, 600];
-let flashArray4 = [200, 250, 300, 400];
+// let flashArray1 = [500, 600, 700, 800];
+// let flashArray2 = [450, 550, 650, 750];
+// let flashArray3 = [300, 380, 420, 600];
+// let flashArray4 = [200, 250, 300, 400];
 let x = 0;
 let colors = ['blue', 'pink', 'green'];
 
 let flashAudio = new Audio('sound.mp3');
-let padAudio = new Audio('sound.mp3')
+let padAudio = new Audio('sound.mp3');
 
-let timesUp = false
+let timesUp = false;
 
 let level = {
     dots: 2,
     round: 0,
-}
+    speed: 800,
+};
 
 function padSound() {
-padAudio.play();
+setTimeout(function() {padAudio.play(), 8
+})
+}
+
+function speedUp() {
+level.speed-=50
+console.log(level.speed)
+return level.speed;
 }
 
 
-function speed() {
-    let k = Math.floor(Math.random() * 4)
-    if (level.round < 3) {
-        console.log(flashArray1[k])
-        return flashArray1[k]
-    } if (level.round >= 3 && level.round < 8) {
-         console.log(flashArray2[k])
-        return flashArray2[k]
-    } else if (level.round >= 8) {
-          console.log(flashArray3[k])
-          return flashArray3[k]
-        }
-    }
+
+
+// function speed() {
+//     let k = Math.floor(Math.random() * 4);
+//     if (level.round < 3) {
+//         console.log(flashArray1[k]);
+//         return flashArray1[k];
+//     } if (level.round >= 3 && level.round < 8) {
+//          console.log(flashArray2[k]);
+//         return flashArray2[k];
+//     } else if (level.round >= 8) {
+//           console.log(flashArray3[k]);
+//           return flashArray3[k];
+//         }
+//     }
     
 
 
 function endGame() {
-    alert(`You lost :( Never mind, at least you scored ${score}`)
+    alert(`You lost :( Never mind, at least you scored ${score}`);
 }
 
 function showScore() {
@@ -57,22 +68,19 @@ function showRound() {
     roundbox.innerHTML = level.round;
 }
 
-// function first() {
-//     level.dots = 2;
-//     level.speed = 1000;
-//     return level.dots + level.speed
-// }
+
 
 function levelUp() {
-    score = score += 5
-    level.round++
+    score = score += 5;
+    level.round++;
     if (level.round % 3 === 0) {
         level.dots++;
+        speedUp();
     }
     resetGameArray();
     resetUserClicks(nextRound);
 
-    return level.dots + level.round + score
+    return level.dots + level.round + score;
 }
 
 function resetGameArray() {
@@ -82,14 +90,12 @@ function resetGameArray() {
 
 function resetUserClicks(callback) {
     userClicks = [];
-    // nextRound()
     callback();
     return userClicks;
 }
 
 
 
-// let initArray = [];
 
 function makeCircleArray(level) {
     let i = 0;
@@ -108,20 +114,23 @@ function makeCircleArray(level) {
 
 function showCircle(num, j) {
     let k;
-    let y = x
+    let y = x;
     x++;
     setTimeout(function () {
         let color = colors[y % colors.length];
         let num = initArray[j];
-        let element = document.getElementById(num)
-        element.classList.add(`cell-glow-${color}`)
-        audio.play()
+        let element = document.getElementById(num);
+        element.classList.add(`cell-glow-${color}`);
+        padSound();
         window.setTimeout(function () {
-            element.classList.remove(`cell-glow-${color}`)
+            element.classList.remove(`cell-glow-${color}`);
+            
         }, 300);
         j++;
-    }, speed() * j);
-};
+
+    }, level.speed * j);
+    
+}
 
 function showEachCircle(captureUserClicks) {
     initArray.forEach(showCircle);
@@ -132,7 +141,7 @@ function captureUserClicks(clicked_id) {
     userClicks.push(`game-${clicked_id}`);
     if (userClicks.length === initArray.length) {
         compareArraysClicks();
-        console.log(`user ${userClicks}`)
+        console.log(`user ${userClicks}`);
     }
 }
 
@@ -140,9 +149,9 @@ function compareArraysClicks() {
     let userArray = userClicks.toString();
     let gameArray = initArray.toString();
     if (gameArray === userArray) {
-        levelUp()
+        levelUp();
     } else if (timesUp == true) {
-        endGame()
+        endGame();
     } else {
         endGame();
     }
@@ -152,41 +161,15 @@ function compareArraysClicks() {
 
 
 function startGame() {
-    const firstLevel = makeCircleArray(level)
-    showEachCircle(firstLevel, captureUserClicks)
+    const firstLevel = makeCircleArray(level);
+    showEachCircle(firstLevel, captureUserClicks);
 }
 
 function nextRound() {
     setTimeout(function () {
         const whichLevel = makeCircleArray(level);
-        showEachCircle(whichLevel, captureUserClicks)
-    }, 1000)
+        showEachCircle(whichLevel, captureUserClicks);
+    }, 1000);
         showScore();
         showRound();
-};
-
-// credit W3
-
-var txt = ["match the sequence","...","on the keypad below"];
-var letter = 0;
-var inst = 0;
-var lspeed = 150;
-function typeWriter() { 
-    if (inst < txt.length) {
-  if (letter < txt[inst].length) {
-    document.getElementById("instr-text").innerHTML += txt[inst].charAt(letter);
-    letter++;
-    setTimeout(typeWriter, lspeed);
-    }  
-} inst++;
 }
-
-function lines() {
-    txt.forEach(typeWriter);
-    inst++;
-}
-
-
-typeWriter()
-// lines()
-

@@ -1,12 +1,12 @@
 body {
 background-color:black;
-
+font-family: 'Chakra Petch', sans-serif;
 }
 
+
+
 .center{
-    /* color: black; */
-    /* z-index: 15; */
-    position: static;
+  position: static;
     top: 0;
     left: 0;
     display: block;
@@ -17,13 +17,6 @@ padding-right: 15px;
     max-width: 90vw;
 }
 
-#instruction-text {
-color: white;
-background-color: pink;
-z-index: 200;
-}
-
-
 .center-text {
     text-align: center;
 }
@@ -32,59 +25,31 @@ z-index: 200;
     font-size: 2vw;
 }
 
-button {
-    border:none;
-}
+
 
 #newgame {
-
-background: black;
-    width: fit-content;
-margin: 0 auto;
+    background: black;
+    padding: 8px 12px;
 text-align: center;
+text-shadow: 0 0 0px #fff, 0 0 5px #ff4da6, 0 0 10px #ff4da6, 0 0 20px #ff4da6, 0 0 20px #ff4da6, 0 0 20px #ff4da6, 0 0 30px #ff4da6;
+border: #a0adbe 1px solid;
 }
 
 .slim {
     height: 10px;
 }
 
-.info-text-l {
+.info-text {
     color: #fff;
     font-size: 3vw;
     text-transform: uppercase;
     text-align: center;
-    padding: 0px;
-    position: relative;
-    top: -18px;
-    height: 0px;
+   
 }
-
-.info-text-l span {
-    background: black;
-}
-
-.info-text-r {
-    color: #fff;
-font-size: 3vw;
-    text-transform:uppercase;
-    text-align: right;
-    padding: 0px;
-    position: relative;
-    background: black;
-    padding: 0 5px;
-    right: 15px;
-    float: right;
-}
-
-.slim-nav {
-    height: 15px;
-}
-
 
 #logo {
     z-index: 20;
 }
-
 
 #game-container, #user-game-container {
     position: static;
@@ -96,14 +61,14 @@ padding-left: 10px;
 padding-right: 10px;
     margin: 0 auto;
     background-color: black;
-border: #aab9cd 1px solid;
+border: #a0adbe 1px solid;
 padding-bottom: 6px;
 border-radius: 2%;
 }
 
 #game-container {
         width: 67%;
-    margin: 20px auto 10px auto; 
+    margin: 0px auto 10px auto; 
     top: 50px;
 }
 
@@ -137,18 +102,21 @@ border-radius: 5%;
     height: 20px;
     width: 20px;
     margin: 0 10px;
-    font-size: 3vw;
+    font-size: 2vw;
     color: white;
 }
+
+footer {
+    width: 100%;
+    height: 70px;
+    background-color: #aab9cd;
+}
+
+
 
 
 .info {
     margin: 20px 0;
-}
-
-
-.right {
-    text-align: right;
 }
 
 .cell-glow {
@@ -178,42 +146,45 @@ border-radius: 5%;
 
 @keyframes glow {
   from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    text-shadow: 0 0 0px #fff, 0 0 5px #fff, 0 0 7px #e60073, 0 0 9px #e60073, 0 0 11px #e60073, 0 0 15px #e60073, 0 0 20px #e60073;
   }
   to {
-    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    text-shadow: 0 0 0px #fff, 0 0 5px #ff4da6, 0 0 10px #ff4da6, 0 0 20px #ff4da6, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6;
   }
 }
 
 
-#instr-overlay {
-  position: fixed;
-  display: block;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(48, 43, 43, 0.966);
-  z-index: 17;
+.instr {
+    color: #fff;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    text-align: center;
+    white-space: nowrap;
+    margin: 2px auto -10px auto;
 }
 
-#instr-text{
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  top: 50%;
-  left: 50%;
-  font-size: 2rem;
-  text-align: center;
-  color: white;
-  transform: translate(-50%,-80%);
-  -ms-transform: translate(-50%,-50%);
+.sup {
+vertical-align: super;
+}
+
+.container-0m {
+      position: static;
+    top: 0;
+    left: 0;
+    display: block;
+    margin: auto;
+    padding: 20px 0;
+    /* max-width: 90vw; */
 }
 
 @media (orientation: landscape) {
+
+    .info-score, .info-round {
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    font-size: 2vw;
+}
 
     .landscape-element {
         display: inline;
@@ -230,17 +201,17 @@ padding-right: 10px;
     margin: 0 auto;
     background-color: black;
 border: #aab9cd 1px solid;
-padding-bottom: 6px;
+padding-bottom: 0px;
 border-radius: 2%;
 width: 50%;
 }
 
 #game-container {
-    margin: 20px auto 10px auto; 
+    margin: 0 auto; 
     top: 50px;
 }
 
-.text-monospace {
+.instr {
     display: none;
 }
 
@@ -257,8 +228,7 @@ width: 50%;
     top: 0;
     left: 0;
     display: flex;
-padding-right: 15px;
-    padding-left: 15px;
+padding: 0;
     margin-right: auto;
     margin-left: auto;
     max-width: 90vw;
@@ -267,8 +237,9 @@ padding-right: 15px;
     font-size: 2rem;
 }
 
-#score, #round {
-font-size: 1rem;
+#logo {
+    font-size: 2rem;
+    margin: 15px;
 }
 
 .stack {
@@ -277,7 +248,119 @@ font-size: 1rem;
     align-items: center;
     justify-content: space-between;
     height: 100%;
+    text-align: center;
+}
+
+.center-text {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    flex: 0 0 0%;
+    max-width: 100%;
+}
+
+.slim-nav {
+    height: 60px;
+}
+
+/* .display-box {
+display: flex;
+    margin: 0 auto;
+    font-size: 2rem;
+    color: white;
+    justify-content: center;
+    
+} */
+
+.m10 {
+    margin-bottom: 10px;
+}
+
+.center {
+    padding: 15px;
+    border: #a0adbe 1px solid;
+    border-radius: 0.7rem;
+}
+
+.instr-2 {
+display: flex;
+       color: #fff;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    text-align: center;
+    justify-content: space-around;
+    align-content: center;
+    margin: 0;
+}
 
 }
+
+@media only screen  
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) { 
+
+.slim-nav {
+    height: 40px;
+}
+#logo {
+        display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#newgame {
+    font-size: 1rem;
+}
+
+#logo p {
+    display: inline;
+    padding: 10px;
+    position: relative;
+    background: black;
+}
+
+.instr-2 {
+    font-size: 0.9rem;
+    margin: 0 auto;
+    
+}
+
+.container-0m {
+    display: block;
+    margin: 0 auto;
+    max-width: 90%;
+    padding: 0 20px;
+    /* max-width: 90vw; */
+}
+
+.instr-l {
+    white-space: nowrap;
+   text-align: left;
+   /* margin: 0 0 0 1px; */
+    padding-left: 3px;
+    position: relative;
+    bottom: 14px;
+            background-color: black;
+
+}
+
+.instr-c {
+    margin: 0;
+    padding: 0;
+}
+
+.instr-r {
+ white-space: nowrap;
+   text-align: right;
+   margin: 0;
+    padding-right: 3px;
+    position: relative;
+    bottom: 14px;
+        background-color: black;
+
+}
+
+
 
 }
