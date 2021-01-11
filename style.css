@@ -25,18 +25,47 @@ padding-right: 15px;
     font-size: 2vw;
 }
 
+/* Navbar elements */
 
+#start-text {
+    display: inline;
+    text-align: center;
+    color: #fff;
+    z-index: 20;
+        font-size: 2rem;
+    position: relative;
+    left: -40px;
+
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 3.5s steps(21, end),.75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
 
 #newgame {
     background: black;
-    padding: 8px 12px;
+    padding: 4px 12px;
 text-align: center;
 text-shadow: 0 0 0px #fff, 0 0 5px #ff4da6, 0 0 10px #ff4da6, 0 0 20px #ff4da6, 0 0 20px #ff4da6, 0 0 20px #ff4da6, 0 0 30px #ff4da6;
 border: #a0adbe 1px solid;
 }
 
-.slim {
-    height: 10px;
+#newgame:hover {
+    text-shadow: 0 0 0px #fff, 0 0 0px;
+    border: #ff4da6 1px solid;
+}
+
+#newgame:active {
+    color: black;
+
 }
 
 .info-text {
@@ -48,7 +77,11 @@ border: #a0adbe 1px solid;
 }
 
 #logo {
+    font-size: 1.5rem;
     z-index: 20;
+    margin-bottom: 0;
+    /* display: inline-block; */
+    float: left;
 }
 
 #game-container, #user-game-container {
@@ -234,12 +267,12 @@ padding: 0;
     max-width: 90vw;
 }
 #newgame {
-    font-size: 2rem;
+    font-size: 1.7rem;
 }
 
 #logo {
-    font-size: 2rem;
-    margin: 15px;
+    font-size: 2.5rem;
+    
 }
 
 .stack {
@@ -262,15 +295,6 @@ padding: 0;
 .slim-nav {
     height: 60px;
 }
-
-/* .display-box {
-display: flex;
-    margin: 0 auto;
-    font-size: 2rem;
-    color: white;
-    justify-content: center;
-    
-} */
 
 .m10 {
     margin-bottom: 10px;
