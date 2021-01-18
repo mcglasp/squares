@@ -4,7 +4,7 @@ Milestone 2 project
 
 **STRATEGY**
 
-The purpose of this project is to create a fun game and accessible game. The intended user — or player — is a smartphone user looking to occupy themselves in those in those moments in the day in which we have a few snatched minutes to kill. 
+The purpose of this project is to create a fun game and accessible game. The intended user — or player — is a smartphone user looking to occupy themselves in those in those moments in the day in which we have a few snatched minutes to kill. The quantifiable value to the owner of any game app would be in the potential to attract advertising were it to become a popular game, thereby bringing in income and funding further projects. In this specific case, being a first-time builder of a Javascript game, it's value is less quantifiable, but no less valid: constructing a basic game in Javascript gives me invaluable experience of coding and a base from which I can develop more complicated games and apps that are outside of the scope of this project.
 
 **User Stories**
 
@@ -49,7 +49,47 @@ Developer contact information
 Header/footer
 Links to sister sites/games
 
+SCREENSHOT HERE
 
+We can see here that the majority of these features are important enough to be included in a first release or minimum viable product. On the surface that may seem excessive, but actually the majority of those features are aspects of the core game itself that are essential to satisfying gameplay and would be expected by any user.
+
+Mid-development feature review update, January 2021: having spent a significant amount of time developing the game I have reconsidered the feasibility of features 'f' and 'g'. 
+Feature 'f' is keyboard interactivity for the desktop game. Building this into the game's functionality is eminently possible, but would unecessarily complicate my code at this stage, given my current skill level. Reflecting on the fact this is is primarily intended to be a game played on a touchscreen device — the mobile-first approach — I have decided that it would be entirely acceptable to leave this feature to a further development stage.
+Feature 'g' is, again, entirely possible, but is less critical to the MVP (minimum viable product) than other elements. It would certainly be fun to include and would be beneficial from a gameplay perspective, but is, again, an added complication for a first release.
+
+**STRUCTURE**
+
+To properly discuss the structure of this app we need to consider its basic functionality — essentially, the rules! Presented to the user are a selection of shapes (dots, squares or icons, for example). These flash in a random sequence and the user is required to match that sequence. In the early stages of the game there will be very few 'flashes', perhaps just starting with 2, and that will increase as gameplay goes on. Multiple different parameters could be changed to affect gameplay. For example, the number of flashes in a given sequence, the speed of the flashes and time between each, the visibility of the icons (or dots, squares) and the time given for the user to complete their sequence matching after the sequence of generated flashes has completed.
+
+Given the simplicity of this game, and the simple aims of the app as a whole, the structure is similarly straightforward. It would be confusing and unecessary to add pages or multiple scrollable elements to the mobile or desktop site. The aim is to present the user with every aviable element in the one, initial view. Everything they need to interact with or to understand will be available to them on page load without further clicking or scrolling.
+
+**SKELETON**
+
+Initial wireframes:
+
+The mobile version will take priority as this is far more likely to be played via this medium. Two layouts of shapes (in this case, dots!) will be presented on screen. The top will be the game display grid, and the lower grid will be for user input; for the player to match the sequence. Separating the game display from the user input grid has two advantages: 
+- firstly, as the player rises through the levels, the number and speed of 'flashes' increases. This allows the user to match the sequence on their own grid while the top grid is still in the process of displaying the sequence to be matched above. This would not be necessary in early levels, but may become a necessary strategy as difficult increases. Were there to be just one single grid, the user would be obscuring the still-displaying game sequence.
+- secondly, a single grid would take up far more screen space. It is expected that a user will hold their device in one hand and input the sequence with their thumb. On a number of popular devices (the iPhone X and 'plus' versions of the 7 & 8, for example, plus a number of the larger-screened Android devices) it is not possible for the user to easily reach the upper portion of the screen with their thumb, without the risk of dropping the device. Indeed, 'reachability' is now a native feature of many touchscreen operating systems. A single, larger, gameplay grid would suffer from the problems addressed by such reachability features, but it would neither be practical nor appropriate to attempt to implement such a feature in this game. A far better solution is to separate the game into a read-only grid at the top, and a user-input grid at the bottom, within easy reach of the player's thumb!
+
+The desktop version, as can be seen in the wireframe, converts to a landscape view, with the game grid on the left and the player grid on the right. This is far more appropriate a layout for a desktop or laptop screen and the left-right information flow makes sense to the likely Western userbase of the app.
+
+Updated wireframes:
+
+A few additions and changes were made to the structure of both mobile and desktop versions after initial development.
+
+- The 'dots' became squares. This was a design decision and is discussed in greater detail in the Surface section.
+- A start button and permanently displayed instructions were added. Initially the game started on page refresh, which was clunky UX, to say the least!
+- Both versions were given subtle header to display the game's name, rather than incorporating it into the design of the game grid container, which was becoming cluttered with the addition of the aforementioned instructional elements.
+
+**SURFACE**
+
+I played with a few design ideas before settling on the final concept. I started with simple red-on-white circles — hence the working title 'Sudden Dots' and even experimented with a grid of appearing and disappearing Fontawesome icons. Eventually, however, I took inspiration from music technology and based the design on the popular and iconic designs of MIDI controllers for digital audio workstations. Inspiration for this was taken from hardware such as Novation's Launchpad or Akai's control surfaces. The 'glow' you get from the pads worked well against the black background and the grid layout was precisely what was needed for this game.
+
+Sounds: the implementation of sounds risked becoming an afterthought in this project; in initial development I felt it was more of a 'nice-to-have' than a top priority. However, when testing the game I came to realise that it would be hugely beneficial from a UX/gameplay perspective. specifically, it would help to distinguish between 'flashes' in later levels where the flashes to closer together and the number of them had increased sufficiently to be challenging to recall. Again, inspiration was taken from the aforementioned MIDI control surfaces for the sound design. Although by their nature, these devices do not make sounds themselves, are commissioned the sort of sounds both familiar to users of such devices, and auditorily respresentative of the visual effect, with it's glowing colours and fast, ease-in-out transition. For the user grid I commissioned a slightly more 'musical' version of the sound of someone tapping the square pads of a MIDI control surface.
 Testing notes:
 
 Expected behaviour: speed of appearance of flashes would vary, but still display consequtively. Found behaviour: very occassionally the timings would 'leapfrog' each other cause flashes to appear in the wrong order, thereby making it impossible for the user to correctly match the pattern through skill rather than luck.
+
+Expected behaviour: pressing play button should invoke a new game everytime. Found behaviour: Very strange behaviour - multiple flashes and speeds. Score and level not clearing. Turns out: It is actually adding the level values of the previous game to the newgame, thereby creating odd behaviour - multiple dots, strange speeds, etc.
+
+Expected behaviour: Timer should call endGame() after a certain period of time has elapsed. Found behaviour: Not able to create a timer that properly controlled the outcome of the game. Was attempting to use setTimeout. Initially using a function that changed a variable (timesUp) from false to true; if the variable was true, then endGame should be called, but this was not properly invoking endGame at the expected time, or at all in some cases. Switched to setInterval, which worked much better!  

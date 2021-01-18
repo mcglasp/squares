@@ -8,7 +8,6 @@ let j = 0;
 let x = 0;
 
 // Empty variables
-let k;
 let l;
 let timer;
 
@@ -28,6 +27,7 @@ let scorebox = document.getElementById("score");
 let roundbox = document.getElementById("round");
 let typingText = document.getElementById("start-text");
 
+
 // Game order control
 function startGame() {
 // reset all initial values so that user can reset their own game without refreshing the page.
@@ -41,11 +41,13 @@ function startGame() {
     scorebox.innerHTML = score;
     roundbox.innerHTML = level.round;
     clearTimer();
-    startText()
     setTimeout(function() {
     const firstLevel = makeCircleArray(level);
     showEachCircle(firstLevel,timeControl);
     }, 1500);
+    jQuery(function($) {
+        $(".cell").css("background","#aad9cd");
+})
 }
 
 function nextRound() {
@@ -76,7 +78,6 @@ function makeCircleArray(level) {
 // Core gameplay functions (generally speaking, shown in order they are called)
     
 function showCircle(num, j) {
-    let k;
     let y = x;
     x++;
     setTimeout(function () {
@@ -133,7 +134,10 @@ function compareArraysClicks() {
 }
 
 function endGame() {
-    alert(`You lost :( Never mind, at least you scored ${score}`);
+    jQuery(function($) {
+        $(".cell").css("background","#aab9cd");
+})
+alert(`You lost :( Never mind, at least you scored ${score}`);
 }
 
 // Level control & reset functions
@@ -183,10 +187,21 @@ function padSound() {
     })
 };
 
-function startText() {
-    typingText.innerHTML = "ok, let's go";
+// function startText() {
+//     typingText.innerHTML = "ok, let's go";
+// }
 
-}
+// var i = 0;
+// var txt = 'ok, lets go';
+// var speed = 50;
+
+// function startText() {
+//   if (i < txt.length) {
+//     typingText.innerHTML += txt.charAt(i);
+//     i++;
+//     setTimeout(startText, speed);
+//   }
+// }
 
 
 

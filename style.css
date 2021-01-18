@@ -4,8 +4,12 @@ font-family: 'Chakra Petch', sans-serif;
 }
 
 
+.double-line {
+    border-bottom: #a0adbe 0.2px solid;
+    margin: 10px;
+}
 
-.center{
+.center {
   position: static;
     top: 0;
     left: 0;
@@ -19,6 +23,12 @@ padding-right: 15px;
 
 .center-text {
     text-align: center;
+}
+
+    .info-score, .info-round {
+
+    position: relative;
+    top: -5px;
 }
 
 .small {
@@ -53,9 +63,13 @@ padding-right: 15px;
 #newgame {
     background: black;
     padding: 4px 12px;
+    margin: 0px;
 text-align: center;
 text-shadow: 0 0 0px #fff, 0 0 5px #ff4da6, 0 0 10px #ff4da6, 0 0 20px #ff4da6, 0 0 20px #ff4da6, 0 0 20px #ff4da6, 0 0 30px #ff4da6;
 border: #a0adbe 1px solid;
+position: relative;
+top: -5px;
+
 }
 
 #newgame:hover {
@@ -70,10 +84,7 @@ border: #a0adbe 1px solid;
 
 .info-text {
     color: #fff;
-    font-size: 3vw;
-    text-transform: uppercase;
     text-align: center;
-   
 }
 
 #logo {
@@ -85,18 +96,18 @@ border: #a0adbe 1px solid;
 }
 
 #game-container, #user-game-container {
-    position: static;
+    width: 80%;
     display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-padding-top: 10px;
-padding-left: 10px;
-padding-right: 10px;
-    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: auto;
     background-color: black;
-border: #a0adbe 1px solid;
-padding-bottom: 6px;
-border-radius: 2%;
+    border: #a0adbe 1px solid;
+    padding-bottom: 6px;
+    border-radius: 2%;
 }
 
 #game-container {
@@ -112,12 +123,12 @@ border-radius: 2%;
     padding-bottom: 30%;
     margin-bottom: 3%;
   position: relative;
-background-color:#aad9cd;
+background :#aad9cd;
 border-radius: 5%;
 /* Prio-soft via Code Pen */
   border-color: #aab9cd;
   color: #fff;
-  box-shadow: 0 0 25px 25px #aab9cd inset, 0 0 0 0 #aab9cd;
+  box-shadow: 0 0 25px 8px #aab9cd inset, 0 0 0 0 #aab9cd;
   -webkit-transition: all 50ms ease-in-out;
   transition: all 50ms ease-in-out;
   /* end credit */
@@ -135,14 +146,25 @@ border-radius: 5%;
     height: 20px;
     width: 20px;
     margin: 0 10px;
-    font-size: 2vw;
+    font-size: 7vw;
     color: white;
 }
 
 footer {
+    /* position: fixed; */
+    /* bottom: 0px; */
     width: 100%;
     height: 70px;
-    background-color: #aab9cd;
+    color: #a0adbe;
+    
+    /* background-color: #aab9cd; */
+}
+
+footer p { 
+    line-height: 1rem;
+    margin: 0;
+    text-align: center;
+    font-size: 0.7rem;
 }
 
 
@@ -157,15 +179,15 @@ footer {
 }
 
 .cell-glow-blue {
-  box-shadow: 0 0 50px 0 rgb(0, 238, 255) inset, 0 0 50px 4px rgb(0, 238, 255);
+  box-shadow: 100px 100px 100px 100px rgb(0, 238, 255) inset, 0 0 50px 4px rgb(0, 238, 255);
 }
 
 .cell-glow-pink {
-  box-shadow: 0 0 50px 0 rgb(255, 14, 134) inset, 0 0 85px 4px rgb(255, 14, 134);
+  box-shadow: 100px 100px 100px 100px rgb(255, 14, 134) inset, 0 0 85px 4px rgb(255, 14, 134);
 }
 
 .cell-glow-green {
-  box-shadow: 0 0 50px 0 rgb(22, 255, 1) inset, 0 0 50px 4px rgb(22, 255, 1);
+  box-shadow: 100px 100px 100px 100px rgb(22, 255, 1) inset, 0 0 50px 4px rgb(22, 255, 1);
 }
 
 /* Glow Effect from W3 Schools */
@@ -189,16 +211,13 @@ footer {
 
 .instr {
     color: #fff;
-    font-size: 0.6rem;
-    text-transform: uppercase;
     text-align: center;
     white-space: nowrap;
-    margin: 2px auto -10px auto;
+    margin: auto;
+    line-height: 1.2rem;
 }
 
-.sup {
-vertical-align: super;
-}
+
 
 .container-0m {
       position: static;
@@ -210,18 +229,42 @@ vertical-align: super;
     /* max-width: 90vw; */
 }
 
+@media (orientation: portrait) {
+    .instr-lower {
+    display: none;
+}
+}
+
 @media (orientation: landscape) {
 
-    .info-score, .info-round {
-    display: flex;
-    align-content: center;
-    justify-content: space-around;
-    font-size: 2vw;
+    .instr-lower {
+    display: block;
+    color: #fff;
+    margin: 25px auto;
+    padding: 0;
+    text-align: center;
 }
 
     .landscape-element {
         display: inline;
     }
+
+        .stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    text-align: center;
+}
+.display-box {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    margin: 0 10px;
+    font-size: 2vw;
+    color: white;
+}
 
 #game-container, #user-game-container {
     position: static;
@@ -244,6 +287,11 @@ width: 50%;
     top: 50px;
 }
 
+#user-game-container {
+    position: relative;
+    top: -5px;
+}
+
 .instr {
     display: none;
 }
@@ -262,8 +310,7 @@ width: 50%;
     left: 0;
     display: flex;
 padding: 0;
-    margin-right: auto;
-    margin-left: auto;
+    margin: 0 auto;
     max-width: 90vw;
 }
 #newgame {
@@ -275,14 +322,7 @@ padding: 0;
     
 }
 
-.stack {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    height: 100%;
-    text-align: center;
-}
+
 
 .center-text {
     text-align: center;
@@ -307,22 +347,46 @@ padding: 0;
 }
 
 .instr-2 {
-display: flex;
        color: #fff;
     font-size: 1.5rem;
-    text-transform: uppercase;
-    text-align: center;
-    justify-content: space-around;
+
     align-content: center;
-    margin: 0;
+
 }
 
+}
+
+.instr-l {
+    white-space: nowrap;
+   text-align: left;
+   /* margin: 0 0 0 1px; */
+    padding-left: 3px;
+    position: relative;
+    bottom: 14px;
+            background-color: black;
+}
+
+.instr-r {
+ white-space: nowrap;
+   text-align: right;
+   margin: 0;
+    padding-right: 3px;
+    position: relative;
+    bottom: 14px;
+        background-color: black;
+}
+
+.instr-c {
+    margin: 0;
+    padding: 0;
 }
 
 @media only screen  
   and (max-device-width: 812px) 
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: landscape) { 
+
+
 
 .slim-nav {
     height: 40px;
@@ -350,40 +414,17 @@ display: flex;
     
 }
 
-.container-0m {
-    display: block;
+.container-0m p {
+    display: flex;
     margin: 0 auto;
     max-width: 90%;
     padding: 0 20px;
-    /* max-width: 90vw; */
+    max-width: 90vw;
 }
 
-.instr-l {
-    white-space: nowrap;
-   text-align: left;
-   /* margin: 0 0 0 1px; */
-    padding-left: 3px;
-    position: relative;
-    bottom: 14px;
-            background-color: black;
 
-}
 
-.instr-c {
-    margin: 0;
-    padding: 0;
-}
 
-.instr-r {
- white-space: nowrap;
-   text-align: right;
-   margin: 0;
-    padding-right: 3px;
-    position: relative;
-    bottom: 14px;
-        background-color: black;
-
-}
 
 
 
