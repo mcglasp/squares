@@ -15,7 +15,7 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <header class="navbar slim-nav "><h1 id="logo" class="glow">glow</h1><div id="start-text" onclick="startText()"></div><div id="dummy-div"></div>
+    <header class="navbar slim-nav "><h1 id="logo" class="glow">glow</h1>
     </header>
     <div class="container center">
         <div id="game-container" class="landscape-element">
@@ -37,7 +37,7 @@
                         onclick="startGame()">start</button></div>
                 <div class="center-text col-3 glow info-round">round<span id="round"
                         class="display-box"></span></div>
-                <div class="instr">copy the sequence above...<br>on the pads below</div>
+                <div id="info-text" class="instr info-text">copy what you see on pad 1...<br>on pad 2</div>
             </div>
         </div>
         <div id="user-game-container" class="landscape-element">
@@ -45,7 +45,7 @@
             <div id="1" class="cell" onclick="captureUserClicks(this.id); padAudio.play()"></div>
             <div id="2" class="cell" onclick="captureUserClicks(this.id); padAudio.play()"></div>
             <div id="3" class="cell" onclick="captureUserClicks(this.id); padAudio.play()"></div>
-            <div id="4" class="cell" onclick="captureUserClicks(this.id); padAudio.play()"></div>
+            <div id="4" class="cell cell-4" onclick="captureUserClicks(this.id); padAudio.play()"></div>
             <div id="5" class="cell" onclick="captureUserClicks(this.id); padAudio.play()"></div>
             <div id="6" class="cell m10" onclick="captureUserClicks(this.id); padAudio.play()"></div>
             <div id="7" class="cell m10" onclick="captureUserClicks(this.id); padAudio.play()"></div>
@@ -54,16 +54,15 @@
     </div>
     <div class="container instr-lower">
         <div class="row no-gutters">
-            <div class="col-2"></div>
-            <div class="col-8">
-                <p>copy the sequence on the left ... on the pads on the right</p>
+            <div class="col-1"></div>
+            <div class="col-10">
+                <p id="info-text-l" class="info-text">copy what you see on pad 1...<br>on pad 2</p>
             </div>
-            <div class="col-2"></div>
+            <div class="col-1"></div>
             </div>
         </div>
         <br />
         <hr class="double-line"/>
-        
         <hr class="double-line"/>
     <footer>
         <p>&#169; Nell Glasper 2021</p>

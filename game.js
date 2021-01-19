@@ -25,7 +25,9 @@ let flashAudio = new Audio('sound.mp3');
 let padAudio = new Audio('sound.mp3');
 let scorebox = document.getElementById("score");
 let roundbox = document.getElementById("round");
-let typingText = document.getElementById("start-text");
+let information = document.querySelectorAll(".info-text");
+//  document.getElementsByClassName("info-text");
+// let infoText = document.querySelectorAll("#info-text, #info-text-l");
 
 
 // Game order control
@@ -40,6 +42,7 @@ function startGame() {
     level.speed = 800;
     scorebox.innerHTML = score;
     roundbox.innerHTML = level.round;
+    infoText(`copy what you see on pad 1...<br>on pad 2`);
     clearTimer();
     setTimeout(function() {
     const firstLevel = makeCircleArray(level);
@@ -137,7 +140,8 @@ function endGame() {
     jQuery(function($) {
         $(".cell").css("background","#aab9cd");
 })
-alert(`You lost :( Never mind, at least you scored ${score}`);
+// alert(`You lost :( Never mind, at least you scored ${score}`);
+infoText("Too bad, better luck next time!")
 }
 
 // Level control & reset functions
@@ -173,7 +177,6 @@ function resetUserClicks(callback) {
 // UX & UI functions
 
 function showScore() {
-    // let scorebox = document.getElementById("score");
     scorebox.innerHTML = score;
 }
 
@@ -187,12 +190,23 @@ function padSound() {
     })
 };
 
+function infoText(saySomething) {
+let k;
+for (k = 0; k < information.length; k++) {
+  information[k].innerHTML = saySomething;
+}
+}
+
 // function startText() {
+//     document.addEventListener("DOMContentLoaded", function(event) { 
+//   //do work
+
 //     typingText.innerHTML = "ok, let's go";
+//     });
 // }
 
 // var i = 0;
-// var txt = 'ok, lets go';
+// var txt = "copy the sequence above... on the pads below";
 // var speed = 50;
 
 // function startText() {
