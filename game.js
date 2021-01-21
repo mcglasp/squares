@@ -48,14 +48,12 @@ function startGame() {
     const firstLevel = makeCircleArray(level);
     showEachCircle(firstLevel,timeControl);
     }, 1500);
-    jQuery(function($) {
-        $(".cell").css("background","#aad9cd");
-})
+//     jQuery(function($) {
+//         $(".cell").css("background","#aad9cd");
+// })
 }
 
 function nextRound() {
-    console.log(`${level.dots} dots`);
-    console.log(`score is ${score}`);
     setTimeout(function () {
         const whichLevel = makeCircleArray(level);
         showEachCircle(whichLevel,timeControl);
@@ -196,27 +194,17 @@ for (k = 0; k < information.length; k++) {
   information[k].innerHTML = saySomething;
 }
 }
+ 
+// Light theme toggle
 
-// function startText() {
-//     document.addEventListener("DOMContentLoaded", function(event) { 
-//   //do work
+$('.slider').click(function(){
+    $("body, .container, .container-info, #logo, #newgame, #user-game-container, #game-container, .center-text").toggleClass("light-theme");
+    // $("")
+})
 
-//     typingText.innerHTML = "ok, let's go";
-//     });
-// }
+// Hard mode toggle
 
-// var i = 0;
-// var txt = "copy the sequence above... on the pads below";
-// var speed = 50;
-
-// function startText() {
-//   if (i < txt.length) {
-//     typingText.innerHTML += txt.charAt(i);
-//     i++;
-//     setTimeout(startText, speed);
-//   }
-// }
-
-
-
+$('.slider-2').click(function(){
+    $(".cell, .number").toggleClass("hard-mode");
+})
 

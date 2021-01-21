@@ -1,6 +1,7 @@
 body {
 background-color:black;
 font-family: 'Chakra Petch', sans-serif;
+font-weight: 300;
 }
 
 
@@ -33,26 +34,6 @@ padding-right: 15px;
 
 .small {
     font-size: 2vw;
-}
-
-#game-4:after {
-    content: "1";
-    font-weight: 800;
-    font-size: xxx-large;
-    position: absolute;
-    left: 40%;
-    top: 17%
-    /* margin: 10px auto; */
-}
-
-.cell-4:after {
-    content: "2";
-    font-weight: 800;
-    font-size: xxx-large;
-    position: absolute;
-    left: 40%;
-    top: 20%;
-    /* margin: 10px auto; */
 }
 
 /* Navbar elements */
@@ -149,6 +130,25 @@ border-radius: 5%;
     color: white;
 }
 
+.number-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 100%;
+}
+
+.number {
+    position: absolute;
+    top: 0.5rem;
+    display: block;
+    padding: 0;
+    font-size: 200%;
+    font-weight: 700;
+    
+}
+
+
+
 footer {
     /* position: fixed; */
     /* bottom: 0px; */
@@ -174,19 +174,19 @@ footer p {
 }
 
 .cell-glow {
-  box-shadow: 0 0 10px 0 #fff inset, 0 0 10px 4px #fff;
+  box-shadow: 0 0 10px 0 #fff inset, 0 0 10px 4px #fff !important;
 }
 
 .cell-glow-blue {
-  box-shadow: 100px 100px 100px 100px rgb(0, 238, 255) inset, 0 0 50px 4px rgb(0, 238, 255);
+  box-shadow: 100px 100px 100px 100px rgb(0, 238, 255) inset, 0 0 50px 4px rgb(0, 238, 255) !important;
 }
 
 .cell-glow-pink {
-  box-shadow: 100px 100px 100px 100px rgb(255, 14, 134) inset, 0 0 85px 4px rgb(255, 14, 134);
+  box-shadow: 100px 100px 100px 100px rgb(255, 14, 134) inset, 0 0 85px 4px rgb(255, 14, 134) !important;
 }
 
 .cell-glow-green {
-  box-shadow: 100px 100px 100px 100px rgb(22, 255, 1) inset, 0 0 50px 4px rgb(22, 255, 1);
+  box-shadow: 100px 100px 100px 100px rgb(22, 255, 1) inset, 0 0 50px 4px rgb(22, 255, 1) !important;
 }
 
 /* Glow Effect from W3 Schools */
@@ -420,11 +420,84 @@ padding: 0;
     padding: 0 20px;
     max-width: 90vw;
 }
+}
 
+/* jQuery Toggle Styles */
 
+.light-theme {
+    background: rgb(255, 253, 253) !important;
+    color: rgb(131, 131, 131) !important;
+    text-shadow: none !important;
+}
 
+.hard-mode {
+    background: inherit;
+    border-color: inherit;
+    box-shadow: none;
+    color: inherit;
+}
 
+/* Toggle switch. credit w3schools */
+label {
+    color: #fff;
+    
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 35px;
+  height: 17px;
+}
 
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
 
+.slider, .slider-2 {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
 
+.slider:before, .slider-2:before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider, input:checked + .slider-2 {
+  background-color: #ff4da6;
+}
+
+input:focus + .slider, input:focus + .slider-2 {
+  box-shadow: 0 0 1px #ff4da6;
+}
+
+input:checked + .slider:before, input:checked + .slider-2:before {
+  -webkit-transform: translateX(17px);
+  -ms-transform: translateX(17px);
+  transform: translateX(17px);
+}
+
+/* Rounded sliders */
+.slider.round, .slider-2.round {
+  border-radius: 34px;
+}
+
+.slider.round:before, .slider-2.round:before {
+  border-radius: 50%;
 }
