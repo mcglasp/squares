@@ -17,7 +17,13 @@ let level = {
     dots: 2,
     round: 0,
     speed: 800,
-};
+}
+
+
+let saySomething;
+let endCalled = false;
+let last;
+
 
 // UX & UI
 let colors = ['blue', 'pink', 'green'];
@@ -26,8 +32,6 @@ let padAudio = new Audio('sound.mp3');
 let scorebox = document.getElementById("score");
 let roundbox = document.getElementById("round");
 let information = document.querySelectorAll(".info-text");
-//  document.getElementsByClassName("info-text");
-// let infoText = document.querySelectorAll("#info-text, #info-text-l");
 
 
 // Game order control
@@ -42,15 +46,16 @@ function startGame() {
     level.speed = 800;
     scorebox.innerHTML = score;
     roundbox.innerHTML = level.round;
-    infoText(`copy what you see on pad 1...<br>on pad 2`);
+    endCalled = false;
+    infoText();
     clearTimer();
     setTimeout(function() {
     const firstLevel = makeCircleArray(level);
     showEachCircle(firstLevel,timeControl);
     }, 1500);
-//     jQuery(function($) {
-//         $(".cell").css("background","#aad9cd");
-// })
+    jQuery(function($) {
+        $(".cell").removeClass("grey-cells")
+})
 }
 
 function nextRound() {
@@ -60,6 +65,8 @@ function nextRound() {
     }, 1000);
     showScore();
     showRound();
+    infoText(saySomething);
+
 }
 
 function makeCircleArray(level) {
@@ -104,7 +111,6 @@ let counter = 5;
     timer = setInterval(function() {
         if (counter > 0) {
             counter--;
-            // console.log("counting down"+counter)          
         } else {
             endGame();
             clearTimer();
@@ -135,11 +141,12 @@ function compareArraysClicks() {
 }
 
 function endGame() {
+    endCalled = true;
     jQuery(function($) {
-        $(".cell").css("background","#aab9cd");
+        $(".cell").addClass("grey-cells")
 })
-// alert(`You lost :( Never mind, at least you scored ${score}`);
-infoText("Too bad, better luck next time!")
+
+    infoText(saySomething)
 }
 
 // Level control & reset functions
@@ -189,7 +196,42 @@ function padSound() {
 };
 
 function infoText(saySomething) {
-let k;
+    let k;
+    if (endCalled === true) {
+        saySomething = `Too bad!<br>Better luck next time!`
+    } else {
+    switch (score) {
+  case 0:  
+    saySomething = `copy what you see on pad 1...<br>on pad 2`;
+    last = saySomething;
+    break;
+  case 5:
+    saySomething = `Levelled up!<br>&nbsp;`;
+    last = saySomething;
+    break;
+  case 20:
+    saySomething = `Well done!<br>&nbsp;`;
+    last = saySomething;
+    break;
+  case 40:
+    saySomething = `Awesome!<br>&nbsp;`;
+    last = saySomething;
+    break;
+  case 60:
+    saySomething = `You got it!<br>&nbsp;`;
+    last = saySomething;
+    break;
+case 100:
+    saySomething = `Wow!<br>&nbsp;`;
+    last = saySomething;
+    break;
+  case 200:
+    saySomething = `I can't believe this!<br>&nbsp;`;
+    last = saySomething;
+    break;
+    default:
+        saySomething = last;
+    }}
 for (k = 0; k < information.length; k++) {
   information[k].innerHTML = saySomething;
 }
@@ -198,8 +240,7 @@ for (k = 0; k < information.length; k++) {
 // Light theme toggle
 
 $('.slider').click(function(){
-    $("body, .container, .container-info, #logo, #newgame, #user-game-container, #game-container, .center-text").toggleClass("light-theme");
-    // $("")
+    $("body, .container, .container-info, #logo, #newgame, #user-game-container, #game-container, .center-text, .display-box, #info-text").toggleClass("light-theme");
 })
 
 // Hard mode toggle

@@ -103,7 +103,7 @@ top: -5px;
     padding-bottom: 30%;
     margin-bottom: 3%;
   position: relative;
-background :#aad9cd;
+background-color:#aad9cd;
 border-radius: 5%;
 /* Prio-soft via Code Pen */
   border-color: #aab9cd;
@@ -425,13 +425,13 @@ padding: 0;
 /* jQuery Toggle Styles */
 
 .light-theme {
-    background: rgb(255, 253, 253) !important;
+    background-color: rgb(255, 253, 253) !important;
     color: rgb(131, 131, 131) !important;
     text-shadow: none !important;
 }
 
 .hard-mode {
-    background: inherit;
+    background-color: inherit;
     border-color: inherit;
     box-shadow: none;
     color: inherit;
@@ -493,11 +493,14 @@ input:checked + .slider:before, input:checked + .slider-2:before {
   transform: translateX(17px);
 }
 
-/* Rounded sliders */
 .slider.round, .slider-2.round {
   border-radius: 34px;
 }
 
 .slider.round:before, .slider-2.round:before {
   border-radius: 50%;
+}
+
+.grey-cells {
+    background-color: #aab9cd;
 }
