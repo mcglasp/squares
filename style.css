@@ -1,7 +1,9 @@
 body {
 background-color:black;
-font-family: 'Chakra Petch', sans-serif;
-font-weight: 300;
+font-family: 'Righteous', cursive;
+
+/* font-family: 'Chakra Petch', sans-serif; */
+/* font-weight: 300; */
 }
 
 
@@ -232,10 +234,15 @@ footer p {
     .instr-lower {
     display: none;
 }
+.m10 {
+    margin-bottom: 6px;
+}
 }
 
 @media (orientation: landscape) {
-
+.m10 {
+    margin-bottom: 10px;
+}
     .instr-lower {
     display: block;
     color: #fff;
@@ -318,7 +325,7 @@ padding: 0;
 
 #logo {
     font-size: 2.5rem;
-    
+    font-family: 'Righteous', cursive;
 }
 
 
@@ -335,9 +342,7 @@ padding: 0;
     height: 60px;
 }
 
-.m10 {
-    margin-bottom: 10px;
-}
+
 
 .center {
     padding: 15px;
