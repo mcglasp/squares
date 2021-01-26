@@ -1,23 +1,20 @@
+/* General & Utility */
+
 body {
-background-color:black;
-font-family: 'Righteous', cursive;
+    background-color:black;
+    font-family: 'Righteous', cursive;
+}   
 
-/* font-family: 'Chakra Petch', sans-serif; */
-/* font-weight: 300; */
-}
-
-
-.double-line {
-    border-bottom: #a0adbe 0.2px solid;
-    margin: 10px;
+a {
+    text-decoration: none;
 }
 
 .center {
-  position: static;
+    position: static;
     top: 0;
     left: 0;
     display: block;
-padding-right: 15px;
+    padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
@@ -28,421 +25,35 @@ padding-right: 15px;
     text-align: center;
 }
 
-    .info-score, .info-round {
-
-    position: relative;
-    top: -5px;
-}
-
 .small {
     font-size: 2vw;
 }
 
-/* Navbar elements */
-
-
-
-#newgame {
-    background: black;
-    padding: 4px 12px;
-    margin: 0px;
-text-align: center;
-text-shadow: 0 0 0px #fff, 0 0 5px #ff4da6, 0 0 10px #ff4da6, 0 0 20px #ff4da6, 0 0 20px #ff4da6, 0 0 20px #ff4da6, 0 0 30px #ff4da6;
-border: #a0adbe 1px solid;
-position: relative;
-top: -5px;
-
-}
-
-#newgame:hover {
-    text-shadow: 0 0 0px #fff, 0 0 0px;
-    border: #ff4da6 1px solid;
-}
-
-#newgame:active {
-    color: black;
-
-}
-
-.info-text {
-    color: #fff;
-    text-align: center;
-}
+/* Navbar */
 
 #logo {
     font-size: 1.5rem;
     z-index: 20;
-    margin-bottom: 0;
-    /* display: inline-block; */
+    margin: 0;
     float: left;
-}
-
-#game-container, #user-game-container {
-    width: 80%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin: auto;
-    background-color: black;
-    border: #a0adbe 1px solid;
-    padding-bottom: 6px;
-    border-radius: 2%;
-}
-
-#game-container {
-        width: 67%;
-    margin: 0px auto 10px auto; 
-    top: 50px;
-}
-
-
-
-.cell {
-    width: 31%;
-    padding-bottom: 30%;
-    margin-bottom: 3%;
-  position: relative;
-background-color:#aad9cd;
-border-radius: 5%;
-/* Prio-soft via Code Pen */
-  border-color: #aab9cd;
-  color: #fff;
-  box-shadow: 0 0 25px 8px #aab9cd inset, 0 0 0 0 #aab9cd;
-  -webkit-transition: all 50ms ease-in-out;
-  transition: all 50ms ease-in-out;
-  /* end credit */
-}
-.cell:hover {
-  box-shadow: 0 0 10px 0 #aab9cd , 0 0 10px 0px #aab9cd;
-}
-
-.cell:active {
-    background-color: black;
-}
-
-.display-box {
-    display: inline-block;
-    height: 20px;
-    width: 20px;
-    margin: 0 10px;
-    font-size: 7vw;
-    color: white;
-}
-
-.number-container {
-    display: flex;
-    justify-content: center;
+    border: white 0.5px dashed;
+    border-radius: 10%;
+    padding: 0px 3px 3px 3px;
     position: relative;
-    height: 100%;
-}
-
-.number {
-    position: absolute;
-    top: 0.5rem;
-    display: block;
-    padding: 0;
-    font-size: 200%;
-    font-weight: 700;
-    
-}
-
-
-
-footer {
-    /* position: fixed; */
-    /* bottom: 0px; */
-    width: 100%;
-    height: 70px;
-    color: #a0adbe;
-    
-    /* background-color: #aab9cd; */
-}
-
-footer p { 
-    line-height: 1rem;
-    margin: 0;
-    text-align: center;
-    font-size: 0.7rem;
-}
-
-
-
-
-.info {
-    margin: 20px 0;
-}
-
-.cell-glow {
-  box-shadow: 0 0 10px 0 #fff inset, 0 0 10px 4px #fff !important;
-}
-
-.cell-glow-blue {
-  box-shadow: 100px 100px 100px 100px rgb(0, 238, 255) inset, 0 0 50px 4px rgb(0, 238, 255) !important;
-}
-
-.cell-glow-pink {
-  box-shadow: 100px 100px 100px 100px rgb(255, 14, 134) inset, 0 0 85px 4px rgb(255, 14, 134) !important;
-}
-
-.cell-glow-green {
-  box-shadow: 100px 100px 100px 100px rgb(22, 255, 1) inset, 0 0 50px 4px rgb(22, 255, 1) !important;
-}
-
-/* Glow Effect from W3 Schools */
-
-.glow {
-  color: #fff;
-  -webkit-animation: glow 0.8s ease-in-out infinite alternate;
-  -moz-animation: glow 0.8s ease-in-out infinite alternate;
-  animation: glow 0.8s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-  from {
-    text-shadow: 0 0 0px #fff, 0 0 5px #fff, 0 0 7px #e60073, 0 0 9px #e60073, 0 0 11px #e60073, 0 0 15px #e60073, 0 0 20px #e60073;
-  }
-  to {
-    text-shadow: 0 0 0px #fff, 0 0 5px #ff4da6, 0 0 10px #ff4da6, 0 0 20px #ff4da6, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6;
-  }
-}
-
-
-.instr {
-    color: #fff;
-    text-align: center;
-    white-space: nowrap;
-    margin: auto;
-    line-height: 1.2rem;
-}
-
-
-
-.container-0m {
-      position: static;
-    top: 0;
-    left: 0;
-    display: block;
-    margin: auto;
-    padding: 20px 0;
-    /* max-width: 90vw; */
-}
-
-@media (orientation: portrait) {
-    .instr-lower {
-    display: none;
-}
-.m10 {
-    margin-bottom: 6px;
-}
-}
-
-@media (orientation: landscape) {
-.m10 {
-    margin-bottom: 10px;
-}
-    .instr-lower {
-    display: block;
-    color: #fff;
-    margin: 25px auto;
-    padding: 0;
-    text-align: center;
-}
-
-    .landscape-element {
-        display: inline;
-    }
-
-        .stack {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    height: 100%;
-    text-align: center;
-}
-.display-box {
-    display: inline-block;
-    height: 20px;
-    width: 20px;
-    margin: 0 10px;
-    font-size: 2vw;
-    color: white;
-}
-
-#game-container, #user-game-container {
-    position: static;
-    display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-padding-top: 10px;
-padding-left: 10px;
-padding-right: 10px;
-    margin: 0 auto;
-    background-color: black;
-border: #aab9cd 1px solid;
-padding-bottom: 0px;
-border-radius: 2%;
-width: 50%;
-}
-
-#game-container {
-    margin: 0 auto; 
-    top: 50px;
-}
-
-#user-game-container {
-    position: relative;
-    top: -5px;
-}
-
-.instr {
-    display: none;
-}
-
-.info {
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-}
-
-.center{
-    /* color: black; */
-    /* z-index: 15; */
-    position: static;
-    top: 0;
-    left: 0;
-    display: flex;
-padding: 0;
-    margin: 0 auto;
-    max-width: 90vw;
-}
-#newgame {
-    font-size: 1.7rem;
-}
-
-#logo {
-    font-size: 2.5rem;
-    font-family: 'Righteous', cursive;
-}
-
-
-
-.center-text {
-    text-align: center;
-    padding: 0;
-    margin: 0;
-    flex: 0 0 0%;
-    max-width: 100%;
+    bottom: 5px;
 }
 
 .slim-nav {
     height: 60px;
-}
-
-
-
-.center {
-    padding: 15px;
-    border: #a0adbe 1px solid;
-    border-radius: 0.7rem;
-}
-
-.instr-2 {
-       color: #fff;
-    font-size: 1.5rem;
-
-    align-content: center;
-
-}
-
-}
-
-.instr-l {
-    white-space: nowrap;
-   text-align: left;
-   /* margin: 0 0 0 1px; */
-    padding-left: 3px;
-    position: relative;
-    bottom: 14px;
-            background-color: black;
-}
-
-.instr-r {
- white-space: nowrap;
-   text-align: right;
-   margin: 0;
-    padding-right: 3px;
-    position: relative;
-    bottom: 14px;
-        background-color: black;
-}
-
-.instr-c {
-    margin: 0;
-    padding: 0;
-}
-
-@media only screen  
-  and (max-device-width: 812px) 
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: landscape) { 
-
-
-
-.slim-nav {
-    height: 40px;
-}
-#logo {
-        display: block;
-    margin: 0 auto;
-    text-align: center;
-}
-
-#newgame {
-    font-size: 1rem;
-}
-
-#logo p {
-    display: inline;
-    padding: 10px;
-    position: relative;
-    background: black;
-}
-
-.instr-2 {
-    font-size: 0.9rem;
-    margin: 0 auto;
-    
-}
-
-.container-0m p {
-    display: flex;
-    margin: 0 auto;
-    max-width: 90%;
-    padding: 0 20px;
-    max-width: 90vw;
-}
-}
-
-/* jQuery Toggle Styles */
-
-.light-theme {
-    background-color: rgb(255, 253, 253) !important;
-    color: rgb(131, 131, 131) !important;
-    text-shadow: none !important;
-}
-
-.hard-mode {
-    background-color: inherit;
-    border-color: inherit;
-    box-shadow: none;
-    color: inherit;
+    padding-left: 8px;
 }
 
 /* Toggle switch. credit w3schools */
+
+.toggles {
+    display: flex;
+    justify-items: flex-end;
+}
 label {
     color: #fff;
     
@@ -506,6 +117,325 @@ input:checked + .slider:before, input:checked + .slider-2:before {
   border-radius: 50%;
 }
 
+/* Central controls & info */
+
+.instr {
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    margin: auto;
+    line-height: 1.2rem;
+}
+
+.info {
+    margin: 20px 0;
+}
+
+.info-score, .info-round {
+    position: relative;
+    top: -5px;
+}
+
+.info-text {
+    color: #fff;
+    text-align: center;
+}
+
+.display-box {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    margin: 0 10px;
+    font-size: 7vw;
+    color: white;
+}
+
+#newgame {
+    background: black;
+    padding: 4px 12px;
+    margin: 0px;
+    text-align: center;
+    text-shadow: 0 0 0px #fff, 0 0 5px #ff4da6, 0 0 10px #ff4da6, 0 0 20px #ff4da6, 0 0 20px #ff4da6, 0 0 20px #ff4da6, 0 0 30px #ff4da6;
+    border: #a0adbe 1px solid;
+    position: relative;
+    top: -5px;
+}
+
+#newgame:hover {
+    text-shadow: 0 0 0px #fff, 0 0 0px;
+    border: #ff4da6 1px solid;
+}
+
+#newgame:active {
+    color: black;
+}
+
+/* Gamepads */
+
+#game-container, #user-game-container {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: auto;
+    background-color: black;
+    border: #a0adbe 1px solid;
+    padding-bottom: 6px;
+    border-radius: 2%;
+}
+
+#game-container {
+    width: 67%;
+    margin: 0px auto 10px auto; 
+    top: 50px;
+}
+
+.cell {
+    width: 31%;
+    padding-bottom: 30%;
+    margin-bottom: 3%;
+    position: relative;
+    background-color:#aad9cd;
+    border-radius: 5%;
+/* Prio-soft via Code Pen */
+    border-color: #aab9cd;
+    color: #fff;
+    box-shadow: 0 0 25px 8px #aab9cd inset, 0 0 0 0 #aab9cd;
+    -webkit-transition: all 50ms ease-in-out;
+    transition: all 50ms ease-in-out;
+/* end credit */
+}
+
+.cell:hover {
+  box-shadow: 0 0 10px 0 #aab9cd , 0 0 10px 0px #aab9cd;
+}
+
+.cell:active {
+    background-color: black;
+}
+
 .grey-cells {
     background-color: #aab9cd;
+}
+
+/* These classes control the colour and depth of cell flashes during gameplay. They are referenced directly in the showCircle() function */
+
+.cell-glow {
+    box-shadow: 0 0 10px 0 #fff inset, 0 0 10px 4px #fff !important;
+}
+
+.cell-glow-blue {
+    box-shadow: 100px 100px 100px 100px rgb(0, 238, 255) inset, 0 0 50px 4px rgb(0, 238, 255) !important;
+}
+
+.cell-glow-pink {
+    box-shadow: 100px 100px 100px 100px rgb(255, 14, 134) inset, 0 0 85px 4px rgb(255, 14, 134) !important;
+}
+
+.cell-glow-green {
+    box-shadow: 100px 100px 100px 100px rgb(22, 255, 1) inset, 0 0 50px 4px rgb(22, 255, 1) !important;
+}
+
+/* CREDIT: Glow Effect code found on W3 Schools website */
+.glow {
+    color: #fff;
+    -webkit-animation: glow 0.8s ease-in-out infinite alternate;
+    -moz-animation: glow 0.8s ease-in-out infinite alternate;
+    animation: glow 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 0px #fff, 0 0 5px #fff, 0 0 7px #e60073, 0 0 9px #e60073, 0 0 11px #e60073, 0 0 15px #e60073, 0 0 20px #e60073;
+        }
+    to {
+        text-shadow: 0 0 0px #fff, 0 0 5px #ff4da6, 0 0 10px #ff4da6, 0 0 20px #ff4da6, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6;
+    }
+}
+/* End credit */
+
+.number-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 100%;
+}
+
+.number {
+    position: absolute;
+    top: 0.5rem;
+    display: block;
+    padding: 0;
+    font-size: 200%;
+    font-weight: 700; 
+}
+
+/* Footer */
+
+footer {
+    width: 100%;
+    height: 70px;
+    color: #a0adbe;
+}
+
+footer p { 
+    line-height: 1rem;
+    margin: 0;
+    text-align: center;
+    font-size: 0.7rem;
+}
+
+.double-line {
+    border-bottom: #a0adbe 0.2px solid;
+    margin: 10px;
+}
+
+/* Media Queries */
+
+/* Portrait specific */
+@media (orientation: portrait) {
+    .instr-lower {
+        display: none;
+}
+
+    .m10 {
+        margin-bottom: 6px;
+}
+}
+
+/* Landscape general */
+@media (orientation: landscape) {
+
+/* General & Utility */
+.center {
+    display: flex;
+    padding: 15px;
+    border: #a0adbe 1px solid;
+    border-radius: 0.7rem;
+}
+
+.center-text {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    flex: 0 0 0%;
+    max-width: 100%;
+}
+
+.m10 {
+    margin-bottom: 10px;
+}
+
+/* Navbar */
+.slim-nav {
+    height: 60px;
+}
+
+#logo {
+    font-size: 2.5rem;
+    font-family: 'Righteous', cursive;
+}
+
+/* Controls & Information */
+#newgame {
+    font-size: 1.7rem;
+}
+
+.instr-lower {
+    display: block;
+    color: #fff;
+    margin: 10px auto;
+    padding: 0;
+    text-align: center;
+}
+
+.instr {
+    display: none;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    text-align: center;
+}
+
+.display-box {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    margin: 0 10px;
+    font-size: 2vw;
+    color: white;
+}
+
+.landscape-element {
+    display: inline;
+}
+
+/* Gamepads */
+#game-container, #user-game-container {
+    padding-bottom: 0px;
+    width: 50%;
+    margin: 0 auto; 
+    top: 50px;
+}
+}
+
+/* iPad portrait-specific */
+@media only screen 
+and (min-device-width: 481px) 
+and (max-device-width: 1024px) 
+and (orientation:portrait) {
+
+#game-container, #user-game-container {
+    width: 60%;
+}
+}
+
+/* Mobile landscape view */
+@media only screen  
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) { 
+
+.slim-nav {
+    height: 40px;
+}
+
+#logo {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#newgame {
+    font-size: 1rem;
+}
+}
+
+/* jQuery Toggle Styles */
+
+.light-theme {
+    background-color: rgb(255, 253, 253) !important;
+    color: rgb(131, 131, 131) !important;
+    text-shadow: none !important;
+}
+
+.hard-mode {
+    background-color: inherit;
+    border-color: inherit;
+    box-shadow: none;
+    color: inherit;
 }
