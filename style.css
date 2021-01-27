@@ -8,6 +8,8 @@ body {
 a {
     text-decoration: none;
     color: inherit;
+    font-size: larger;
+    margin: 5px;
 }
 
 a:hover {
@@ -135,6 +137,8 @@ input:checked + .slider:before, input:checked + .slider-2:before {
     white-space: nowrap;
     margin: auto;
     line-height: 1.2rem;
+        position: relative;
+    bottom: 10px;
 }
 
 .info {
@@ -143,12 +147,13 @@ input:checked + .slider:before, input:checked + .slider-2:before {
 
 .info-score, .info-round {
     position: relative;
-    top: -5px;
+    bottom: 15px;
 }
 
 .info-text {
     color: #fff;
     text-align: center;
+    line-height: 1.2rem;
 }
 
 .display-box {
@@ -201,6 +206,11 @@ input:checked + .slider:before, input:checked + .slider-2:before {
     width: 67%;
     margin: 0px auto 10px auto; 
     top: 50px;
+}
+
+#user-game-container {
+    position: relative;
+    bottom: 20px;
 }
 
 .cell {
@@ -276,7 +286,7 @@ input:checked + .slider:before, input:checked + .slider-2:before {
 
 .number {
     position: absolute;
-    top: 0.5rem;
+    top: 0.2rem;
     display: block;
     padding: 0;
     font-size: 200%;
@@ -334,6 +344,7 @@ display: block;
     padding: 15px;
     border: #a0adbe 1px solid;
     border-radius: 0.7rem;
+    margin-top: 10px;
 }
 
 .center-text {
@@ -381,6 +392,11 @@ display: block;
     width: 30%;
 }
 
+.info-score, .info-round {
+    position: static;
+    /* bottom: 15px; */
+}
+
 .stack {
     display: flex;
     flex-direction: column;
@@ -395,7 +411,7 @@ display: block;
     height: 20px;
     width: 20px;
     margin: 0 10px;
-    font-size: 2vw;
+    font-size: 3vw;
     color: white;
 }
 
@@ -411,13 +427,14 @@ display: block;
     top: 50px;
 }
 
+#user-game-container {
+    position: static;
+
+}
+
 #form {
 max-width: 60%;
 }
-
-
-
-
 
 }
 
@@ -427,8 +444,23 @@ and (min-device-width: 481px)
 and (max-device-width: 1024px) 
 and (orientation:portrait) {
 
+#logo {
+    font-size: 2.5rem;
+    margin-top: 5px;
+}
+
 #game-container, #user-game-container {
-    width: 60%;
+    width: 57%;
+}
+
+#user-game-container {
+    position: relative;
+    bottom: 10px;
+}
+
+.instr {
+    position: relative;
+    bottom: 10px;
 }
 
 }
@@ -444,13 +476,15 @@ and (orientation:portrait) {
 }
 
 #logo {
-    display: block;
-    margin: 0 auto;
-    text-align: center;
+    font-size: 1.5rem;
 }
 
 #newgame {
     font-size: 1rem;
+}
+
+.center {
+    padding: 7px;
 }
 }
 
