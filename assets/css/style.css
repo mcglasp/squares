@@ -83,7 +83,7 @@ label {
   height: 0;
 }
 
-.slider, .slider-2 {
+.slider, .slider-2, .slider-3 {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -95,7 +95,7 @@ label {
   transition: .4s;
 }
 
-.slider:before, .slider-2:before {
+.slider:before, .slider-2:before, .slider-3:before {
   position: absolute;
   content: "";
   height: 13px;
@@ -107,25 +107,25 @@ label {
   transition: .4s;
 }
 
-input:checked + .slider, input:checked + .slider-2 {
+input:checked + .slider, input:checked + .slider-2, input:checked + .slider-3 {
   background-color: #ff4da6;
 }
 
-input:focus + .slider, input:focus + .slider-2 {
+input:focus + .slider, input:focus + .slider-2, input:focus + .slider-3 {
   box-shadow: 0 0 1px #ff4da6;
 }
 
-input:checked + .slider:before, input:checked + .slider-2:before {
+input:checked + .slider:before, input:checked + .slider-2:before, input:checked + .slider-3:before {
   -webkit-transform: translateX(17px);
   -ms-transform: translateX(17px);
   transform: translateX(17px);
 }
 
-.slider.round, .slider-2.round {
+.slider.round, .slider-2.round, .slider-3.round {
   border-radius: 34px;
 }
 
-.slider.round:before, .slider-2.round:before {
+.slider.round:before, .slider-2.round:before, .slider-3.round:before {
   border-radius: 50%;
 }
 
@@ -259,22 +259,36 @@ input:checked + .slider:before, input:checked + .slider-2:before {
     box-shadow: 100px 100px 100px 100px rgb(22, 255, 1) inset, 0 0 50px 4px rgb(22, 255, 1) !important;
 }
 
+.cell-glow-blue:active {
+    box-shadow: 100px 100px 100px 100px rgb(0, 238, 255) inset, 0 0 50px 4px rgb(0, 238, 255) !important;
+}
+
+.cell-glow-pink:active {
+    box-shadow: 100px 100px 100px 100px rgb(255, 14, 134) inset, 0 0 85px 4px rgb(255, 14, 134) !important;
+}
+
+.cell-glow-green:active {
+    box-shadow: 100px 100px 100px 100px rgb(22, 255, 1) inset, 0 0 50px 4px rgb(22, 255, 1) !important;
+}
+
 /* CREDIT: Glow Effect code found on W3 Schools website */
 .glow {
     color: #fff;
-    -webkit-animation: glow 0.8s ease-in-out infinite alternate;
+    /* -webkit-animation: glow 0.8s ease-in-out infinite alternate;
     -moz-animation: glow 0.8s ease-in-out infinite alternate;
-    animation: glow 0.8s ease-in-out infinite alternate;
+    animation: glow 0.8s ease-in-out infinite alternate; */
+            text-shadow: 0 0 0px #fff, 0 0 5px #ff4da6, 0 0 10px #ff4da6, 0 0 20px #ff4da6, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6;
+
 }
 
-@keyframes glow {
+/* @keyframes glow {
     from {
         text-shadow: 0 0 0px #fff, 0 0 5px #fff, 0 0 7px #e60073, 0 0 9px #e60073, 0 0 11px #e60073, 0 0 15px #e60073, 0 0 20px #e60073;
         }
     to {
         text-shadow: 0 0 0px #fff, 0 0 5px #ff4da6, 0 0 10px #ff4da6, 0 0 20px #ff4da6, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6;
     }
-}
+} */
 /* End credit */
 
 .number-container {
@@ -313,7 +327,7 @@ footer p {
     margin: 10px;
 }
 
-#form {
+#form-display {
 margin: 10px auto 40px auto;
 display: block;
     max-width: 80%;
