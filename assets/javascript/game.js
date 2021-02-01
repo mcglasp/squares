@@ -267,9 +267,15 @@ $('.slider-2').click(function() {
 // Toggle game and user input sounds on and off
 
 function soundsToggle() {
+    window.addEventListener
     soundsOn =! soundsOn;
     console.log(soundsOn);
 }
+
+const sound = document.querySelector('audio');
+  const button = document.querySelector('input');
+  button.addEventListener('click', e => sound.play());
+
 
   window.addEventListener("DOMContentLoaded", function() {
 
