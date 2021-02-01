@@ -22,36 +22,38 @@ There are a great many competitors in the market, of course, the most obvious am
 
 ### **Two Dots**
 
-An addictive puzzle game, Two Dots requires the player to match adjacent sequences of coloured dots to clear them from the board and meet a round-specific challenge. It's extremely accesible, with a gentle learning curve offers quick-to-access gameplay. However, as you progress, it does become significantly more challenging and strategy-based, making it less suitable for 5-minute, ad-hoc gameplay.
+An addictive puzzle game, Two Dots requires the player to match adjacent sequences of coloured dots to clear them from the board and meet a round-specific challenge. It's extremely accesible, with a gentle learning curve offers quick-to-access gameplay. However, as you progress, it does become significantly more challenging and strategy-based, making it less suitable for 5-minute, ad-hoc gameplay. If I had to say anything negative about this game, it would be that, over time, the developers have added more and more pre-game distraction, which you are forced to interact with before you are able to access any game-play. For example, bonus games and offers; none of this are you forced to participate in, but considerable interaction is required simply to cancel these features.
 
-![Screenshot of Two Dots game](readme-assets/two-dots.jpeg)
+<img src="readme-assets/two-dots.jpeg" alt="Screenshot of Two Dots game" width="50%">
+<!-- ![Screenshot of Two Dots game](readme-assets/two-dots.jpeg) -->
+<!--  -->
 
 ## **SCOPE**
 
-My project does not aim to compete with established apps as are mentioned above, which offer significant and deep levels of gameplay, building on years of development. The aim with this project is to create a simple puzzle game which could form the basis of a far larger development project in future. My game will work well, entertain the user, give the user what they're looking for (easy and quick access to simple gameplay), be simple to interact with and visually appealling. The feature list will therefore necessarily be far more conservative than a website project:
+My project does not aim to compete with established app as are mentioned above, which offers significant and deep levels of gameplay, building on years of development. The aim with this project is to create a simple puzzle game which could form the basis of a far larger development project in future. My game will work well, entertain the user, give the user what they're looking for (easy and quick access to simple gameplay), be simple to interact with and visually appealling. The feature list will therefore necessarily be far more conservative than a website project:
 
 ### **Possible game features**
 
-| Feature | Feasibility | Importance
----|------------------|---------
-| Simply puzzle game | 1 | 1
-| Progression through levels based on success, with increasing difficulty | 2 | 2
-| Top-score storage/player-acheivement memory | 2 | 2
-| Touchscreen interactivity | 1 | 1
-| Desktop (mouse/trackpad) interactivity | 1 | 1
-| Desktop (keyboard) interactivity | 2 | 3
-| Level-dependent design elements | 1 | 3
-| Global scoreboard | 5 | 5
-| Interaction with other players | 5 | 5
-| Live multiplayer challenges | 5 | 5
-| Bonus rounds (dependent on level acheived, or seasonal) | 3 | 4
+|  | Feature | Feasibility | Importance
+----|---|------------------|---------
+| a | Simply puzzle game | 1 | 1
+| b | Progression through levels based on success, with increasing difficulty | 2 | 2
+| c | Top-score storage/player-acheivement memory | 2 | 2
+| d | Touchscreen interactivity | 1 | 1
+| e | Desktop (mouse/trackpad) interactivity | 1 | 1
+| f | Desktop (keyboard) interactivity | 2 | 3
+| g | Level-dependent design elements | 1 | 3
+| h | Global scoreboard | 5 | 5
+| i | Interaction with other players | 5 | 5
+| j | Live multiplayer challenges | 5 | 5
+| k | Bonus rounds (dependent on level acheived, or seasonal) | 3 | 4
 
 ### **Site/homepage features**
-Feature|Feasibility|Importance
----|------------------|---------
-|Developer contact information|1|1
-|Header/footer|1|1
-|Links to sister sites/games|3|5
+| |Feature|Feasibility|Importance
+|---|---|------------------|---------
+| l | Developer contact information|1|1
+| m | Header/footer|1|1
+| n | Links to sister sites/games|3|5
 
 ![Feasibility graph](readme-assets/feasibility-graph.png)
 
@@ -72,21 +74,24 @@ Given the simplicity of this game, and the simple aims of the app as a whole, th
 
 ### **Initial wireframes**
 
-![Initial mobile-view wireframe](readme-assets/mobile-initial.png)
+<!-- ![Initial mobile-view wireframe](readme-assets/mobile-initial.png) -->
+<img src="readme-assets/mobile-initial.png" alt="Initial mobile-view wireframe" width="50%">
 
 The mobile version will take priority as this is far more likely to be played via this medium. Two layouts of shapes (in this case, dots!) will be presented on screen. The top will be the game display grid, and the lower grid will be for user input; for the player to match the sequence. Separating the game display from the user input grid has two advantages: 
 - firstly, as the player rises through the levels, the number and speed of 'flashes' increases. This allows the user to match the sequence on their own grid while the top grid is still in the process of displaying the sequence to be matched above. This would not be necessary in early levels, but may become a necessary strategy as difficult increases. Were there to be just one single grid, the user would be obscuring the still-displaying game sequence.
 - secondly, a single grid would take up far more screen space. It is expected that a user will hold their device in one hand and input the sequence with their thumb. On a number of popular devices (the iPhone X and 'plus' versions of the 7 & 8, for example, plus a number of the larger-screened Android devices) it is not possible for the user to easily reach the upper portion of the screen with their thumb, without the risk of dropping the device. Indeed, 'reachability' is now a native feature of many touchscreen operating systems. A single, larger, gameplay grid would suffer from the problems addressed by such reachability features, but it would neither be practical nor appropriate to attempt to implement such a feature in this game. A far better solution is to separate the game into a read-only grid at the top, and a user-input grid at the bottom, within easy reach of the player's thumb!
 
-![Initial desktop-view wireframe](readme-assets/desktop-initial.png)
+<!-- ![](readme-assets/desktop-initial.png) -->
+<img src="readme-assets/desktop-initial.png" alt="Initial desktop-view wireframe" width="70%">
 
 The desktop version, as can be seen in the wireframe, converts to a landscape view, with the game grid on the left and the player grid on the right. This is far more appropriate a layout for a desktop or laptop screen and the left-right information flow makes sense to the likely Western userbase of the app.
 
 ### **Updated wireframes**
 
 A few additions and changes were made to the structure of both mobile and desktop versions after initial development.
-![Updated mobile-view wireframe](readme-assets/mobile-updated.png)
-![Updated desktop-view wireframe](readme-assets/desktop-updated.png)
+<!-- ![Updated mobile-view wireframe](readme-assets/mobile-updated.png) -->
+<img src="readme-assets/mobile-updated.png" alt="Updated mobile-view wireframe" width="39%">  <img src="readme-assets/desktop-updated.png" alt="Updated desktop-view wireframe" width="59%">
+<!-- ![Updated desktop-view wireframe](readme-assets/desktop-updated.png) -->
 
 - The 'dots' became squares. This was a design decision and is discussed in greater detail in the Surface section.
 - A start button and permanently displayed instructions were added. Initially the game started on page refresh, which was clunky UX, to say the least!
@@ -96,13 +101,16 @@ A few additions and changes were made to the structure of both mobile and deskto
 
 I played with a few design ideas before settling on the final concept. I started with simple red-on-white circles — hence the working title 'Sudden Dots' and even experimented with a grid of appearing and disappearing Fontawesome icons. Eventually, however, I took inspiration from music technology and based the design on the popular and iconic designs of MIDI controllers for digital audio workstations. Inspiration for this was taken from hardware such as Novation's Launchpad or Akai's control surfaces. The 'glow' you get from the pads worked well against the black background and the grid layout was precisely what was needed for this game.
 
-### Novation Launchpad
+### Novation Launchpad & Game Pad Design
 
-![Novation Launchpad](readme-assets/novation-launchpad.png)
+<!-- ![Novation Launchpad](readme-assets/novation-launchpad.png) -->
+<img src="readme-assets/novation-launchpad.png" alt="Novation Launchpad" width="48%"> <img src="readme-assets/game-pad.png" alt="Game pad design" width="50%">
 
-### Game Pad Design
+*Left: Novation Launchpad design. Right: Squares game pad design. The design of products such as Novation's Launchpad MIDI DAW controller heavily influenced my design and behaviour for the game pad*
 
-![Game pad design](readme-assets/game-pad.png)
+
+
+<!-- ![Game pad design](readme-assets/game-pad.png) -->
 
 Sounds: the implementation of sounds risked becoming an afterthought in this project; in initial development I felt it was more of a 'nice-to-have' than a top priority. However, when testing the game I came to realise that it would be hugely beneficial from a UX/gameplay perspective. specifically, it would help to distinguish between 'flashes' in later levels where the flashes to closer together and the number of them had increased sufficiently to be challenging to recall. Again, inspiration was taken from the aforementioned MIDI control surfaces for the sound design. Although by their nature, these devices do not make sounds themselves, are commissioned the sort of sounds both familiar to users of such devices, and auditorily respresentative of the visual effect, with it's glowing colours and fast, ease-in-out transition. For the user grid I commissioned a slightly more 'musical' version of the sound of someone tapping the square pads of a MIDI control surface.
 
@@ -188,18 +196,103 @@ User Clicks Compromise
 Expected behaviour: endGame should be called if users click too many times, even if their click pattern has included the given game array. Found behaviour: Game only registers the correct user clicks array and does not penalise player for unnecessary extra clicks. Update: further testing shows that the game is registering the clicks against each newly generated random array, but this results in somewhat unsatisfactory behaviour form a UX point-of-view. Specifically, if the user 'over-clicks', the game moves on to the next round, registering the last of the user's clicks against the new round and newly generated array. This results in endGame being called before the user has even entered the full number of clicks, which gives the impression of being a bug.
 
 
-Testing For Adherence To User Stories
+Adherence To User Stories
 
-* "As a working 25-year old I spend a lot of time on public transport... or waiting for it to turn up. I'd like something to occupy me whilst I do that."
+General response to user stories: the app delivers immediate gameplay to the user. There is no noticeable load time nor time-wasting popups. What loads when you first navigate to the app is the game that you can start playing at the touch of a button; there is no need to go anywhere else, answer annoying questions or participate in any interaction that gets in the way of simply playing the game. 
 
-* "As a parent of teenagers, I spend a lot my time running errands; waiting outside friends' houses to pick them up, for example. I always have my phone with me, so something I can do while I'm waiting would be great!"
+SCREEN OF INITIAL LOAD view
 
-* "As a young teen with an iPhone I'm looking for ways to avoid questions from my parents, and games that I can load instantly are a good way to look busy."
+This is the same situation in the desktop view:
 
-Response: the app delivers immediate gameplay to the user. There is no load time or time-wasting popups. Sounds must be enabled by the user, so the game is suitable to be played in public or in quiet environments.
+SCREEN INITIAL VIEW DESKTOP
+
+* "As a working 25-year old I spend a lot of time on public transport... or waiting for it to turn up. I'd like something to occupy me whilst I do that. As such it shouldn't be too challenging, but I get bored easily, so I'd like to choose how hard to make it!"
+
+A hard-mode toggle removes the cell borders, making the whole pad the same colour as the background (either light or dark, depending on chosen theme.) This makes detecting which cell has flashed and matching that on the user pad below more difficult.
+
+HARD MODE TOGGLE SCREENSHOT AND MODE SCREENS
+
+* "As a parent of teenagers, I spend a lot my time running errands; waiting outside friends' houses to pick them up, for example. I always have my phone with me, so something I can do while I'm waiting would be great! I'm usually in the car and it's usually late, so please don't make it too blinding to look at!"
+
+Users can toggle between the dark theme and the light theme, depending on their preference.
+
+THEME TOGGLE AND SCREENS
+
+* "As a young teen with an iPhone I'm looking for ways to avoid questions from my parents, and games that I can load instantly are a good way to look busy. It definitely shouldn't be too obvious that I'm playing a game, so sounds that I can't control are a no-no!"
+
+Sounds must be enabled by the user via the toggle, so the game is suitable to be played in public or in quiet environments.
+SOUNDS TOGGLE SCREENSHOT
+
+Comments on top-priority MVP features
+
+<!-- | Simply puzzle game | 1 | 1 -->
+The top priority was to develop a simply puzzle game, which has been acheived, but I'll go into more detail on the subject of other priorities identified at the scope stage of development.
+| Progression through levels based on success, with increasing difficulty | 2 | 2
+
+The following functions address this: 
+
+levelUp(); this increments the score variable, which in turn has an effect on other UX elements, such as the textual feedback given. Crucially, it also increments the number of flashes that make up the sequence to be matched by the user. It also calls a number of resetting functions vital to gameplay progression.
+reduceFlashGap() shortens the setTimeout between flashes shown to the user, making the whole sequence appear faster and faster as the user progresses through the game.
+
+| Top-score storage/player-acheivement memory | 2 | 2
+
+| Touchscreen interactivity | 1 | 1
+| Desktop (mouse/trackpad) interactivity | 1 | 1
+
+The game works equally well through both touchscreen and mouse interaction. Having said this, I would argue that the game is harder and less satisfying to play when a mouse os used as it creates an extra barrier between the game and the user. Keyboard interaction could be the answer to this, but is currently a feature marked for future development.
+
+|Developer contact information|1|1
+|Header/footer|1|1
+
 
 ## **Existing bugs & issues**
 
 Much of the work on responsiveness with regard to the front-end design of this project was done using Chrome's Developer Tools. A considerable amount of work went into adjusting the design to work across all popular platforms, including iPhone, iPad, desktop, laptop and a number of Android devices. These were working all working well on the Chrome Developer Tools, but when double-checked using the websites responsinator.com and ami.responsivedesign.is both showed that the game pads were disappearing below the initial viewport on a number of devices, but were appearing too close to the top of desktop and laptop screens. I rearranged a number of elements to take this into account and pushed the project to github again, reloaded the app on the aforementioned websites and found that they were now mostly working perfectly well on these viewports. However, the iPad view still displayed considerable cut-off at the bottom of the screen. I manually checked this on a 2019 10.7-inch iPad and found that it was actually perfectly visible on the device itself.
 
 On one or two occassions during the build I found that the cells would grey and, whilst I could enable a new game, they would not light again, but stay grey. I tested this extensively but have not yet been able to find a combination of clicks or gameplay that reproduces the behaviour.
+
+## Deployment
+The site was deployed directly from the Github repository, using Github Pages.
+
+To deploy the site, it was necessary to undertake the following steps:
+
+* Access the repository at https://github.com/mcglasp/squares
+* Click on the repository settings
+* First ensure that the name of the repository is satisfactory and appropriate to be used as the URL for the live site
+* Scroll to the Github Pages section
+* Select the master branch as the source and the /root folder
+* Save
+* Navigate to the newly created URL (as per the name of the repository or custom domain) and ensure that the live site displays as expected and identically to the preview version. Test interactive elements to ensure adhesion to the site when in development
+
+## Online Resources
+I used the online resources below for general guidance and solutions to specific problems. Specific coding solutions are also signposted in HTML, CSS and Javascript comments.
+
+Code Institute Full Stack Development course material, mentor and tutors.
+Slack community (specific solutions to coding problems and general guidance)
+Stack Overflow website (specific solutions to coding problems)
+CSS-tricks (specific solutions to coding problems)
+Codepen (specific solutions to coding problems)
+W3 Schools (specific code examples and tutorials)
+The Responsinator (check responsiveness)
+AmIResponsive (check responsiveness)
+Autoprefixer CSS online (increase compatibility across browsers)
+Jigsaw and W3 Schools (code validators)
+Google Chrome (development tools)
+Webaim.org (accessibility guidance)
+favicon.io (favicon generator)
+
+## Acknowledgements
+
+I would like to thank my mentor, Antonia Rodriguez, for his guidance, patience and good humour during the development of the project. He was generous with his time and knowledge and significantly contributed to my understanding of the core concepts required to build this app.
+
+The following Stack Overflow users gave their time and expertise, as well as helping with specific code difficulties, as credited in the code:
+
+* technophyle
+* Lemondoge
+* Ben.S
+* tghw
+* clod9353
+* Allan Wind
+* Daniel Beck
+
+The W3 Schools website was, as always, a superb resource.

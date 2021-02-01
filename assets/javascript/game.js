@@ -23,7 +23,7 @@ let level = {
 // UX & UI
 let colors = ['blue', 'pink', 'green'];
 let flashAudio = new Audio('assets/audio/sound.mp3');
-let padAudio = new Audio('assets/audio/sound.mp3');
+let padAudio = new Audio();
 let scorebox = document.getElementById("score");
 let roundbox = document.getElementById("round");
 let information = document.querySelectorAll(".info-text");
@@ -170,7 +170,7 @@ function levelUp() {
 }
 
 function reduceFlashGap() {
-    level.gap -= 50
+    level.gap -= 50;
     return level.gap;
 }
 
@@ -204,6 +204,7 @@ function flashSound() {
 }
 }
 function padSound() {
+padAudio.src = 'assets/audio/sound.mp3';
     if (soundsOn == true) {
     padAudio.play();
 }
@@ -267,7 +268,7 @@ $('.slider-2').click(function() {
 // Toggle game and user input sounds on and off
 
 function soundsToggle() {
-    window.addEventListener
+    padAudio.src = 'assets/audio/sound.mp3';
     soundsOn =! soundsOn;
     console.log(soundsOn);
 }
