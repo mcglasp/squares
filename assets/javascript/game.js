@@ -208,7 +208,7 @@ function showRound() {
 //     });
 // }
 // }
-
+window.AudioContext = window.AudioContext || window.webkitAudioContext;
 let audio = new Audio();
 let context = new webkitAudioContext();
 let analyser = context.createAnalyser();
