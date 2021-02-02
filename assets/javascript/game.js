@@ -22,8 +22,8 @@ let level = {
 
 // UX & UI
 let colors = ['blue', 'pink', 'green'];
-// let flashAudio = new Audio();
-// let padAudio = new Audio();
+let flashAudio = new Audio();
+let padAudio = new Audio();
 let scorebox = document.getElementById("score");
 let roundbox = document.getElementById("round");
 let information = document.querySelectorAll(".info-text");
@@ -199,33 +199,21 @@ function showRound() {
     roundbox.innerHTML = level.round;
 }
 
-// function flashSound() {
-//     flashAudio.src = 'assets/audio/sound.mp3';
-//     if (soundsOn == true) {
-//     setTimeout(function () {
-// // Delay of 8ms given to time the sound perfectly with the flash
-//         flashAudio.play(), 8;
-//     });
-// }
-// }
-window.AudioContext = window.AudioContext || window.webkitAudioContext;
-let audio = new Audio();
-let context = new webkitAudioContext();
-let analyser = context.createAnalyser();
-
-window.addEventListener('load', function(e) {
-  let source = context.createMediaElementSource(audio);
-  source.connect(analyser);
-  analyser.connect(context.destination);
-
-
-}, true);
+function flashSound() {
+    flashAudio.src = 'assets/audio/sound.mp3';
+    if (soundsOn == true) {
+    setTimeout(function () {
+// Delay of 8ms given to time the sound perfectly with the flash
+        flashAudio.play(), 8;
+    });
+}
+}
 
 function padSound() {
+    padAudio.src = 'assets/audio/sound.mp3';
     if (soundsOn == true) {
-audio.src = 'assets/audio/sound.mp3';
-audio.autoplay = true;
-    }
+    padAudio.play();
+}
 }
 
 
@@ -263,7 +251,8 @@ function infoText(saySomething) {
         saySomething = `I can't believe this!<br>&nbsp;`;
         last = saySomething;
         break;
-                saySomething = `O... M... G!<br>&nbsp;`;
+    case 300:
+        saySomething = `O... M... G!<br>&nbsp;`;
         last = saySomething;
         break;
     default:
@@ -297,12 +286,14 @@ function soundsToggle() {
 // let localTopScoreName = "myScore";
 
 
-function showTopScore() {
-    if (score > topScore) {
-        localStorage.setItem("topScore", score);      
-    }
-console.log(topScore)
-}
+// function showTopScore() {
+//     if (score > topScore) {
+//         localStorage.setItem("topScore", score);      
+//     }
+//     topScoreEl = document.getElementById('top-score');
+//     topScoreEl.innerHTML = topScore;
+// console.log(topScore)
+// }
 
 
 

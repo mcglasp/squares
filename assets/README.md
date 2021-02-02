@@ -247,6 +247,14 @@ The game works equally well through both touchscreen and mouse interaction. Havi
 
 ## **Existing bugs & issues**
 
+The UX Sounds Saga
+
+For all formats, the game's sound effects were simple to implement and worked well. Tested extensively, I found no delay and they significantly benefitted user interaction and feedback. The problem came with testing on an iOS device.
+
+iOS Device Found Behaviour: the sounds were significantly delayed, frequently didn't play and significantly distorted. After researching the issue I found that iOS disables autoplay until after the first user interaction with a site (an onclick event, for example).
+
+First workaround: To overcome this, I
+
 Much of the work on responsiveness with regard to the front-end design of this project was done using Chrome's Developer Tools. A considerable amount of work went into adjusting the design to work across all popular platforms, including iPhone, iPad, desktop, laptop and a number of Android devices. These were working all working well on the Chrome Developer Tools, but when double-checked using the websites responsinator.com and ami.responsivedesign.is both showed that the game pads were disappearing below the initial viewport on a number of devices, but were appearing too close to the top of desktop and laptop screens. I rearranged a number of elements to take this into account and pushed the project to github again, reloaded the app on the aforementioned websites and found that they were now mostly working perfectly well on these viewports. However, the iPad view still displayed considerable cut-off at the bottom of the screen. I manually checked this on a 2019 10.7-inch iPad and found that it was actually perfectly visible on the device itself.
 
 On one or two occassions during the build I found that the cells would grey and, whilst I could enable a new game, they would not light again, but stay grey. I tested this extensively but have not yet been able to find a combination of clicks or gameplay that reproduces the behaviour.

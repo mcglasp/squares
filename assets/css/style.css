@@ -307,6 +307,12 @@ input:checked + .slider:before, input:checked + .slider-2:before, input:checked 
     font-weight: 700; 
 }
 
+#top-score {
+    height: 3rem;
+    display: block;
+    color: #fff;
+}
+
 /* Footer */
 
 footer {
