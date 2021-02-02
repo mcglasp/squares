@@ -22,14 +22,17 @@ let level = {
 
 // UX & UI
 let colors = ['blue', 'pink', 'green'];
-let flashAudio = new Audio('assets/audio/sound.mp3');
-let padAudio = new Audio();
+// let flashAudio = new Audio();
+// let padAudio = new Audio();
 let scorebox = document.getElementById("score");
 let roundbox = document.getElementById("round");
 let information = document.querySelectorAll(".info-text");
 let endCalled = false;
 let startBtn = document.getElementById("newgame");
 let soundsOn = false;
+let yourTopScore = score;
+let topScore = localStorage.getItem("topScore");
+
 
 
 
@@ -148,6 +151,7 @@ function compareArraysClicks() {
 function endGame() {
     endCalled = true;
     startBtn.disabled = false;
+    showTopScore();
 // Greys out cells when player loses the game to give immediate game-over indication
     jQuery(function($) {
         $(".cell").addClass("grey-cells");
@@ -195,20 +199,36 @@ function showRound() {
     roundbox.innerHTML = level.round;
 }
 
-function flashSound() {
-    if (soundsOn == true) {
-    setTimeout(function () {
-// Delay of 8ms given to time the sound perfectly with the flash
-        flashAudio.play(), 8;
-    });
-}
-}
+// function flashSound() {
+//     flashAudio.src = 'assets/audio/sound.mp3';
+//     if (soundsOn == true) {
+//     setTimeout(function () {
+// // Delay of 8ms given to time the sound perfectly with the flash
+//         flashAudio.play(), 8;
+//     });
+// }
+// }
+
+let audio = new Audio();
+let context = new webkitAudioContext();
+let analyser = context.createAnalyser();
+
+window.addEventListener('load', function(e) {
+  let source = context.createMediaElementSource(audio);
+  source.connect(analyser);
+  analyser.connect(context.destination);
+
+
+}, true);
+
 function padSound() {
-padAudio.src = 'assets/audio/sound.mp3';
     if (soundsOn == true) {
-    padAudio.play();
+audio.src = 'assets/audio/sound.mp3';
+audio.autoplay = true;
+    }
 }
-}
+
+
 
 function infoText(saySomething) {
     if (endCalled === true) {
@@ -243,6 +263,9 @@ function infoText(saySomething) {
         saySomething = `I can't believe this!<br>&nbsp;`;
         last = saySomething;
         break;
+                saySomething = `O... M... G!<br>&nbsp;`;
+        last = saySomething;
+        break;
     default:
         saySomething = last;
     }
@@ -268,58 +291,65 @@ $('.slider-2').click(function() {
 // Toggle game and user input sounds on and off
 
 function soundsToggle() {
-    padAudio.src = 'assets/audio/sound.mp3';
     soundsOn =! soundsOn;
     console.log(soundsOn);
 }
-
-const sound = document.querySelector('audio');
-  const button = document.querySelector('input');
-  button.addEventListener('click', e => sound.play());
+// let localTopScoreName = "myScore";
 
 
-  window.addEventListener("DOMContentLoaded", function() {
-
-    // get the form elements defined in your form HTML above
-    
-    var form = document.getElementById("form");
-    var button = document.getElementById("sendBtn");
-    var status = document.getElementById("form-status");
-
-    // Success and Error functions for after the form is submitted
-    
-    function success() {
-      form.reset();
-      button.style = "display: none ";
-      status.innerHTML = "Thanks!";
+function showTopScore() {
+    if (score > topScore) {
+        localStorage.setItem("topScore", score);      
     }
+console.log(topScore)
+}
 
-    function error() {
-      status.innerHTML = "Oops! There was a problem.";
-    }
 
-    // handle the form submission event
 
-    form.addEventListener("submit", function(ev) {
-      ev.preventDefault();
-      var data = new FormData(form);
-      ajax(form.method, form.action, data, success, error);
-    });
-  });
+
+
+//   window.addEventListener("DOMContentLoaded", function() {
+
+//     // get the form elements defined in your form HTML above
+    
+//     var form = document.getElementById("form");
+//     var button = document.getElementById("sendBtn");
+//     var status = document.getElementById("form-status");
+
+//     // Success and Error functions for after the form is submitted
+    
+//     function success() {
+//       form.reset();
+//       button.style = "display: none ";
+//       status.innerHTML = "Thanks!";
+//     }
+
+//     function error() {
+//       status.innerHTML = "Oops! There was a problem.";
+//     }
+
+//     // handle the form submission event
+
+//     form.addEventListener("submit", function(ev) {
+//       ev.preventDefault();
+//       var data = new FormData(form);
+//       ajax(form.method, form.action, data, success, error);
+//     });
+//   });
   
-  // helper function for sending an AJAX request
+//   // helper function for sending an AJAX request
 
-  function ajax(method, url, data, success, error) {
-    var xhr = new XMLHttpRequest();
-    xhr.open(method, url);
-    xhr.setRequestHeader("Accept", "application/json");
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState !== XMLHttpRequest.DONE) return;
-      if (xhr.status === 200) {
-        success(xhr.response, xhr.responseType);
-      } else {
-        error(xhr.status, xhr.response, xhr.responseType);
-      }
-    };
-    xhr.send(data);
-  }
+//   function ajax(method, url, data, success, error) {
+//     var xhr = new XMLHttpRequest();
+//     xhr.open(method, url);
+//     xhr.setRequestHeader("Accept", "application/json");
+//     xhr.onreadystatechange = function() {
+//       if (xhr.readyState !== XMLHttpRequest.DONE) return;
+//       if (xhr.status === 200) {
+//         success(xhr.response, xhr.responseType);
+//       } else {
+//         error(xhr.status, xhr.response, xhr.responseType);
+//       }
+//     };
+//     xhr.send(data);
+//   }
