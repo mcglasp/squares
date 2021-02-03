@@ -274,22 +274,9 @@ input:checked + .slider:before, input:checked + .slider-2:before, input:checked 
 /* CREDIT: Glow Effect code found on W3 Schools website */
 .glow {
     color: #fff;
-    /* -webkit-animation: glow 0.8s ease-in-out infinite alternate;
-    -moz-animation: glow 0.8s ease-in-out infinite alternate;
-    animation: glow 0.8s ease-in-out infinite alternate; */
-            text-shadow: 0 0 0px #fff, 0 0 5px #ff4da6, 0 0 10px #ff4da6, 0 0 20px #ff4da6, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6;
+    text-shadow: 0 0 0px #fff, 0 0 5px #ff4da6, 0 0 10px #ff4da6, 0 0 20px #ff4da6, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6;
 
 }
-
-/* @keyframes glow {
-    from {
-        text-shadow: 0 0 0px #fff, 0 0 5px #fff, 0 0 7px #e60073, 0 0 9px #e60073, 0 0 11px #e60073, 0 0 15px #e60073, 0 0 20px #e60073;
-        }
-    to {
-        text-shadow: 0 0 0px #fff, 0 0 5px #ff4da6, 0 0 10px #ff4da6, 0 0 20px #ff4da6, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6;
-    }
-} */
-/* End credit */
 
 .number-container {
     display: flex;
@@ -300,17 +287,19 @@ input:checked + .slider:before, input:checked + .slider-2:before, input:checked 
 
 .number {
     position: absolute;
-    top: 0.2rem;
+    top: 0.1rem;
     display: block;
     padding: 0;
-    font-size: 200%;
+    font-size: 180%;
     font-weight: 700; 
 }
 
-#top-score {
-    height: 3rem;
-    display: block;
+.top-score {
+    text-align: left;
+    display: inline-block;
     color: #fff;
+    margin: 0;
+    padding: 10px;
 }
 
 /* Footer */
@@ -333,14 +322,6 @@ footer p {
     margin: 10px;
 }
 
-#form-display {
-margin: 10px auto 40px auto;
-display: block;
-    max-width: 80%;
-}
-
-
-
 /* Media Queries */
 
 /* Portrait specific */
@@ -353,6 +334,12 @@ display: block;
         margin-bottom: 6px;
 }
 
+}
+
+@media only screen and (max-width:290px) {
+    .slim-nav {
+        padding-right: 7px;
+    }
 }
 
 /* Landscape general */
@@ -414,7 +401,6 @@ display: block;
 
 .info-score, .info-round {
     position: static;
-    /* bottom: 15px; */
 }
 
 .stack {
@@ -482,7 +468,6 @@ and (orientation:portrait) {
     position: relative;
     bottom: 10px;
 }
-
 }
 
 /* Mobile landscape view */
@@ -523,7 +508,49 @@ and (orientation:portrait) {
     color: inherit;
 }
 
-.form-field {
-    display: block;
+/* Contact form & full instructions page */
+
+.full-instr-text {
+    text-align: left;
+    color: #fff;
+    margin: auto;
+    padding: 20px;
 }
+
+.full-instr-text p {
+    text-align: left;
+    color: #fff;
+    display: block;
+    margin: 0 auto;
+}
+
+.full-instr-text a {
+    text-align: center;
+    color: #fff;
+    display: block;
+    margin: auto;
+    padding: 20px;
+}
+
+.full-instr-text a:hover {
+    text-decoration: none;
+    color: #ff4da6;
+}
+
+h2.glow {
+    text-align: center;
+    padding: 10px;
+}
+
+#formBtn {
+    display: block;
+    margin: 10px auto;   
+}
+
+#form-status {
+    color: #fff;
+    display: block;
+    margin: 10px auto;  
+}
+
 

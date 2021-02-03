@@ -16,32 +16,39 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="assets/favicon/favicon/site.webmanifest">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
     <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <header class="navbar slim-nav ">
         <h1 id="logo" class="glow">sq</h1>
-        <div class="toggles">
-            <label for="switch"><sup>light theme &nbsp;</sup><label class="switch">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                </label></label>
-        </div>
     </header>
-        <hr class="double-line" />
     <hr class="double-line" />
-<h2 id="hello" class="center-text glow">Say hello!</h2>
-    <div id="form-display" class="container center">
-    <form id="form"
-  action="https://formspree.io/f/mgepdggd"
-  method="POST"
->
-  <input class="mb-3 form-field form-control" type="email" name="email" placeholder="player@youremail.com"/>
-  <textarea class="mb-3 form-field form-control" type="text" name="message" rows="3" placeholder="What's your message?"></textarea>
-  <button class="center-text btn btn-dark" id="formBtn">Submit</button>
-  <p id="form-status"></p>
-</form></div>
+    <hr class="double-line" />
+    <div class="container">
+        <h2 class="glow">How do I play squares?</h2>
+        <div class="full-instr-text">
+            <p class=>When you press the start button the game will begin. A sequence of flashes will begin on pad one.
+                Your job is to copy that sequence on pad two. But watch out, because as the game goes on there will be
+                more flashes, and less time!</p>
+            <a href="index.html" class>~ click to get back to the game! ~</a>
+        </div>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8 center-form">
+                <h2 class="glow">Say hello!</h2>
+                <form id="contactForm" action="https://formspree.io/f/mgepdggd" method="POST">
+                    <input class="form-control form-control-lg mb-2" type="email" name="email"
+                        placeholder="player@youremail.com" />
+                    <textarea class="form-control form-control-lg" type="text" name="message" rows="3"
+                        placeholder="What's your message?"></textarea>
+                    <button class="btn btn-dark" id="formBtn">Submit</button>
+                    <p id="form-status"></p>
+                </form>
+                <div class="col-2"></div>
+            </div>
+        </div>
+    </div>
     <hr class="double-line" />
     <hr class="double-line" />
     <footer>
@@ -50,6 +57,7 @@
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script src="assets/javascript/game.js" type="text/javascript"></script>
+    <script src="assets/javascript/contact.js" type="text/javascript"></script>
 </body>
+
 </html>

@@ -6,6 +6,7 @@ let userClicks = [];
 let iterI = 0;
 let iterJ = 0;
 let iterX = 0;
+let a = 0;
 
 // Empty variables. Required in global scope to be updated by several functions.
 let timer;
@@ -22,6 +23,7 @@ let level = {
 
 // UX & UI
 let colors = ['blue', 'pink', 'green'];
+let sounds = ["assets/audio/beep1.mp3", "assets/audio/beep2.mp3", "assets/audio/beep3.mp3"];
 let flashAudio = new Audio();
 let padAudio = new Audio();
 let scorebox = document.getElementById("score");
@@ -30,10 +32,12 @@ let information = document.querySelectorAll(".info-text");
 let endCalled = false;
 let startBtn = document.getElementById("newgame");
 let soundsOn = false;
-let yourTopScore = score;
-let topScore = localStorage.getItem("topScore");
+let topScore = localStorage.getItem("topScoreName");
 
-
+window.onload = function() {
+    topScoreEl = document.getElementById('top-score');
+    topScoreEl.innerHTML = topScore;
+}
 
 
 // Game order control
@@ -151,7 +155,7 @@ function compareArraysClicks() {
 function endGame() {
     endCalled = true;
     startBtn.disabled = false;
-    showTopScore();
+    updateTopScore();
 // Greys out cells when player loses the game to give immediate game-over indication
     jQuery(function($) {
         $(".cell").addClass("grey-cells");
@@ -199,6 +203,13 @@ function showRound() {
     roundbox.innerHTML = level.round;
 }
 
+function updateTopScore() {
+    let topScoreEl = document.getElementById('top-score');
+    topScore = Math.max(score, topScore);
+    localStorage.setItem("topScoreName", topScore);
+    topScoreEl.innerHTML = topScore;
+}
+
 function flashSound() {
     flashAudio.src = 'assets/audio/sound.mp3';
     if (soundsOn == true) {
@@ -210,7 +221,10 @@ function flashSound() {
 }
 
 function padSound() {
-    padAudio.src = 'assets/audio/sound.mp3';
+    let b = a;
+    a++;
+    let sound = sounds[b % sounds.length];
+    padAudio.src = sound;
     if (soundsOn == true) {
     padAudio.play();
 }
@@ -264,11 +278,18 @@ function infoText(saySomething) {
     information[k].innerHTML = saySomething;
     }
 }
- 
+
+// Toggle game and user input sounds on and off
+
+function soundsToggle() {
+    soundsOn =! soundsOn;
+    console.log(soundsOn);
+}
+
 // Light theme toggle
 
 $('.slider').click(function() {
-    $("body, .container, .container-info, #logo, #newgame, #user-game-container, #game-container, .center-text, .display-box, #info-text, #info-text-l, sup, .info-round, .info-score").toggleClass("light-theme");
+    $("body, .container, .container-info, #logo, #newgame, #user-game-container, #game-container, .center-text, .display-box, #info-text, sup, .info-round, .info-score").toggleClass("light-theme");
 });
 
 // Hard mode toggle - adds and removes the .hard-mode CSS class, which increases game difficulty by removing cell outlines.
@@ -277,70 +298,4 @@ $('.slider-2').click(function() {
     $(".cell, .number").toggleClass("hard-mode");
 }); 
 
-// Toggle game and user input sounds on and off
 
-function soundsToggle() {
-    soundsOn =! soundsOn;
-    console.log(soundsOn);
-}
-// let localTopScoreName = "myScore";
-
-
-// function showTopScore() {
-//     if (score > topScore) {
-//         localStorage.setItem("topScore", score);      
-//     }
-//     topScoreEl = document.getElementById('top-score');
-//     topScoreEl.innerHTML = topScore;
-// console.log(topScore)
-// }
-
-
-
-
-
-//   window.addEventListener("DOMContentLoaded", function() {
-
-//     // get the form elements defined in your form HTML above
-    
-//     var form = document.getElementById("form");
-//     var button = document.getElementById("sendBtn");
-//     var status = document.getElementById("form-status");
-
-//     // Success and Error functions for after the form is submitted
-    
-//     function success() {
-//       form.reset();
-//       button.style = "display: none ";
-//       status.innerHTML = "Thanks!";
-//     }
-
-//     function error() {
-//       status.innerHTML = "Oops! There was a problem.";
-//     }
-
-//     // handle the form submission event
-
-//     form.addEventListener("submit", function(ev) {
-//       ev.preventDefault();
-//       var data = new FormData(form);
-//       ajax(form.method, form.action, data, success, error);
-//     });
-//   });
-  
-//   // helper function for sending an AJAX request
-
-//   function ajax(method, url, data, success, error) {
-//     var xhr = new XMLHttpRequest();
-//     xhr.open(method, url);
-//     xhr.setRequestHeader("Accept", "application/json");
-//     xhr.onreadystatechange = function() {
-//       if (xhr.readyState !== XMLHttpRequest.DONE) return;
-//       if (xhr.status === 200) {
-//         success(xhr.response, xhr.responseType);
-//       } else {
-//         error(xhr.status, xhr.response, xhr.responseType);
-//       }
-//     };
-//     xhr.send(data);
-//   }
