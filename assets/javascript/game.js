@@ -3,10 +3,11 @@ let initArray = [];
 let userClicks = [];
 
 // Loop iteration ('iter') variables. Required within global scope so that they can be accessed by startGame() and reset functions.
+let iterA = 0;
 let iterI = 0;
 let iterJ = 0;
 let iterX = 0;
-let a = 0;
+
 
 // Empty variables. Required in global scope to be updated by several functions.
 let timer;
@@ -37,6 +38,7 @@ let topScore = localStorage.getItem("topScoreName");
 window.onload = function() {
     topScoreEl = document.getElementById('top-score');
     topScoreEl.innerHTML = topScore;
+    disableSounds()
 }
 
 
@@ -80,6 +82,7 @@ function makeFlashArray(showEachFlash, timeControlCallback) {
     let iterI = 0;
     let last_val = null;
     do {
+// CREDIT Alan Wind, Stack Overflow user for generation of random non-repeating, value
         let val = Math.floor(Math.random() * 9);
         if (val == last_val) continue; {
             initArray.push(`game-${val}`);
@@ -87,6 +90,7 @@ function makeFlashArray(showEachFlash, timeControlCallback) {
             last_val = val;
         }
     } while (iterI < level.flashes);
+// End credit
     showEachFlash();
     timeControlCallback();
     return initArray;
@@ -95,6 +99,7 @@ function makeFlashArray(showEachFlash, timeControlCallback) {
 // Core gameplay functions (generally speaking, shown in order they are called)
     
 function showFlash(num,iterJ) {
+// CREDIT Stack Overflow user tghw for solution to cycling through colours array.
 //  saving current value of x as a different variable prevented x's value being overwritten, which would incorrectly return the same colour as previously shown.
     let y = iterX;
     iterX++;
@@ -135,6 +140,7 @@ function clearTimer() {
 function captureUserClicks(clicked_id) {
     // Re-enable newgame/startGame() event listener on first user click.
     startBtn.disabled = false;
+    // CREDIT Stack Overflow user technophyle helped me with the solution to capturing user clicks and pushing to array.
     userClicks.push(`game-${clicked_id}`);
     if (userClicks.length === initArray.length) {
         compareArraysClicks();
@@ -221,8 +227,8 @@ function flashSound() {
 }
 
 function padSound() {
-    let b = a;
-    a++;
+    let b = iterA;
+    iterA++;
     let sound = sounds[b % sounds.length];
     padAudio.src = sound;
     if (soundsOn == true) {
@@ -283,13 +289,13 @@ function infoText(saySomething) {
 
 function soundsToggle() {
     soundsOn =! soundsOn;
-    console.log(soundsOn);
+    // console.log(soundsOn);
 }
 
 // Light theme toggle
 
 $('.slider').click(function() {
-    $("body, .container, .container-info, #logo, #newgame, #user-game-container, #game-container, .center-text, .display-box, #info-text, sup, .info-round, .info-score").toggleClass("light-theme");
+    $("body, .container, .container-info, #logo, #newgame, #user-game-container, #game-container, .center-text, .display-box, #info-text, .instr-lower, sup, .info-round, .info-score").toggleClass("light-theme");
 });
 
 // Hard mode toggle - adds and removes the .hard-mode CSS class, which increases game difficulty by removing cell outlines.
@@ -298,4 +304,24 @@ $('.slider-2').click(function() {
     $(".cell, .number").toggleClass("hard-mode");
 }); 
 
+function iOS() {
+  return [
+    'iPad Simulator',
+    'iPhone Simulator',
+    'iPod Simulator',
+    'iPad',
+    'iPhone',
+    'iPod'
+  ].includes(navigator.platform)
+  // iPad on iOS 13 detection
+  || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+}
 
+
+
+function disableSounds() {
+    soundToggleEl = document.getElementById("soundSlider");
+    if (iOS() === false) {
+        soundToggleEl.removeAttribute("disabled")
+    }
+}

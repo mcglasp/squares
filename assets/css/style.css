@@ -17,10 +17,6 @@ a:hover {
     color: #ff4da6;
 }
 
-#hello {
-    padding: 20px;
-}
-
 .center {
     position: static;
     top: 0;
@@ -60,16 +56,17 @@ a:hover {
     padding-left: 8px;
 }
 
-/* Toggle switch. credit w3schools */
-
 .toggles {
     display: flex;
     justify-items: flex-end;
 }
+
 label {
-    color: #fff;
-    
+    color: #fff;   
 }
+
+/* Sliding toggle switch. Credit W3 schools website */
+
 .switch {
   position: relative;
   display: inline-block;
@@ -137,7 +134,7 @@ input:checked + .slider:before, input:checked + .slider-2:before, input:checked 
     white-space: nowrap;
     margin: auto;
     line-height: 1.2rem;
-        position: relative;
+    position: relative;
     bottom: 10px;
 }
 
@@ -224,8 +221,6 @@ input:checked + .slider:before, input:checked + .slider-2:before, input:checked 
     border-color: #aab9cd;
     color: #fff;
     box-shadow: 0 0 25px 8px #aab9cd inset, 0 0 0 0 #aab9cd;
-    -webkit-transition: all 50ms ease-in-out;
-    transition: all 50ms ease-in-out;
 /* end credit */
 }
 
@@ -238,7 +233,7 @@ input:checked + .slider:before, input:checked + .slider-2:before, input:checked 
 }
 
 .grey-cells {
-    background-color: #aab9cd;
+    background-color: #aab9cd !important;
 }
 
 /* These classes control the colour and depth of cell flashes during gameplay. They are referenced directly in the showCircle() function */
@@ -445,6 +440,8 @@ max-width: 60%;
 }
 
 /* iPad portrait-specific */
+
+/* Targetted device-specific media queries were found on the CSS-tricks website */
 @media only screen 
 and (min-device-width: 481px) 
 and (max-device-width: 1024px) 
@@ -493,21 +490,6 @@ and (orientation:portrait) {
 }
 }
 
-/* jQuery Toggle Styles */
-
-.light-theme {
-    background-color: rgb(255, 253, 253) !important;
-    color: rgb(131, 131, 131) !important;
-    text-shadow: none !important;
-}
-
-.hard-mode {
-    background-color: inherit;
-    border-color: inherit;
-    box-shadow: none;
-    color: inherit;
-}
-
 /* Contact form & full instructions page */
 
 .full-instr-text {
@@ -553,4 +535,17 @@ h2.glow {
     margin: 10px auto;  
 }
 
+/* jQuery Toggle Styles */
 
+.light-theme {
+    background-color: rgb(255, 253, 253) !important;
+    color: rgb(131, 131, 131) !important;
+    text-shadow: none !important;
+}
+
+.hard-mode {
+    background-color: inherit;
+    border-color: inherit;
+    box-shadow: none;
+    color: inherit;
+}

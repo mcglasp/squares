@@ -25,7 +25,7 @@
         <h1 id="logo" class="glow">sq</h1>
         <div class="toggles">
             <label for="switch-3"><sup>sounds&nbsp;</sup><label class="switch switch-3">
-                    <input type="checkbox" onclick="soundsToggle()">
+                    <input id="soundSlider" type="checkbox" disabled onclick="soundsToggle()">
                     <span class="slider-3 round"></span>
                 </label></label><audio src="assets/audio/sound.mp3"></audio>
             <label for="switch"><sup>&nbsp;&nbsp;light&nbsp;</sup><label class="switch">
@@ -79,13 +79,13 @@
 </div>
     <div class="container">
         <div class="row no-gutters">
-            <div class="col-3">
+            <div class="col-4">
                 <p class="top-score">Top score: <span id="top-score"></span></p>
             </div>
-            <div class="col-6">
+            <div class="col-4">
                 <p class="info-text instr-lower">copy what you see on pad 1...<br>on pad 2</p>
             </div>
-            <div class="col-3"></div>
+            <div class="col-4"></div>
         </div>
     </div>
     <br />
