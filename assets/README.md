@@ -156,6 +156,22 @@ Testing outline:
 
 Everything listed below should behave identically in all screen sizes and orientations, with the expection of some touchscreen interactions (detailed below).
 
+**Devices used for testing:**
+
+15-inch Retina MacBook Pro 2015 running macOS Sierra
+iPhone XR running iOS 14
+
+The following were tested remotely due to Covid-19 restrictions, and therefore I must exercise caution as to the thoroughness of the testing conducted.
+
+Android Pixel 4a
+iPad 10.4 inch (2019)
+
+**Browsers included in testing:**
+
+Chrome 
+Safari 
+Firefox 
+
 ***Basic Gameplay***
 
 * Start button should start the first, simplest, round of the game. The function startGame() should be called once and the following should be logged to the console 
@@ -202,7 +218,7 @@ firing the startGame function too many times by double-clicking.
 
 ***Sounds***
 * Neither user nor game-generated audio should sound when the 'sounds' toggle is grey. User interaction with the game pad (1) should never produce sound.
-* I experimented with this in all modes and correct behaviour was found, however, a known exception to this behaviour in iOS is discussed at length in the Existing Bug & Compromises section.
+* I experimented with this in all modes and correct behaviour was found. However, an exception to this behaviour in iOS and Safari is discussed at length in the Existing Bug & Compromises section.
 
 ***Score Display***
 
@@ -284,17 +300,18 @@ The desktop view loads quickly with a discrete design. The app loads with sounds
 
 **The UX Sounds Saga**
 
-For all formats, the game's sound effects were simple to implement and worked well. On initial testing I found no delay and they significantly benefitted user interaction and feedback. The problem came with testing on an iOS device (specifically, an iPhone X, iPhone 7 Plus and a 2019 iPad).
+For all formats, the game's sound effects were simple to implement and worked well. On initial testing I found no delay and they significantly benefitted user interaction and feedback. The problem came with testing on an iOS device or the desktop Safari browser.
 
-iOS Device Found Behaviour: the sounds were significantly delayed, frequently didn't play and/or were heavily distorted. After researching the issue I found that iOS disables autoplay until after the first user interaction with a site (an onclick event, for example).
+iOS Device & Safari Found Behaviour: the sounds were significantly delayed, frequently didn't play and/or were heavily distorted. After researching the issue I found that iOS disables autoplay until after the first user interaction with a site (an onclick event, for example).
 
 First workaround: To overcome this, I changed the way the sounds are loaded. Rather than simple invoking a variable with the assignment 'new Audio("url")', I added the url via the variable.src within the padSound function itself. This, when combined with and applied to a Sounds toggle control, appeared to get around the problem (extensive research suggests that there may not be a single, recognised solution).
 Testing this workaround on an iPhone revealed this to be a partial success in that the sounds worked and would turn on and off via the toggle. However, they were still significantly delayed, causing them to be a distraction to gameplay, rather than a benefit.
 
-Further research revealed that the problem did not end with disabled autoplay on iOS. My understanding is that iOS devices have been designed to load audio in a specific way in order to make the browsing experience as swift and quick to load as possible. This means that, in order to properly implement audio for iOS and reduce buffer times to a usable degree a far more advanced approach to this aspect of development is required. 
+Further research revealed that the problem did not end with disabled autoplay on iOS/Safari. My understanding is that iOS devices have been designed to load audio in a specific way in order to make the browsing experience as swift and quick to load as possible. This means that, in order to properly implement audio for iOS and reduce buffer times to a usable degree a far more advanced approach to this aspect of development is required. 
 I'm confident that this issue could be addressed via the use of Web Audio API, but wieghing up the extra development and research time involved in implementing and testing this, against the benefit to the user of a minimum viable product, I felt it was best to address this problem in future development.
-In order to make the user experience as satisfying as possible for iOS users, however, I have implemented a temporary workaround, for which credit goes to the excellent Stack Overflow community. I have a function that detects (or, more correctly, infers) the user's operating system and returns a boolean result (eg. isIOS = true/false). If this returns true, the sounds toggle will be removed entirely. The general consensus seems to be that OS inference is far from
+In order to make the user experience as satisfying as possible for iOS/Safari users, however, I have implemented a temporary workaround, for which credit goes to the excellent Stack Overflow community. I have a function that detects (or, more correctly, infers) the user's operating system and returns a boolean result (eg. isIOS = true/false). If this returns true, the sounds toggle will be greyed out and the disabled attribute will be added. The general consensus seems to be that OS inference is far from
 reliable, however, so I shall endeavour to research this further and remove its necessity as soon as possible. My justification for including a less-than-perfect function in my code is that the user experience with broken sound on iOS is far worse than the user experience of someone not on iOS whose device has been incorrectly recognised as such and therefore has no option to enable sound.
+**Update report, having implemented this feature:** I have been able to test this on a total of five iPhones running iOS 14 and two Android devices (Pixel 4a, Samsung S10) and they all reported the expected behaviour (sounds toggle was disabled on iOS and enabled on Android).
 
 **Responsiveness**
 Much of the work on responsiveness with regard to the front-end design of this project was done using Chrome's Developer Tools. A considerable amount of work went into adjusting the design to work across all popular platforms, including iPhone, iPad, desktop, laptop and a number of Android devices. These were working all working well on the Chrome Developer Tools, but the websites responsinator.com and ami.responsivedesign.is both showed that the game pads were disappearing below the initial viewport on a number of devices, but were appearing too close to the top of desktop and laptop screens. I rearranged a number of elements to take this into account and pushed the project to github again, reloaded the app on the aforementioned websites and found that they were now mostly working perfectly well on these viewports. However, the iPad view still displayed considerable cut-off at the bottom of the screen. I manually checked this on a 2019 10.7-inch iPad and found that it was actually perfectly visible on the device itself.

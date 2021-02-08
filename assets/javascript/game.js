@@ -20,7 +20,7 @@ let level = {
     flashes: 2,
     round: 0,
     gap: 800,
-}
+};
 
 // UX & UI
 let colors = ['blue', 'pink', 'green'];
@@ -34,12 +34,14 @@ let endCalled = false;
 let startBtn = document.getElementById("newgame");
 let soundsOn = false;
 let topScore = localStorage.getItem("topScoreName");
+let topScoreEl = document.getElementById('top-score');
+
 
 window.onload = function() {
     topScoreEl = document.getElementById('top-score');
     topScoreEl.innerHTML = topScore;
-    disableSounds()
-}
+    disableSounds();
+};
 
 
 // Game order control
@@ -210,18 +212,21 @@ function showRound() {
 }
 
 function updateTopScore() {
-    let topScoreEl = document.getElementById('top-score');
     topScore = Math.max(score, topScore);
     localStorage.setItem("topScoreName", topScore);
     topScoreEl.innerHTML = topScore;
+}
+
+function clearTopScore() {
+    localStorage.clear();
+    topScoreEl.innerHTML = "";  
 }
 
 function flashSound() {
     flashAudio.src = 'assets/audio/sound.mp3';
     if (soundsOn == true) {
     setTimeout(function () {
-// Delay of 8ms given to time the sound perfectly with the flash
-        flashAudio.play(), 8;
+        flashAudio.play();
     });
 }
 }
@@ -295,7 +300,7 @@ function soundsToggle() {
 // Light theme toggle
 
 $('.slider').click(function() {
-    $("body, .container, .container-info, #logo, #newgame, #user-game-container, #game-container, .center-text, .display-box, #info-text, .instr-lower, sup, .info-round, .info-score").toggleClass("light-theme");
+    $("body, .container, .container-info, #logo, #newgame, #user-game-container, #game-container, .center-text, .display-box, #info-text, .instr-lower, sup, .info-round, .info-score, #ts-text").toggleClass("light-theme");
 });
 
 // Hard mode toggle - adds and removes the .hard-mode CSS class, which increases game difficulty by removing cell outlines.
@@ -304,6 +309,7 @@ $('.slider-2').click(function() {
     $(".cell, .number").toggleClass("hard-mode");
 }); 
 
+// CREDIT Pierre, Fregante & Paul Rumkin from Stack Overflow website
 function iOS() {
   return [
     'iPad Simulator',
@@ -312,16 +318,19 @@ function iOS() {
     'iPad',
     'iPhone',
     'iPod'
-  ].includes(navigator.platform)
-  // iPad on iOS 13 detection
-  || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+  ].includes(navigator.platform) || (navigator.userAgent.includes("Mac") && "ontouchend" in document) || (/^((?!chrome|android).)*safari/i.test(navigator.userAgent));
 }
-
+// End credit
 
 
 function disableSounds() {
     soundToggleEl = document.getElementById("soundSlider");
+    soundLabelEl = document.getElementById("grey-1");
+    soundSliderEl = document.getElementById("grey-2");
+
     if (iOS() === false) {
-        soundToggleEl.removeAttribute("disabled")
+        soundToggleEl.removeAttribute("disabled");
+        soundLabelEl.removeAttribute("grey-1");
+        soundSliderEl.removeAttribute("grey-2");
     }
 }

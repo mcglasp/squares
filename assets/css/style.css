@@ -1,21 +1,7 @@
-/* General & Utility */
-
 body {
     background-color:black;
     font-family: 'Righteous', cursive;
 }   
-
-a {
-    text-decoration: none;
-    color: inherit;
-    font-size: larger;
-    margin: 5px;
-}
-
-a:hover {
-    text-decoration: none;
-    color: #ff4da6;
-}
 
 .center {
     position: static;
@@ -57,6 +43,8 @@ a:hover {
 }
 
 .toggles {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     justify-items: flex-end;
 }
@@ -65,7 +53,7 @@ label {
     color: #fff;   
 }
 
-/* Sliding toggle switch. Credit W3 schools website */
+/* CREDIT W3 School website. Sliding toggle switch. */
 
 .switch {
   position: relative;
@@ -89,6 +77,7 @@ label {
   bottom: 0;
   background-color: #ccc;
   -webkit-transition: .4s;
+  -o-transition: .4s;
   transition: .4s;
 }
 
@@ -101,6 +90,7 @@ label {
   bottom: 2px;
   background-color: white;
   -webkit-transition: .4s;
+  -o-transition: .4s;
   transition: .4s;
 }
 
@@ -109,7 +99,8 @@ input:checked + .slider, input:checked + .slider-2, input:checked + .slider-3 {
 }
 
 input:focus + .slider, input:focus + .slider-2, input:focus + .slider-3 {
-  box-shadow: 0 0 1px #ff4da6;
+  -webkit-box-shadow: 0 0 1px #ff4da6;
+          box-shadow: 0 0 1px #ff4da6;
 }
 
 input:checked + .slider:before, input:checked + .slider-2:before, input:checked + .slider-3:before {
@@ -186,9 +177,14 @@ input:checked + .slider:before, input:checked + .slider-2:before, input:checked 
 
 #game-container, #user-game-container {
     width: 80%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
@@ -220,12 +216,14 @@ input:checked + .slider:before, input:checked + .slider-2:before, input:checked 
 /* Prio-soft via Code Pen */
     border-color: #aab9cd;
     color: #fff;
-    box-shadow: 0 0 25px 8px #aab9cd inset, 0 0 0 0 #aab9cd;
+    -webkit-box-shadow: 0 0 25px 8px #aab9cd inset, 0 0 0 0 #aab9cd;
+            box-shadow: 0 0 25px 8px #aab9cd inset, 0 0 0 0 #aab9cd;
 /* end credit */
 }
 
 .cell:hover {
-  box-shadow: 0 0 10px 0 #aab9cd , 0 0 10px 0px #aab9cd;
+  -webkit-box-shadow: 0 0 10px 0 #aab9cd , 0 0 10px 0px #aab9cd;
+          box-shadow: 0 0 10px 0 #aab9cd , 0 0 10px 0px #aab9cd;
 }
 
 .cell:active {
@@ -236,34 +234,41 @@ input:checked + .slider:before, input:checked + .slider-2:before, input:checked 
     background-color: #aab9cd !important;
 }
 
-/* These classes control the colour and depth of cell flashes during gameplay. They are referenced directly in the showCircle() function */
+/* These classes control the colour and depth of cell flashes during gameplay. They are referenced directly in the showCir() function */
 
 .cell-glow {
-    box-shadow: 0 0 10px 0 #fff inset, 0 0 10px 4px #fff !important;
+    -webkit-box-shadow: 0 0 10px 0 #fff inset, 0 0 10px 4px #fff !important;
+            box-shadow: 0 0 10px 0 #fff inset, 0 0 10px 4px #fff !important;
 }
 
 .cell-glow-blue {
-    box-shadow: 100px 100px 100px 100px rgb(0, 238, 255) inset, 0 0 50px 4px rgb(0, 238, 255) !important;
+    -webkit-box-shadow: 100px 100px 100px 100px rgb(0, 238, 255) inset, 0 0 50px 4px rgb(0, 238, 255) !important;
+            box-shadow: 100px 100px 100px 100px rgb(0, 238, 255) inset, 0 0 50px 4px rgb(0, 238, 255) !important;
 }
 
 .cell-glow-pink {
-    box-shadow: 100px 100px 100px 100px rgb(255, 14, 134) inset, 0 0 85px 4px rgb(255, 14, 134) !important;
+    -webkit-box-shadow: 100px 100px 100px 100px rgb(255, 14, 134) inset, 0 0 85px 4px rgb(255, 14, 134) !important;
+            box-shadow: 100px 100px 100px 100px rgb(255, 14, 134) inset, 0 0 85px 4px rgb(255, 14, 134) !important;
 }
 
 .cell-glow-green {
-    box-shadow: 100px 100px 100px 100px rgb(22, 255, 1) inset, 0 0 50px 4px rgb(22, 255, 1) !important;
+    -webkit-box-shadow: 100px 100px 100px 100px rgb(22, 255, 1) inset, 0 0 50px 4px rgb(22, 255, 1) !important;
+            box-shadow: 100px 100px 100px 100px rgb(22, 255, 1) inset, 0 0 50px 4px rgb(22, 255, 1) !important;
 }
 
 .cell-glow-blue:active {
-    box-shadow: 100px 100px 100px 100px rgb(0, 238, 255) inset, 0 0 50px 4px rgb(0, 238, 255) !important;
+    -webkit-box-shadow: 100px 100px 100px 100px rgb(0, 238, 255) inset, 0 0 50px 4px rgb(0, 238, 255) !important;
+            box-shadow: 100px 100px 100px 100px rgb(0, 238, 255) inset, 0 0 50px 4px rgb(0, 238, 255) !important;
 }
 
 .cell-glow-pink:active {
-    box-shadow: 100px 100px 100px 100px rgb(255, 14, 134) inset, 0 0 85px 4px rgb(255, 14, 134) !important;
+    -webkit-box-shadow: 100px 100px 100px 100px rgb(255, 14, 134) inset, 0 0 85px 4px rgb(255, 14, 134) !important;
+            box-shadow: 100px 100px 100px 100px rgb(255, 14, 134) inset, 0 0 85px 4px rgb(255, 14, 134) !important;
 }
 
 .cell-glow-green:active {
-    box-shadow: 100px 100px 100px 100px rgb(22, 255, 1) inset, 0 0 50px 4px rgb(22, 255, 1) !important;
+    -webkit-box-shadow: 100px 100px 100px 100px rgb(22, 255, 1) inset, 0 0 50px 4px rgb(22, 255, 1) !important;
+            box-shadow: 100px 100px 100px 100px rgb(22, 255, 1) inset, 0 0 50px 4px rgb(22, 255, 1) !important;
 }
 
 /* CREDIT: Glow Effect code found on W3 Schools website */
@@ -274,8 +279,12 @@ input:checked + .slider:before, input:checked + .slider-2:before, input:checked 
 }
 
 .number-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     position: relative;
     height: 100%;
 }
@@ -299,17 +308,26 @@ input:checked + .slider:before, input:checked + .slider-2:before, input:checked 
 
 /* Footer */
 
-footer {
+.game-footer {
     width: 100%;
     height: 70px;
     color: #a0adbe;
+    text-align: center;
 }
 
-footer p { 
+.footer-links { 
     line-height: 1rem;
     margin: 0;
     text-align: center;
-    font-size: 0.7rem;
+    text-decoration: none;
+    color: inherit;
+    font-size: larger;
+    border: none;
+}
+
+.footer-links:hover {
+    text-decoration: none;
+    color: #ff4da6;
 }
 
 .double-line {
@@ -342,6 +360,8 @@ footer p {
 
 /* General & Utility */
 .center {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     padding: 15px;
     border: #a0adbe 1px solid;
@@ -353,7 +373,9 @@ footer p {
     text-align: center;
     padding: 0;
     margin: 0;
-    flex: 0 0 0%;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 0%;
+            flex: 0 0 0%;
     max-width: 100%;
 }
 
@@ -389,8 +411,13 @@ footer p {
 }
 
 .info {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     width: 30%;
 }
 
@@ -399,10 +426,19 @@ footer p {
 }
 
 .stack {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     height: 100%;
     text-align: center;
 }
@@ -443,8 +479,8 @@ max-width: 60%;
 
 /* Targetted device-specific media queries were found on the CSS-tricks website */
 @media only screen 
-and (min-device-width: 481px) 
-and (max-device-width: 1024px) 
+and (min-width: 481px) 
+and (max-width: 1024px) 
 and (orientation:portrait) {
 
 #logo {
@@ -469,7 +505,7 @@ and (orientation:portrait) {
 
 /* Mobile landscape view */
 @media only screen  
-  and (max-device-width: 812px) 
+  and (max-width: 812px) 
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: landscape) { 
 
@@ -546,6 +582,11 @@ h2.glow {
 .hard-mode {
     background-color: inherit;
     border-color: inherit;
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
     color: inherit;
+}
+
+#grey-1, #grey-2 {
+    color: grey!important;
 }
