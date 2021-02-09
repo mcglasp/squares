@@ -1,5 +1,8 @@
-Milestone 2 project
+# Squares
+## A Javascript Puzzle Game
+### Milestone 2 Project
 
+<img src="readme-assets/responsive-layout.jpg" alt="Responsive layout header shot">
 
 # UX Considerations
 ## **STRATEGY**
