@@ -294,18 +294,17 @@ function infoText(saySomething) {
 
 function soundsToggle() {
     soundsOn =! soundsOn;
-    // console.log(soundsOn);
 }
 
 // Light theme toggle
 
-$('.slider').click(function() {
+$('.slider-2').click(function() {
     $("body, .container, .container-info, #logo, #newgame, #user-game-container, #game-container, .center-text, .display-box, #info-text, .instr-lower, sup, .info-round, .info-score, #ts-text").toggleClass("light-theme");
 });
 
 // Hard mode toggle - adds and removes the .hard-mode CSS class, which increases game difficulty by removing cell outlines.
 
-$('.slider-2').click(function() {
+$('.slider-3').click(function() {
     $(".cell, .number").toggleClass("hard-mode");
 }); 
 
@@ -324,13 +323,7 @@ function iOS() {
 
 
 function disableSounds() {
-    soundToggleEl = document.getElementById("soundSlider");
-    soundLabelEl = document.getElementById("grey-1");
-    soundSliderEl = document.getElementById("grey-2");
-
-    if (iOS() === false) {
-        soundToggleEl.removeAttribute("disabled");
-        soundLabelEl.removeAttribute("grey-1");
-        soundSliderEl.removeAttribute("grey-2");
-    }
+    if (iOS() === true) {
+        $('#toDisable').addClass('disableToggle');
+     }
 }

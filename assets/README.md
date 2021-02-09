@@ -365,5 +365,8 @@ The following Stack Overflow users gave their time and expertise, as well as hel
 * Allan Wind
 * Daniel Beck
 * Baz1nga
+* Pierre
+* Fregante
+* Paul Rumkin
 
 The W3 Schools website was, as always, a superb resource.
