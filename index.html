@@ -25,15 +25,15 @@
         <h1 id="logo" class="glow"><a class="logo" href="index.html">sq</a></h1>
         <div class="toggles">
  <div id="toDisable"><label><sup>sounds&nbsp;</sup></label><label class="switch">
-                    <input id="soundSlider" type="checkbox" onclick="soundsToggle()">
+                    <input aria-label="Switch on sounds" id="soundSlider" type="checkbox" aria-checked="false" onclick="soundsToggle()">
                     <span class="slider-1 round"></span>
                 </label></div>
             <label><sup>&nbsp;&nbsp;light&nbsp;</sup></label><label class="switch">
-                    <input id="lightSlider" type="checkbox">
+                    <input aria-label="Switch on light theme" id="lightThemeSlider" aria-checked="false" type="checkbox">
                     <span class="slider-2 round"></span>
                 </label>
             <label><sup>&nbsp;&nbsp;hard&nbsp;</sup></label><label class="switch">
-                    <input id="hardSlider" type="checkbox">
+                    <input aria-label="Switch on hard mode" id="hardModeSlider" aria-checked="false" type="checkbox">
                     <span class="slider-3 round"></span>
                 </label>
         </div>
@@ -92,8 +92,8 @@
     <hr class="double-line" />
     <hr class="double-line" />
     <footer class="game-footer text-center">
-        <p class="footer-links"><a href="contact-instr.html">~ full instructions ~</a></p>
-        <p class="footer-links"><a href="contact-instr.html">~ tell me what you think ~</a></p>  
+        <p class="footer-links"><a href="/contact-instr.html">~ full instructions ~</a></p>
+        <p class="footer-links"><a href="/contact-instr.html#contactForm">~ tell me what you think ~</a></p>  
         <button id="clear-button" class="footer-links" onclick="clearTopScore()">~ clear top score ~</button> 
         <p id="copyright">&#169; Nell Glasper 2021</p>
     </footer>
