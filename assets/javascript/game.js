@@ -24,16 +24,16 @@ let level = {
 
 // UX & UI
 let colors = ['blue', 'pink', 'green'];
-let sounds = ["assets/audio/beep1.mp3", "assets/audio/beep2.mp3", "assets/audio/beep3.mp3"];
+let sounds = ['assets/audio/beep1.mp3', 'assets/audio/beep2.mp3', 'assets/audio/beep3.mp3'];
 let flashAudio = new Audio();
 let padAudio = new Audio();
-let scorebox = document.getElementById("score");
-let roundbox = document.getElementById("round");
-let information = document.querySelectorAll(".info-text");
+let scorebox = document.getElementById('score');
+let roundbox = document.getElementById('round');
+let information = document.querySelectorAll('.info-text');
 let endCalled = false;
-let startBtn = document.getElementById("newgame");
+let startBtn = document.getElementById('newgame');
 let soundsOn = false;
-let topScore = localStorage.getItem("topScoreName");
+let topScore = localStorage.getItem('topScoreName');
 let topScoreEl = document.getElementById('top-score');
 
 
@@ -66,7 +66,7 @@ function startGame() {
     }, 1500);
 // light up cells ready for game.
     jQuery(function($) {
-        $(".cell").removeClass("grey-cells");
+        $('.cell').removeClass('grey-cells');
 });
 }
 
@@ -166,7 +166,7 @@ function endGame() {
     updateTopScore();
 // Greys out cells when player loses the game to give immediate game-over indication
     jQuery(function($) {
-        $(".cell").addClass("grey-cells");
+        $('.cell').addClass('grey-cells');
     });
     infoText(saySomething);
 }
@@ -213,13 +213,13 @@ function showRound() {
 
 function updateTopScore() {
     topScore = Math.max(score, topScore);
-    localStorage.setItem("topScoreName", topScore);
+    localStorage.setItem('topScoreName', topScore);
     topScoreEl.innerHTML = topScore;
 }
 
 function clearTopScore() {
     localStorage.clear();
-    topScoreEl.innerHTML = "";  
+    topScoreEl.innerHTML = '';  
 }
 
 function flashSound() {
@@ -299,13 +299,15 @@ function soundsToggle() {
 // Light theme toggle
 
 $('.slider-2').click(function() {
-    $("body, .container, .container-info, #logo, #newgame, #user-game-container, #game-container, .center-text, .display-box, #info-text, .instr-lower, sup, .info-round, .info-score, #ts-text").toggleClass("light-theme");
+    $('body, .container, .container-info, #logo, #newgame, #user-game-container, #game-container, .center-text, .display-box, #info-text, .instr-lower, sup, .info-round, .info-score, #ts-text, .footer-links').toggleClass('light-theme');
+    $('.number').toggleClass('number-light');
 });
 
 // Hard mode toggle - adds and removes the .hard-mode CSS class, which increases game difficulty by removing cell outlines.
 
 $('.slider-3').click(function() {
-    $(".cell, .number").toggleClass("hard-mode");
+    $('.cell, .number').toggleClass('hard-mode');
+    $('.number').toggleClass('number-hard');
 }); 
 
 // CREDIT Pierre, Fregante & Paul Rumkin from Stack Overflow website
@@ -317,7 +319,7 @@ function iOS() {
     'iPad',
     'iPhone',
     'iPod'
-  ].includes(navigator.platform) || (navigator.userAgent.includes("Mac") && "ontouchend" in document) || (/^((?!chrome|android).)*safari/i.test(navigator.userAgent));
+  ].includes(navigator.platform) || (navigator.userAgent.includes('Mac') && 'ontouchend' in document) || (/^((?!chrome|android).)*safari/i.test(navigator.userAgent));
 }
 // End credit
 
