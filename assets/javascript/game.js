@@ -43,7 +43,6 @@ window.onload = function() {
     disableSounds();
 };
 
-
 // Game order control
 function startGame() {
 // reset all initial values so that user can reset their own game without refreshing the page.
@@ -141,9 +140,9 @@ function clearTimer() {
     
 function captureUserClicks(clicked_id) {
     // Re-enable newgame/startGame() event listener on first user click.
-    startBtn.disabled = false;
-    // CREDIT Stack Overflow user technophyle helped me with the solution to capturing user clicks and pushing to array.
+     startBtn.disabled = false;
     userClicks.push(`game-${clicked_id}`);
+    // CREDIT Stack Overflow user technophyle helped me with the solution to capturing user clicks and pushing to array.
     if (userClicks.length === initArray.length) {
         compareArraysClicks();
         clearTimer();

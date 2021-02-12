@@ -6,6 +6,7 @@
 
 Play Squares: https://mcglasp.github.io/squares/
 
+
 ## UX Considerations
 
 -----
@@ -19,6 +20,18 @@ In this specific case, being a first-time builder of a Javascript game, its valu
 of coding and a base from which I can develop more complicated games and apps that are outside of the scope of this project.
 
 #### User Stories
+
+> * "As a user I want to start the game immediately"
+> * "As a user I want the rules of the game to be immediately obvious... or at least immediately available!"
+> * "As a user I want feedback as to how well I'm doing on the game"
+> * "As a user I want some control over the colours and sounds"
+> * "As a user I want some control over the difficulty level"
+> * "As a user I want to be able to play this on any of my devices"
+
+
+*Who is going to play this game, and why?*
+
+While the below are not 'user stories' as such, I do find it useful to explore who I think might use this app, why they want to use it, and in what scenarios.
 
 > * "As a working 25-year old I spend a lot of time on public transport... or waiting for it to turn up. I'd like something to occupy me whilst I do that. As such it shouldn't be too challenging, but I get bored easily, so I'd like to choose how hard to make it!"
 >
@@ -44,7 +57,7 @@ An addictive puzzle game, Two Dots requires the player to match adjacent sequenc
 However, as you progress, it does become significantly more challenging and strategy-based, making it less suitable for 5-minute, ad-hoc gameplay. If I had to say anything negative about this game, it would be that, over time, the developers have added more 
 and more pre-game distraction, which you are forced to interact with before you are able to access any game-play. For example, bonus games and offers; none of this are you forced to participate in, but considerable interaction is required simply to cancel these features.
 
-<img src="/assets/readme-assets/two-dots.jpeg" alt="Screenshot of Two Dots game" width="50%">
+<img src="/assets/readme-assets/two-dots.jpeg" alt="Screenshot of Two Dots game" width="35%">
 
 ---
 
@@ -83,7 +96,7 @@ be far more conservative than a website project:
 | m | Header/footer|1|1
 | n | Links to sister sites/games|3|5
 
-![Feasibility graph](/assets/readme-assets/feasibility-graph.png)
+<img src="/assets/readme-assets/feasibility-graph.png" alt="Screenshot of Two Dots game" width="55%">
 
 We can see here that the majority of these features are important enough to be included in a first release or minimum viable product. On the surface that may seem excessive, but actually the majority of those features are aspects of the core game itself that are essential to satisfying game-play and would be expected by any user.
 
@@ -261,16 +274,10 @@ The following were tested remotely due to Covid-19 restrictions, and therefore I
 * The correct user score and round should be displayed in the relevant score boxes, starting with '0' in both when the user presses the Start button.
 * Correct behaviour was found in all modes, though the white background in the light theme was encroaching on text-shadow of the 'score' and 'round' text. The solution to this was to remove the class text-shadow from the light theme, which actually greatly improved the design.
 
-<img src="/assets/readme-assets/round.png" alt="Round display" width="49%">
-<img src="/assets/readme-assets/score.png" alt="Score display" width="49%">
-
 **Information Text**
 
 * The information text should change depending on the level acheived.
 * This behaved correctly and as expected.
-
-<img src="/assets/readme-assets/instructions.png" alt="Information text" width="80%">
-<img src="/assets/readme-assets/progress-text.png" alt="Progress text" width="80%">
 
 ---
 
@@ -328,47 +335,67 @@ Much of the work on responsiveness with regard to the front-end design of this p
 On one or two occassions during the build I found that the cells would grey and, whilst I could enable a new game, they would not light again, but stay grey. I tested this extensively but have not yet been able to find a combination of clicks or gameplay that reproduces the behaviour.
 
 ---
+#### User Story Testing
 
-#### Adherence To User Stories
-General response to user stories: the app delivers immediate gameplay to the user. There is no noticeable load time nor time-wasting popups. What loads when you first navigate to the app is the game that you can start playing at the touch of a button; there is no need to go anywhere else, answer annoying questions or participate in any interaction that gets in the way of simply playing the game. 
+* "As a user I want to start the game immediately"
+
+<img src="/assets/readme-assets/start-dark.png" alt="Start button" width="35%">
+<img src="/assets/readme-assets/start-light.png" alt="Start button" width="35%">
+
+
+The start button is in the center of the viewport in all orientations and responsive states. It is also large and glowing!
+
+* "As a user I want the rules of the game to be immediately obvious"
+
+<img src="/assets/readme-assets/instructions-1.png" alt="Instruction text" width="40%">
+<img src="/assets/readme-assets/instructions-2.png" alt="Instruction text" width="51%">
+<img src="/assets/readme-assets/instructions-3.png" alt="Instruction text" width="51%">
+
+The instructions are central on the viewport and reference the numbered pads. The numbers appear in the center square of each game pad in a contrasting colour. A link to full instructions is available below the game pads.
+
+* "As a user I want feedback as to how well I'm doing on the game"
+
+The score and round are enabled when the game starts and is displayed centrally, updating on every round progression. Feedback text updates throughout the game.
+
+<img src="/assets/readme-assets/round.png" alt="Round display" width="49%">
+<img src="/assets/readme-assets/score.png" alt="Score display" width="49%">
+<img src="/assets/readme-assets/progress-text.png" alt="Progress text" width="80%">
+
+
+* "As a user I want some control over the colours and sounds"
+
+Users can toggle between the dark theme and the light theme, depending on their preference. All three toggles are available at the top of the screen.
+
+<img src="/assets/readme-assets/light-toggle.png" alt="Light toggle control" width="50%">
+
+Sounds must be enabled by the user via the toggle, so the game is suitable to be played in public or in quiet environments.
+
+<img src="/assets/readme-assets/sound-toggle.png" alt="Sounds toggle control" width="50%">
+
+* "As a user I want some control over the difficulty level"
+
+
+A hard-mode toggle removes the cell borders, making the whole pad the same colour as the background (either light or dark, depending on chosen theme.) This makes detecting which cell has flashed and matching that on the user pad below more difficult.
+
+<img src="/assets/readme-assets/hard-toggle.png" alt="Hard toggle control" width="50%">
+
+<img src="/assets/readme-assets/hard-mode-dark.png" alt="Hard mode, dark theme" width="50%"><img src="/assets/readme-assets/hard-mode-light.png" alt="Hard mode, light theme" width="50%">
+
+
+* "As a user I want to be able to play this game on any of my devices"
+
+The design of the game has been carefully crafted to be equally accessible in both portrait and landscape modes, and have touchscreen and mouse-click functionality. Extensive testing has been done to ensure compatibility with all the best-selling handheld, tablet and desktop devices.
+
+<img src="/assets/readme-assets/responsive-states.png" alt="Responsive design across a number of platforms" width="70%">
+
+#### Responses To Userbase Requirements
+General design elements for target userbase: the app delivers immediate gameplay to the user. There is no noticeable load time nor time-wasting popups. What loads when you first navigate to the app is the game that you can start playing at the touch of a button; there is no need to go anywhere else, answer annoying questions or participate in any interaction that gets in the way of simply playing the game. 
 
 <img src="/assets/readme-assets/init-load-mobile.png" alt="Mobile view on load" width="50%"><img src="/assets/readme-assets/init-load-mobile-light.png" alt="Mobile view on load, light theme" width="50%">
 
 This is the same situation in the desktop view:
 
 <img src="/assets/readme-assets/desktop-init-load.png" alt="Desktop view on load" width="70%">
-
----
-
->* "As a working 25-year old I spend a lot of time on public transport... or waiting for it to turn up. I'd like something to occupy me whilst I do that. As such it shouldn't be too challenging, but I get bored easily, so I'd like to choose how hard to make it!"
-
-A hard-mode toggle removes the cell borders, making the whole pad the same colour as the background (either light or dark, depending on chosen theme.) This makes detecting which cell has flashed and matching that on the user pad below more difficult.
-
-<img src="/assets/readme-assets/hard-mode-dark.png" alt="Hard mode, dark theme" width="50%"><img src="/assets/readme-assets/hard-mode-light.png" alt="Hard mode, light theme" width="50%">
-
----
-
->"As a parent of teenagers, I spend a lot my time running errands; waiting outside their friends' houses to pick them up, for example. I always have my phone with me, so something I can do while I'm waiting would be great! I'm usually in the car and it's usually late, so please don't make it too blinding to look at!"
-
-Users can toggle between the dark theme and the light theme, depending on their preference. All three toggles are available at the top of the screen.
-
-<img src="/assets/readme-assets/light-toggle.png" alt="Light toggle control" width="50%"><img src="/assets/readme-assets/hard-toggle.png" alt="Hard toggle control" width="50%">
-
----
-
->"As a young teen with a smartphone I'm looking for ways to avoid questions from my parents, and games that I can load instantly are a good way to look busy. It definitely shouldn't be too obvious that I'm playing a game, so sounds that I can't control are a no-no!"
-
-Sounds must be enabled by the user via the toggle, so the game is suitable to be played in public or in quiet environments.
-
-<img src="/assets/readme-assets/sound-toggle.png" alt="Sounds toggle control" width="50%">
-
----
-
->"I eat lunch at my desk, and I'm terrible at crosswords, so I tend to play low-commitment games on my computer while I eat."
-
-The desktop view loads quickly with a discrete design. The app loads with sounds disabled and the user can switch to the more discrete light mode if they wish.
-
-<img src="/assets/readme-assets/desktop-light.png" alt="Desktop view in light mode" width="70%">
 
 ---
 
@@ -405,6 +432,7 @@ I used the online resources below for general guidance and solutions to specific
 * Webaim.org (accessibility guidance)
 * favicon.io (favicon generator)
 * Formspree (free contact form endpoint)
+* Repl.it (quick testing of code snippets)
 
 ---
 
