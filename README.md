@@ -15,33 +15,24 @@ Play Squares: https://mcglasp.github.io/squares/
 
 The purpose of this project is to create a fun and accessible game. The primary intended user — or player — is a smartphone user looking to occupy themselves in those moments in the day in 
 which we have a few snatched minutes to kill.  
+
 The quantifiable value to the owner of any game app would be in the potential to attract advertising were it to become a popular game, thereby bringing in income and funding further projects. 
 In this specific case, being a first-time builder of a Javascript game, its value is less quantifiable, but no less valid: constructing a basic game in Javascript gives me invaluable experience 
 of coding and a base from which I can develop more complicated games and apps that are outside of the scope of this project.
 
 #### User Stories
 
-> * "As a user I want to start the game immediately"
-> * "As a user I want the rules of the game to be immediately obvious... and immediately available!"
 > * "As a user I want feedback as to how well I'm doing on the game"
 > * "As a user I want some control over the colours and sounds"
-> * "As a user I want some control over the difficulty level"
-> * "As a user I want to be able to play this on any of my devices"
+> * "As a new user I want the rules of the game to be immediately obvious... and immediately available!"
+> * "As a frequent user I want to be able to start the game immediately"
+> * "As a frequent user I want to be able to play this on any of my devices"
+> * "As a frequent user I want some control over the difficulty level"
+> * "As a frequent user I want to know if I'm beating my top score"
 
+Key Aims
 
-*Who is going to play this game, and why?*
-
-While the below are not 'user stories' as such, I do find it useful to explore who I think might use this app, why they want to use it, and in what scenarios.
-
-> * "As a working 25-year old I spend a lot of time on public transport... or waiting for it to turn up. I'd like something to occupy me whilst I do that. As such it shouldn't be too challenging, but I get bored easily, so I'd like to choose how hard to make it!"
->
-> * "As a parent of teenagers, I spend a lot my time running errands; waiting outside their friends' houses to pick them up, for example. I always have my phone with me, so something I can do while I'm waiting would be great! I'm usually in the car and it's usually late, so please don't make it too blinding to look at!"
->
-> * "As a young teen with a smartphone I'm looking for ways to avoid questions from my parents, and games that I can load instantly are a good way to look busy. It definitely shouldn't be too obvious that I'm playing a game, so sounds that I can't control are a no-no!"
->
-> * "I eat lunch at my desk, and I'm terrible at crosswords, so I tend to play low-commitment games on my computer while I eat."
-
-Essentially, this game aims to be a five-minute boredom-buster. As the user stories illustrate, there are many situations in everyday life that call for a few moments of mindless escapism 
+Essentially, this game aims to be a five-minute boredom-buster. There are many situations in everyday life that call for a few moments of mindless escapism 
 — queuing at the Post Office, for example — and this project aims to meet that need. It should be extremely quick to load, effortless to learn, and with a difficulty increase that does not frustrate, while still offering a developing level of challenge.
 
 Above all it should be designed with a mobile-first approach. It will, of course, be playable by iPad and laptop/desktop users, but it is expected that game play will be overwhelmingly via handheld devices in the situations outlined above.
@@ -181,7 +172,75 @@ sound of someone tapping the square pads of a MIDI control surface.
 
 ---
 
-## Testing
+### User Story Testing
+
+1. "As a frequent user I want to be able to start the game immediately"
+    
+    i. The start button is in the center of the viewport in all orientations and responsive states. In the dark mode that loads as standard it is also large and glowing!
+    
+    ii. The game has no distracting popups or messages that are a barrier to gameplay.
+
+<img src="/assets/readme-assets/start-dark.png" alt="Start button" width="25%">
+<img src="/assets/readme-assets/start-light.png" alt="Start button" width="25%">
+
+2. "As a new user I want the rules of the game to be immediately obvious... and immediately available!"
+    
+    i. The instructions are central on the viewport and reference the numbered pads. The referenced numbers appear in the center square of each game pad in a contrasting colour. 
+    
+    ii. A link to full instructions is available below the game pads.
+
+<img src="/assets/readme-assets/instructions-1.png" alt="Instruction text" width="25%%">
+<img src="/assets/readme-assets/instructions-2.png" alt="Instruction text" width="35%%">
+<img src="/assets/readme-assets/instructions-3.png" alt="Instruction text" width="35%%">
+
+3. "As a user I want feedback as to how well I'm doing on the game"
+
+    i. The score and round are enabled when the game starts and is displayed centrally, updating on every round progression. 
+    
+    ii. Feedback text updates throughout the game.
+
+<img src="/assets/readme-assets/round.png" alt="Round display" width="25%">
+<img src="/assets/readme-assets/score.png" alt="Score display" width="25%">
+<img src="/assets/readme-assets/progress-text.png" alt="Progress text" width="50%">
+
+4. "As a user I want some control over the colours and sounds"
+
+    i. Users can toggle between the dark theme and the light theme, depending on their preference. 
+    
+    ii. All three toggles are available at the top of the screen.
+    
+    iii. Sounds must be enabled by the user via the toggle, so the game is suitable to be played in public or in quiet environments.
+
+<img src="/assets/readme-assets/light-toggle.png" alt="Light toggle control" width="25%%">
+<img src="/assets/readme-assets/sound-toggle.png" alt="Sounds toggle control" width="25%%">
+
+5. "As a frequent user I want some control over the difficulty level"
+
+    i. A hard-mode toggle removes the cell borders, making the whole pad the same colour as the background (either light or dark, depending on chosen theme.) This makes detecting which cell has flashed and matching that on the user pad below more difficult.
+
+<img src="/assets/readme-assets/hard-toggle.png" alt="Hard toggle control" width="25%">
+
+<img src="/assets/readme-assets/hard-mode-dark.png" alt="Hard mode, dark theme" width="25%"><img src="/assets/readme-assets/hard-mode-light.png" alt="Hard mode, light theme" width="25%">
+
+6. "As a frequent user I want to be able to play this on any of my devices"
+
+    i. The design of the game has been carefully crafted to be equally accessible in both portrait and landscape modes. 
+    ii. The game has touchscreen, mouse-click and keyboard-command functionality. 
+    iii. Extensive testing has been done to ensure compatibility with all the best-selling handheld, tablet and desktop devices.
+
+<img src="/assets/readme-assets/responsive-states.png" alt="Responsive design across a number of platforms" width="70%">
+
+7. "As a frequent user I want to know if I'm beating my top score"
+
+    i. The highest score acheived by the player is stored locally and displayed below the game pad.
+    ii. Players can clear their top score easily.
+
+<img src="/assets/readme-assets/top-score.png" alt="Top score display" width="35%">
+<img src="/assets/readme-assets/clear-top-score.png" alt="Clear top score link" width="35%">
+
+---
+
+## Key Feature & Function Testing
 
 Everything listed below should behave identically in all screen sizes and orientations, with the expection of some touchscreen interactions (detailed below).
 
@@ -204,6 +263,8 @@ The following were tested remotely due to Covid-19 restrictions, and therefore I
 
 ***Basic Gameplay***
 
+>**Starting the game**
+>
 >The Start button should start the first, simplest, round of the game. The function startGame() should be called once and the following should be logged to the console 
 (during testing only; console logs will be removed after initial development): "speed 800", "flashes 2". 
 >
@@ -218,92 +279,100 @@ The following were tested remotely due to Covid-19 restrictions, and therefore I
 
 ---
 
->Round Progression: At round 3 the console should log the following: "speed 750", "flashes 3". As we move through the levels speed should reduce by 50 and the flashes increase by 1 on every third round.
+>**Round Progression**
+>
+>At round 3 the console should log the following: "speed 750", "flashes 3". As we move through the levels speed should reduce by 50 and the flashes increase by 1 on every third round.
 >
 >Correct behaviour and console logs observed.
 
 ---
 
->Game-play should only continue if both the game-generated and user arrays are identical. If they are not, endGame() should be called.
+>**Game continuation**
+>
+>Gameplay should only continue if both the game-generated and user arrays are identical. If they are not, endGame() should be called.
 >
 >I tested this by console-logging both arrays produced by the game and logged by the user and found this behaviour to be as expected.
 
 ---
 
+>**Ending the game**
+>
 >The endGame() function should be called if the user runs out of time.
 >
 >Correct functionality was observed.
 
 ---
 
+>**Countdown timer**
+>
 >If the timer counter variable is allowed to reach zero, endGame() should be called. When endGame is called or when the user successfully passes to the next level, clearTimer() should reset the counter.
 >
 >Expected behaviour observed.
 
 ---
 
-### UX feature testing
+### UX features
 
-***Initial State***
-* In its initial state, both user and game-generated sounds should be disabled, and both the light theme and hard mode should be toggled off.
-* Loading the game shows this expected behaviour.
-
-***Grey cells at endGame***
-* Hard mode: this should remove all cell outlines in both light and normal themes. The grey cells should still be displayed when endGame is called and disappear when a new game is started (in hard mode).
-
-<img src="/assets/readme-assets/game-over-cells.png" alt="Grey cells" width="80%">
-
-* Cell outlines are removed correctly for hard mode in both light and normal themes, but an exception was found (see below).
-
-**Expected behaviour:** Greyed-out cells should appear in hard mode (regardless of theme). 
-
-**Found behaviour:** Grey cells are not appearing when endGame is called in hard mode. 
-
-**Solution:** I found that the specificity for the Javascript-added class 'grey-cells' was identical to that of the toggled 'hard-mode' class. I prefer not to use '!important' where possible, but given that the obvious alternative of moving the theme toggle classes above the 'grey-cells' class caused more problems, I decided using '!important' was the lesser of two evils!
-
-**Sounds**
-
-* Neither user nor game-generated audio should sound when the 'sounds' toggle is grey. User interaction with the game pad (1) should never produce sound.
-* I experimented with this in all modes and correct behaviour was found. However, an exception to this behaviour in iOS and Safari is discussed at length in the Existing Bug & Compromises section.
-
-**Score Display**
-
-* The correct user score and round should be displayed in the relevant score boxes, starting with '0' in both when the user presses the Start button.
-* Correct behaviour was found in all modes, though the white background in the light theme was encroaching on text-shadow of the 'score' and 'round' text. The solution to this was to remove the class text-shadow from the light theme, which actually greatly improved the design.
-
-**Information Text**
-
-* The information text should change depending on the level acheived.
-* This behaved correctly and as expected.
+>**Initial State**
+>* In its initial state, both user and game-generated sounds should be disabled, and both the light theme and hard mode should be toggled off.
+>* Loading the game shows this expected behaviour.
+---
+>**Grey cells at endGame**
+>* Hard mode: this should remove all cell outlines in both light and normal themes. The grey cells should still be displayed when endGame is called and disappear when a new game is started (in hard mode).
+>
+><img src="/assets/readme-assets/game-over-cells.png" alt="Grey cells" width="30%">
+>
+>* Cell outlines are removed correctly for hard mode in both light and normal themes, but an exception was found (see below).
+>
+>**Expected behaviour:** Greyed-out cells should appear in hard mode (regardless of theme). 
+>
+>**Found behaviour:** Grey cells are not appearing when endGame is called in hard mode. 
+>
+>**Solution:** I found that the specificity for the Javascript-added class 'grey-cells' was identical to that of the toggled 'hard-mode' class. I prefer not to use '!important' where possible, but given that the obvious alternative of moving the theme toggle classes above the 'grey-cells' class caused more problems, I decided using '!important' was the lesser of two evils!
+---
+>**Sounds**
+>
+>* Neither user nor game-generated audio should sound when the 'sounds' toggle is grey. User interaction with the game pad (1) should never produce sound.
+>* I experimented with this in all modes and correct behaviour was found. However, an exception to this behaviour in iOS and Safari is discussed at length in the Existing Bug & Compromises section.
+---
+>**Score Display**
+>
+>* The correct user score and round should be displayed in the relevant score boxes, starting with '0' in both when the user presses the Start button.
+>* Correct behaviour was found in all modes, though the white background in the light theme was encroaching on text-shadow of the 'score' and 'round' text. The solution to this was to remove the class text-shadow from the light theme, which actually greatly improved the design.
+---
+>**Information Text**
+>
+>* The information text should change depending on the level acheived.
+>* This behaved correctly and as expected.
 
 ---
 
 ### Specific development challenges
 
-#### Flash speed and behaviour
-**Expected behaviour:** speed of appearance of flashes would vary, but still display consequtively. 
-
-**Found behaviour:** Very occassionally the timings would 'leapfrog' each other, causing flashes to appear in the wrong order, thereby making it 
+>#### Flash speed and behaviour
+>**Expected behaviour:** speed of appearance of flashes would vary, but still display consequtively. 
+>
+>**Found behaviour:** Very occassionally the timings would 'leapfrog' each other, causing flashes to appear in the wrong order, thereby making it 
 impossible for the user to correctly match the pattern through skill rather than luck. Update: I made the decision to remove the variable-length 
 flashes feature as it created an unecessary complication that was not matched by the benefits of retaining the feature.
-
-#### Start button behaviour
-**Expected behaviour:** Pressing play button should invoke a new game every time. 
-
-**Found behaviour:** Multiple flashes and speeds appearing; 
+>
+---
+>#### Start button behaviour
+>**Expected behaviour:** Pressing play button should invoke a new game every time. 
+>
+>**Found behaviour:** Multiple flashes and speeds appearing; 
 score and level not clearing. Update: It was actually adding the level values of the previous game to the new game, thereby creating odd 
 behaviour: multiple dots, strange speeds, etc. I went through the entire code more carefully and identified a large number of variables 
 and functions that needed resetting within the newGame function.
-
-#### User Clicks Compromise
-**Expected behaviour:** endGame should be called if users click too many times, even if their click pattern has included the given game array. 
-
-**Found behaviour:** Testing shows that the game is registering user clicks against each newly generated random array, but this results in somewhat 
+---
+>#### User Clicks Compromise
+>**Expected behaviour:** endGame should be called if users click too many times, even if their click pattern has included the given game array. 
+>
+>**Found behaviour:** Testing shows that the game is registering user clicks against each newly generated random array, but this results in somewhat 
 unsatisfactory behaviour form a UX point-of-view. Specifically, if the user 'over-clicks', the game moves on to the next round, registering the 
 last of the user's clicks against the new round and newly generated array. This results in endGame being called before the user has even entered the full number of clicks, which gives the impression of being a bug.
 
 ---
-
 ## **Existing bugs & issues for future development**
 
 **The UX Sounds Saga**
@@ -341,69 +410,6 @@ All HTML passed through the W3C validator without returning errors.
 I'd like to add the features identified in the feature priority matrix above to the game. In particular, I feel the keyboard commands could be implemented in a somewhat more user-friendly way. For example, the user could choose to use keyboard commands and thereby be presented with a grid layout that was far more user-friendly for this purpose (4x2 layout with corresponding QWER,ASDF key commands, for example.). It would also be fun to add theme changes for certain levels, or seasonal themes. For all suggested features, however, I feel it's important to first gain user feedback on the minimum viable product.
 
 ---
-#### User Story Testing
-
-* "As a user I want to start the game immediately"
-
-<img src="/assets/readme-assets/start-dark.png" alt="Start button" width="35%">
-<img src="/assets/readme-assets/start-light.png" alt="Start button" width="35%">
-
-
-The start button is in the center of the viewport in all orientations and responsive states. It is also large and glowing!
-
-* "As a user I want the rules of the game to be immediately obvious"
-
-<img src="/assets/readme-assets/instructions-1.png" alt="Instruction text" width="40%">
-<img src="/assets/readme-assets/instructions-2.png" alt="Instruction text" width="51%">
-<img src="/assets/readme-assets/instructions-3.png" alt="Instruction text" width="51%">
-
-The instructions are central on the viewport and reference the numbered pads. The numbers appear in the center square of each game pad in a contrasting colour. A link to full instructions is available below the game pads.
-
-* "As a user I want feedback as to how well I'm doing on the game"
-
-The score and round are enabled when the game starts and is displayed centrally, updating on every round progression. Feedback text updates throughout the game.
-
-<img src="/assets/readme-assets/round.png" alt="Round display" width="49%">
-<img src="/assets/readme-assets/score.png" alt="Score display" width="49%">
-<img src="/assets/readme-assets/progress-text.png" alt="Progress text" width="80%">
-
-
-* "As a user I want some control over the colours and sounds"
-
-Users can toggle between the dark theme and the light theme, depending on their preference. All three toggles are available at the top of the screen.
-
-<img src="/assets/readme-assets/light-toggle.png" alt="Light toggle control" width="50%">
-
-Sounds must be enabled by the user via the toggle, so the game is suitable to be played in public or in quiet environments.
-
-<img src="/assets/readme-assets/sound-toggle.png" alt="Sounds toggle control" width="50%">
-
-* "As a user I want some control over the difficulty level"
-
-
-A hard-mode toggle removes the cell borders, making the whole pad the same colour as the background (either light or dark, depending on chosen theme.) This makes detecting which cell has flashed and matching that on the user pad below more difficult.
-
-<img src="/assets/readme-assets/hard-toggle.png" alt="Hard toggle control" width="50%">
-
-<img src="/assets/readme-assets/hard-mode-dark.png" alt="Hard mode, dark theme" width="50%"><img src="/assets/readme-assets/hard-mode-light.png" alt="Hard mode, light theme" width="50%">
-
-
-* "As a user I want to be able to play this game on any of my devices"
-
-The design of the game has been carefully crafted to be equally accessible in both portrait and landscape modes, and have touchscreen and mouse-click functionality. Extensive testing has been done to ensure compatibility with all the best-selling handheld, tablet and desktop devices.
-
-<img src="/assets/readme-assets/responsive-states.png" alt="Responsive design across a number of platforms" width="70%">
-
-#### Responses To Userbase Requirements
-General design elements for target userbase: the app delivers immediate gameplay to the user. There is no noticeable load time nor time-wasting popups. What loads when you first navigate to the app is the game that you can start playing at the touch of a button; there is no need to go anywhere else, answer annoying questions or participate in any interaction that gets in the way of simply playing the game. 
-
-<img src="/assets/readme-assets/init-load-mobile.png" alt="Mobile view on load" width="50%"><img src="/assets/readme-assets/init-load-mobile-light.png" alt="Mobile view on load, light theme" width="50%">
-
-This is the same situation in the desktop view:
-
-<img src="/assets/readme-assets/desktop-init-load.png" alt="Desktop view on load" width="70%">
-
----
 
 ## Deployment
 The site was deployed directly from the Github repository, using Github Pages.
@@ -417,6 +423,22 @@ To deploy the site, it was necessary to undertake the following steps:
 * Select the master branch as the source and the /root folder
 * Save
 * Navigate to the newly created URL (as per the name of the repository or custom domain) and ensure that the live site displays as expected and identically to the preview version. Test interactive elements to ensure adhesion to the site when in development
+
+Forking the GitHub Repository
+
+* Log in to GitHub and locate the GitHub Repository
+* At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
+* You should now have a copy of the original repository in your GitHub account.
+
+Making a Local Clone
+* Log in to GitHub and locate the GitHub Repository
+* Under the repository name, click 'Clone or download'
+* To clone the repository using https, copy the link under 'Clone with https'
+* Open Git Bash
+* Change the current working directory to the location where you want the cloned directory to be made
+* Type git clone, and then paste the copied URL
+* $ git clone https://github.com/mcglasp/squares
+* Press Enter
 
 ---
 
