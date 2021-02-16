@@ -26,7 +26,7 @@ let level = {
 let colors = ['blue', 'pink', 'green'];
 let sounds = ['assets/audio/beep1.mp3', 'assets/audio/beep2.mp3', 'assets/audio/beep3.mp3'];
 let flashAudio = new Audio();
-let padAudio = new Audio();
+let userAudio = new Audio();
 let scorebox = document.getElementById('score');
 let roundbox = document.getElementById('round');
 let information = document.querySelectorAll('.info-text');
@@ -36,16 +36,19 @@ let soundsOn = false;
 let topScore = localStorage.getItem('topScoreName');
 let topScoreEl = document.getElementById('top-score');
 
-
-window.onload = function() {
+window.onload = function () {
     topScoreEl = document.getElementById('top-score');
     topScoreEl.innerHTML = topScore;
+    // The default sound state is disabled. If iOS or Safari are not detected, 
+    // then the sound toggle is enabled, allowing users to then enable the playback 
+    // of sounds if they wish to. Please refer to the readme for a fuller explanation 
+    // of why this operating system inference was necessary.
     disableSounds();
 };
 
 // Game order control
 function startGame() {
-// reset all initial values so that user can reset their own game without refreshing the page.
+    // reset all initial values so that user can reset their own game without refreshing the page.
     iterX = 0;
     initArray = [];
     userClicks = [];
@@ -57,25 +60,27 @@ function startGame() {
     roundbox.innerHTML = level.round;
     endCalled = false;
     startBtn.disabled = true;
+    // keyCommands()
     infoText();
     clearTimer();
-// Uses setTimeout to give slight pause before starting.
-    setTimeout(function() {
-        makeFlashArray(showEachFlash,timeControl);
+    // Uses setTimeout to give slight pause before starting.
+    setTimeout(function () {
+        makeFlashArray(showEachFlash, timeControl);
     }, 1500);
-// light up cells ready for game.
-    jQuery(function($) {
+    // light up cells ready for game.
+    jQuery(function ($) {
         $('.cell').removeClass('grey-cells');
-});
+    });
 }
 
 function nextRound() {
-// Uses setTimeout to differentiate between rounds.
+    // Uses setTimeout to differentiate between rounds.
     setTimeout(function () {
-        makeFlashArray(showEachFlash,timeControl);
+        makeFlashArray(showEachFlash, timeControl);
     }, 1000);
     showScore();
     showRound();
+    // keyCommands()
     infoText(saySomething);
 }
 
@@ -83,7 +88,7 @@ function makeFlashArray(showEachFlash, timeControlCallback) {
     let iterI = 0;
     let last_val = null;
     do {
-// CREDIT Alan Wind, Stack Overflow user for generation of random non-repeating, value
+        // CREDIT Alan Wind, Stack Overflow user for generation of random non-repeating, value
         let val = Math.floor(Math.random() * 9);
         if (val == last_val) continue; {
             initArray.push(`game-${val}`);
@@ -91,40 +96,40 @@ function makeFlashArray(showEachFlash, timeControlCallback) {
             last_val = val;
         }
     } while (iterI < level.flashes);
-// End credit
+    // End credit
     showEachFlash();
     timeControlCallback();
     return initArray;
 }
 
 // Core gameplay functions (generally speaking, shown in order they are called)
-    
-function showFlash(num,iterJ) {
-// CREDIT Stack Overflow user tghw for solution to cycling through colours array.
-//  saving current value of x as a different variable prevented x's value being overwritten, which would incorrectly return the same colour as previously shown.
+
+function showFlash(num, iterJ) { // Creates a single 'flash on-off' instance
+    // CREDIT Stack Overflow user tghw for solution to cycling through colours array.
+    //  saving current value of x as a different variable prevented x's value being overwritten, which would incorrectly return the same colour as previously shown.
     let y = iterX;
     iterX++;
     setTimeout(function () {
-// color variable cycles through colours to give better player experience
+        // color variable cycles through colours to give better player experience
         let color = colors[y % colors.length];
         let num = initArray[iterJ];
         let element = document.getElementById(num);
         element.classList.add(`cell-glow-${color}`);
-        padSound();
-        window.setTimeout(function() {
+        flashSound();
+        window.setTimeout(function () {
             element.classList.remove(`cell-glow-${color}`);
         }, 300);
         iterJ++;
     }, level.gap * iterJ);
 }
 
-function showEachFlash() {
+function showEachFlash() { // Creates the full array of flashes for the player to copy
     initArray.forEach(showFlash);
 }
 
-function timeControl() {
+function timeControl() { // If time runs out, the game ends
     let counter = 5;
-    timer = setInterval(function() {
+    timer = setInterval(function () {
         if (counter > 0) {
             counter--;
         } else {
@@ -134,22 +139,67 @@ function timeControl() {
     }, 1000);
 }
 
-function clearTimer() {
+function clearTimer() { // Reset timer when user has input correct sequence, or when the game has ended
     clearInterval(timer);
 }
-    
-function captureUserClicks(clicked_id) {
+
+function captureUserClicks(clicked_id) { // Capture player input and send it to an array
     // Re-enable newgame/startGame() event listener on first user click.
-     startBtn.disabled = false;
-    userClicks.push(`game-${clicked_id}`);
+    startBtn.disabled = false;
+    userClicks.push(`game-${clicked_id}`)
     // CREDIT Stack Overflow user technophyle helped me with the solution to capturing user clicks and pushing to array.
+    console.log(userClicks)
+    arrayLengthCompare();
+}
+
+window.onkeyup = function keyCommands(pressed_id) {
+    userPadSound();
+    startBtn.disabled = false;
+    let press = pressed_id.which || pressed_id.keyCode
+    switch (press) {
+        case 81:
+            pressed_id = 0;
+            break;
+        case 87:
+            pressed_id = 1;
+            break;
+        case 69:
+            pressed_id = 2;
+            break;
+        case 65:
+            pressed_id = 3;
+            break;
+        case 83:
+            pressed_id = 4;
+            break;
+        case 68:
+            pressed_id = 5;
+            break;
+        case 192:
+            pressed_id = 6;
+            break;
+        case 90:
+            pressed_id = 7;
+            break;
+        case 88:
+            pressed_id = 8;
+            break;
+        default:
+            pressed_id = null;
+    }
+    userClicks.push(`game-${pressed_id}`);
+    simulateClick(pressed_id);
+    arrayLengthCompare();
+}
+
+function arrayLengthCompare() {
     if (userClicks.length === initArray.length) {
         compareArraysClicks();
         clearTimer();
     }
 }
 
-function compareArraysClicks() {
+function compareArraysClicks() { // Compare the randomly generated array with the player's inputted array
     let userArray = userClicks.toString();
     let gameArray = initArray.toString();
     if (gameArray === userArray) {
@@ -159,12 +209,12 @@ function compareArraysClicks() {
     }
 }
 
-function endGame() {
+function endGame() { // Game over
     endCalled = true;
     startBtn.disabled = false;
     updateTopScore();
-// Greys out cells when player loses the game to give immediate game-over indication
-    jQuery(function($) {
+    // Greys out cells when player loses the game to give immediate game-over indication
+    jQuery(function ($) {
         $('.cell').addClass('grey-cells');
     });
     infoText(saySomething);
@@ -172,7 +222,7 @@ function endGame() {
 
 // Level control & reset functions
 
-function levelUp() {
+function levelUp() { // Go to next round
     score += 5;
     level.round++;
     if (level.round % 3 === 0) {
@@ -184,17 +234,17 @@ function levelUp() {
     return level.flashes + level.round + score;
 }
 
-function reduceFlashGap() {
+function reduceFlashGap() { // Make space between flashes shorter
     level.gap -= 50;
     return level.gap;
 }
 
-function resetGameArray() {
+function resetGameArray() { // Clear randomly generated array between rounds
     initArray = [];
     return initArray;
 }
 
-function resetUserClicks(nextRoundCallback) {
+function resetUserClicks(nextRoundCallback) { // Clear player's inputted array between rounds
     userClicks = [];
     nextRoundCallback();
     return userClicks;
@@ -218,113 +268,121 @@ function updateTopScore() {
 
 function clearTopScore() {
     localStorage.clear();
-    topScoreEl.innerHTML = '';  
+    topScoreEl.innerHTML = '';
+}
+
+function userPadSound() {
+    userAudio.src = 'assets/audio/user-beep.mp3';
+    if (soundsOn == true) {
+        userAudio.play();
+    }
 }
 
 function flashSound() {
-    flashAudio.src = 'assets/audio/sound.mp3';
-    if (soundsOn == true) {
-    setTimeout(function () {
-        flashAudio.play();
-    });
-}
-}
-
-function padSound() {
     let b = iterA;
     iterA++;
     let sound = sounds[b % sounds.length];
-    padAudio.src = sound;
+    flashAudio.src = sound;
     if (soundsOn == true) {
-    padAudio.play();
+        flashAudio.play();
+    }
 }
-}
-
-
 
 function infoText(saySomething) {
     if (endCalled === true) {
         saySomething = `Too bad!<br>Better luck next time!`;
     } else {
-    switch (score) {
-    case 0:  
-        saySomething = `copy what you see on pad 1...<br>on pad 2`;
-        last = saySomething;
-        break;
-    case 5:
-        saySomething = `Levelled up!<br>&nbsp;`;
-        last = saySomething;
-        break;
-    case 20:
-        saySomething = `Well done!<br>&nbsp;`;
-        last = saySomething;
-        break;
-    case 40:
-        saySomething = `Awesome!<br>&nbsp;`;
-        last = saySomething;
-        break;
-    case 60:
-        saySomething = `You got it!<br>&nbsp;`;
-        last = saySomething;
-        break;
-    case 100:
-        saySomething = `Wow!<br>&nbsp;`;
-        last = saySomething;
-        break;
-    case 200:
-        saySomething = `I can't believe this!<br>&nbsp;`;
-        last = saySomething;
-        break;
-    case 300:
-        saySomething = `O... M... G!<br>&nbsp;`;
-        last = saySomething;
-        break;
-    default:
-        saySomething = last;
+        switch (score) {
+            case 0:
+                saySomething = `copy what you see on pad 1...<br>on pad 2`;
+                last = saySomething;
+                break;
+            case 5:
+                saySomething = `Levelled up!<br>&nbsp;`;
+                last = saySomething;
+                break;
+            case 20:
+                saySomething = `Well done!<br>&nbsp;`;
+                last = saySomething;
+                break;
+            case 40:
+                saySomething = `Awesome!<br>&nbsp;`;
+                last = saySomething;
+                break;
+            case 60:
+                saySomething = `You got it!<br>&nbsp;`;
+                last = saySomething;
+                break;
+            case 100:
+                saySomething = `Wow!<br>&nbsp;`;
+                last = saySomething;
+                break;
+            case 200:
+                saySomething = `I can't believe this!<br>&nbsp;`;
+                last = saySomething;
+                break;
+            case 300:
+                saySomething = `O... M... G!<br>&nbsp;`;
+                last = saySomething;
+                break;
+            default:
+                saySomething = last;
+        }
     }
-    }
-// Loop required to ensure this information is displayed on all viewports
+    // Loop required to ensure this information is displayed on all viewports
     for (let k = 0; k < information.length; k++) {
-    information[k].innerHTML = saySomething;
+        information[k].innerHTML = saySomething;
     }
 }
 
-// Toggle game and user input sounds on and off
+function simulateClick(pressed_id) {
+    let showClick = document.getElementById(pressed_id).classList;
+    if (showClick.contains('hard-mode') == true) {
+        showClick.add(`cell-hard-mode`);
+        window.setTimeout(function () {
+            showClick.remove(`cell-hard-mode`);
+        }, 200);
+    } else {
+        showClick.add("cell-black");
+        window.setTimeout(function () {
+            showClick.remove("cell-black");
+        }, 200);
+    }
+}
+
+// Toggle control functions
 
 function soundsToggle() {
-    soundsOn =! soundsOn;
+    soundsOn = !soundsOn;
 }
 
-// Light theme toggle
-
-$('.slider-2').click(function() {
-    $('body, .container, .container-info, #logo, #newgame, #user-game-container, #game-container, .center-text, .display-box, #info-text, .instr-lower, sup, .info-round, .info-score, #ts-text, .footer-links').toggleClass('light-theme');
+$('.slider-2').click(function () { // Light theme toggle
+    $('body, .container, .container-info, #logo, #newgame, #user-game-container, #game-container, .center-text, .display-box, .instr, .instr-lower, sup, .info-round, .info-score, #ts-text, .footer-links').toggleClass('light-theme');
     $('.number').toggleClass('number-light');
 });
 
-// Hard mode toggle - adds and removes the .hard-mode CSS class, which increases game difficulty by removing cell outlines.
-
-$('.slider-3').click(function() {
-    $('.cell, .number').toggleClass('hard-mode');
+$('.slider-3').click(function () { // Hard mode toggle
+    $('.cell').toggleClass('hard-mode');
     $('.number').toggleClass('number-hard');
-}); 
+});
+
+// Operating system inference functions
 
 // CREDIT Pierre, Fregante & Paul Rumkin from Stack Overflow website
-function iOS() {
-  return [
-    'iPad Simulator',
-    'iPhone Simulator',
-    'iPod Simulator',
-    'iPad',
-    'iPhone',
-    'iPod'
-  ].includes(navigator.platform) || (navigator.userAgent.includes('Mac') && 'ontouchend' in document) || (/^((?!chrome|android).)*safari/i.test(navigator.userAgent));
+function iOS() { // Infers whether the player's operating system is iOS or whether they are using desktop safari
+    return [
+        'iPad Simulator',
+        'iPhone Simulator',
+        'iPod Simulator',
+        'iPad',
+        'iPhone',
+        'iPod'
+    ].includes(navigator.platform) || (navigator.userAgent.includes('Mac') && 'ontouchend' in document) || (/^((?!chrome|android).)*safari/i.test(navigator.userAgent));
 }
 // End credit
 
-
-function disableSounds() {
+function disableSounds() { // Disables or enables sound toggle according to boolean result of iOS()
     if (iOS() === true) {
         $('#toDisable').addClass('disableToggle');
-     }
+    }
 }

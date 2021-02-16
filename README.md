@@ -22,7 +22,7 @@ of coding and a base from which I can develop more complicated games and apps th
 #### User Stories
 
 > * "As a user I want to start the game immediately"
-> * "As a user I want the rules of the game to be immediately obvious... or at least immediately available!"
+> * "As a user I want the rules of the game to be immediately obvious... and immediately available!"
 > * "As a user I want feedback as to how well I'm doing on the game"
 > * "As a user I want some control over the colours and sounds"
 > * "As a user I want some control over the difficulty level"
@@ -74,7 +74,7 @@ be far more conservative than a website project:
 
 |  | Feature | Feasibility | Importance
 ----|---|------------------|---------
-| a | Simply puzzle game | 1 | 1
+| a | Simple puzzle game | 1 | 1
 | b | Progression through levels based on success, with increasing difficulty | 2 | 2
 | c | Top-score storage/player-acheivement memory | 2 | 2
 | d | Touchscreen interactivity | 1 | 1
@@ -101,10 +101,7 @@ be far more conservative than a website project:
 We can see here that the majority of these features are important enough to be included in a first release or minimum viable product. On the surface that may seem excessive, but actually the majority of those features are aspects of the core game itself that are essential to satisfying game-play and would be expected by any user.
 
 ### *Mid-development feature review update, January 2021*
-Having spent a significant amount of time developing the game I have reconsidered the feasibility of features 'f' and 'g'. 
-Feature 'f' is keyboard interactivity for the desktop game. Building this into the game's functionality is eminently possible, but would unecessarily complicate my code at this stage. Reflecting on the fact this is is primarily intended to be a game played on a touchscreen device — the mobile-first approach — I have decided that it would be
-acceptable to leave this feature to a future development stage.
-Feature 'g' is, again, entirely possible, but is less critical to the MVP (minimum viable product) than other elements. It would certainly be fun to include and would be beneficial from a game-play perspective, but is, again, an added complication for a first release.
+Having spent a significant amount of time developing the game I have reconsidered the feasibility of feature 'g'. Although entirely possible, it is less critical to the MVP (minimum viable product) than other elements. It would certainly be fun to include and would be beneficial from a game-play perspective, but is an added complication for a first release.
 
 ---
 
@@ -321,10 +318,9 @@ For all formats, the game's sound effects were simple to implement and worked we
 Testing this workaround on an iPhone revealed this to be a partial success in that the sounds worked and would turn on and off via the toggle. However, they were still significantly delayed, causing them to be a distraction to gameplay, rather than a benefit.
 
 Further research revealed that the problem did not end with disabled autoplay on iOS/Safari. My understanding is that iOS devices have been designed to load audio in a specific way in order to make the browsing experience as swift and quick to load as possible. This means that, in order to properly implement audio for iOS and reduce buffer times to a usable degree a far more advanced approach to this aspect of development is required. 
-I'm confident that this issue could be addressed via the use of the Web Audio API, but wieghing up the extra development and research time involved in implementing and testing this, against the benefit to the user of the minimum viable product, I felt it was best to address this problem in future development.
+I'm confident that this issue could be addressed via the use of the Web Audio API, but weighing up the extra development and research time involved in implementing and testing this, against the benefit to the user of the minimum viable product, I felt it was best to address this problem in future development.
 In order to make the user experience as satisfying as possible for iOS/Safari users, however, I have implemented a temporary workaround, for which credit goes to the excellent Stack Overflow community. I have a function that detects (or, more correctly, infers) the user's operating system and returns a boolean result (eg. isIOS = true/false). If this returns true, the sounds toggle will not be displayed and audio will be disabled entirely. The general consensus seems to be that OS inference is far from
 an ideal working practice, however, so I shall endeavour to research this further and remove its necessity as soon as possible. My justification for including a less-than-perfect function in my code is that the user experience with broken sound on iOS is far worse than that of someone non-iOS device has been incorrectly recognised as such and therefore has no option to enable sound.
-
 
 **Update report, having implemented this feature:** I have been able to test this on a total of five iPhones running iOS 14 and two Android devices (Pixel 4a, Samsung S10) and they all reported the expected behaviour (sounds toggle was not displaying on iOS but was available on Android). I also discovered that this issue extends to the Safari desktop/laptop browser, and so I have extended this functionality to take that into account as well.
 
@@ -333,6 +329,16 @@ Much of the work on responsiveness with regard to the front-end design of this p
 
 #### Grey-cells mystery
 On one or two occassions during the build I found that the cells would grey and, whilst I could enable a new game, they would not light again, but stay grey. I tested this extensively but have not yet been able to find a combination of clicks or gameplay that reproduces the behaviour.
+
+#### Code Validation
+
+All Javascript and jQuery code passed through the JShint tool without returning errors.
+All CSS passed through the Jigsaw CSS validator without returning errors.
+All HTML passed through the W3C validator without returning errors.
+
+#### Future Development
+
+I'd like to add the features identified in the feature priority matrix above to the game. In particular, I feel the keyboard commands could be implemented in a somewhat more user-friendly way. For example, the user could choose to use keyboard commands and thereby be presented with a grid layout that was far more user-friendly for this purpose (4x2 layout with corresponding QWER,ASDF key commands, for example.). It would also be fun to add theme changes for certain levels, or seasonal themes. For all suggested features, however, I feel it's important to first gain user feedback on the minimum viable product.
 
 ---
 #### User Story Testing

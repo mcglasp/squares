@@ -38,6 +38,7 @@
                 </label>
         </div>
     </header>
+    <main>
     <div class="container center">
     <div id="game-container">
         <div id="game-0" class="cell"></div>
@@ -60,21 +61,21 @@
                     onclick="startGame()">start</button></div>
             <div class="center-text col-3 glow info-round">round<span id="round" class="display-box">&nbsp;</span>
             </div>
-            <div id="info-text" class="instr info-text">copy what you see on pad 1...<br>on pad 2</div>
+            <div class="instr">copy what you see on pad 1...<br>on pad 2</div>
         </div>
     </div>
     <div id="user-game-container">
-        <div id="0" class="cell" onclick="captureUserClicks(this.id); padSound()"></div>
-        <div id="1" class="cell" onclick="captureUserClicks(this.id); padSound()"></div>
-        <div id="2" class="cell" onclick="captureUserClicks(this.id); padSound()"></div>
-        <div id="3" class="cell" onclick="captureUserClicks(this.id); padSound()"></div>
-        <div id="4" class="cell cell-4" onclick="captureUserClicks(this.id); padSound()">
+        <div id="0" class="cell" onclick="captureUserClicks(this.id); userPadSound()"></div>
+        <div id="1" class="cell" onclick="captureUserClicks(this.id); userPadSound()"></div>
+        <div id="2" class="cell" onclick="captureUserClicks(this.id); userPadSound()"></div>
+        <div id="3" class="cell" onclick="captureUserClicks(this.id); userPadSound()"></div>
+        <div id="4" class="cell cell-4" onclick="captureUserClicks(this.id); userPadSound()">
             <div class="number-container"><span class="number">2</span></div>
         </div>
-        <div id="5" class="cell" onclick="captureUserClicks(this.id); padSound()"></div>
-        <div id="6" class="cell m10" onclick="captureUserClicks(this.id); padSound()"></div>
-        <div id="7" class="cell m10" onclick="captureUserClicks(this.id); padSound()"></div>
-        <div id="8" class="cell m10" onclick="captureUserClicks(this.id); padSound()"></div>
+        <div id="5" class="cell" onclick="captureUserClicks(this.id); userPadSound()"></div>
+        <div id="6" class="cell m10" onclick="captureUserClicks(this.id); userPadSound()"></div>
+        <div id="7" class="cell m10" onclick="captureUserClicks(this.id); userPadSound()"></div>
+        <div id="8" class="cell m10" onclick="captureUserClicks(this.id); userPadSound()"></div>
     </div>
 </div>
     <div class="container">
@@ -83,11 +84,13 @@
                 <p id="ts-text" class="top-score">Top score: <span id="top-score"></span></p>
             </div>
             <div class="col-4">
-                <p class="info-text instr-lower">copy what you see on pad 1...<br>on pad 2</p>
+                <p class="instr-lower">copy what you see on pad 1...<br>on pad 2</p>
             </div>
             <div class="col-4"></div>
+            <p class="instr-lower subtle-text">Hint: you can use the keys Q, W, E, A, S, D, `, X to play the game!</p>
         </div>
     </div>
+    </main>
     <br />
     <hr class="double-line" />
     <hr class="double-line" />
