@@ -187,8 +187,11 @@ window.onkeyup = function keyCommands(pressed_id) {
         default:
             pressed_id = null;
     }
+
+    if (pressed_id !== null) {
     userClicks.push(`game-${pressed_id}`);
     simulateClick(pressed_id);
+    }
     arrayLengthCompare();
 }
 
