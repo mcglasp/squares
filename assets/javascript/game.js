@@ -22,7 +22,7 @@ let level = {
     gap: 800,
 };
 
-// UX & UI
+// UX & UI - colours, sounds, text & feedback control
 let colors = ['blue', 'pink', 'green'];
 let sounds = ['assets/audio/beep1.mp3', 'assets/audio/beep2.mp3', 'assets/audio/beep3.mp3'];
 let flashAudio = new Audio();
@@ -46,7 +46,8 @@ window.onload = function () {
     disableSounds();
 };
 
-// Game order control
+// Game order controls
+
 function startGame() {
     // reset all initial values so that user can reset their own game without refreshing the page.
     iterX = 0;
@@ -60,7 +61,6 @@ function startGame() {
     roundbox.innerHTML = level.round;
     endCalled = false;
     startBtn.disabled = true;
-    // keyCommands()
     infoText();
     clearTimer();
     // Uses setTimeout to give slight pause before starting.
@@ -80,15 +80,16 @@ function nextRound() {
     }, 1000);
     showScore();
     showRound();
-    // keyCommands()
     infoText(saySomething);
 }
+
+// Core gameplay functions (generally speaking, shown in order they are called)
 
 function makeFlashArray(showEachFlash, timeControlCallback) {
     let iterI = 0;
     let last_val = null;
     do {
-        // CREDIT Alan Wind, Stack Overflow user for generation of random non-repeating, value
+        // CREDIT Alan Wind, Stack Overflow user for generation of random, non-repeating, value.
         let val = Math.floor(Math.random() * 9);
         if (val == last_val) continue; {
             initArray.push(`game-${val}`);
@@ -102,15 +103,13 @@ function makeFlashArray(showEachFlash, timeControlCallback) {
     return initArray;
 }
 
-// Core gameplay functions (generally speaking, shown in order they are called)
-
-function showFlash(num, iterJ) { // Creates a single 'flash on-off' instance
+function showFlash(num, iterJ) { // Creates a single 'flash on-off' instance.
     // CREDIT Stack Overflow user tghw for solution to cycling through colours array.
-    //  saving current value of x as a different variable prevented x's value being overwritten, which would incorrectly return the same colour as previously shown.
+    // saving current value of x as a different variable prevented x's value being overwritten, which would incorrectly return the same colour as previously shown.
     let y = iterX;
     iterX++;
     setTimeout(function () {
-        // color variable cycles through colours to give better player experience
+        // color variable cycles through colours to give better player experience.
         let color = colors[y % colors.length];
         let num = initArray[iterJ];
         let element = document.getElementById(num);
@@ -123,11 +122,11 @@ function showFlash(num, iterJ) { // Creates a single 'flash on-off' instance
     }, level.gap * iterJ);
 }
 
-function showEachFlash() { // Creates the full array of flashes for the player to copy
+function showEachFlash() { // Creates the full array of flashes for the player to copy.
     initArray.forEach(showFlash);
 }
 
-function timeControl() { // If time runs out, the game ends
+function timeControl() { // If time runs out, the game ends.
     let counter = 5;
     timer = setInterval(function () {
         if (counter > 0) {
@@ -139,16 +138,15 @@ function timeControl() { // If time runs out, the game ends
     }, 1000);
 }
 
-function clearTimer() { // Reset timer when user has input correct sequence, or when the game has ended
+function clearTimer() { // Reset timer when user has input correct sequence, or when the game has ended.
     clearInterval(timer);
 }
 
-function captureUserClicks(clicked_id) { // Capture player input and send it to an array
+function captureUserClicks(clicked_id) { // Capture player input and send it to an array.
     // Re-enable newgame/startGame() event listener on first user click.
     startBtn.disabled = false;
     userClicks.push(`game-${clicked_id}`)
     // CREDIT Stack Overflow user technophyle helped me with the solution to capturing user clicks and pushing to array.
-    console.log(userClicks)
     arrayLengthCompare();
 }
 
@@ -189,20 +187,20 @@ window.onkeyup = function keyCommands(pressed_id) {
     }
 
     if (pressed_id !== null) {
-    userClicks.push(`game-${pressed_id}`);
-    simulateClick(pressed_id);
+        userClicks.push(`game-${pressed_id}`);
+        simulateClick(pressed_id);
     }
     arrayLengthCompare();
 }
 
-function arrayLengthCompare() {
+function arrayLengthCompare() { // Once the user has clicked the same number of times as there are items in the game-generated array, the two arrays will be compared.
     if (userClicks.length === initArray.length) {
         compareArraysClicks();
         clearTimer();
     }
 }
 
-function compareArraysClicks() { // Compare the randomly generated array with the player's inputted array
+function compareArraysClicks() { // Compare the randomly generated array with the player's inputted array.
     let userArray = userClicks.toString();
     let gameArray = initArray.toString();
     if (gameArray === userArray) {
@@ -212,7 +210,7 @@ function compareArraysClicks() { // Compare the randomly generated array with th
     }
 }
 
-function endGame() { // Game over
+function endGame() { // Game over.
     endCalled = true;
     startBtn.disabled = false;
     updateTopScore();
@@ -225,7 +223,7 @@ function endGame() { // Game over
 
 // Level control & reset functions
 
-function levelUp() { // Go to next round
+function levelUp() { // Go to next round.
     score += 5;
     level.round++;
     if (level.round % 3 === 0) {
@@ -237,17 +235,17 @@ function levelUp() { // Go to next round
     return level.flashes + level.round + score;
 }
 
-function reduceFlashGap() { // Make space between flashes shorter
+function reduceFlashGap() { // Make space between flashes shorter.
     level.gap -= 50;
     return level.gap;
 }
 
-function resetGameArray() { // Clear randomly generated array between rounds
+function resetGameArray() { // Clear randomly generated array between rounds.
     initArray = [];
     return initArray;
 }
 
-function resetUserClicks(nextRoundCallback) { // Clear player's inputted array between rounds
+function resetUserClicks(nextRoundCallback) { // Clear player's inputted array between rounds.
     userClicks = [];
     nextRoundCallback();
     return userClicks;
@@ -291,7 +289,7 @@ function flashSound() {
     }
 }
 
-function infoText(saySomething) {
+function infoText(saySomething) { // Retain <br> in each to maintain the same space between pads on landscape view.
     if (endCalled === true) {
         saySomething = `Too bad!<br>Better luck next time!`;
     } else {
@@ -332,23 +330,23 @@ function infoText(saySomething) {
                 saySomething = last;
         }
     }
-    // Loop required to ensure this information is displayed on all viewports
+    // Loop required to ensure this information is displayed on all viewports.
     for (let k = 0; k < information.length; k++) {
         information[k].innerHTML = saySomething;
     }
 }
 
-function simulateClick(pressed_id) {
+function simulateClick(pressed_id) { // when player uses key commands, pad 2 is not used, so clicks are simulated on pad 2 with a flash to show which cell has been clicked, for a better player experience.
     let showClick = document.getElementById(pressed_id).classList;
     if (showClick.contains('hard-mode') == true) {
-        showClick.add(`cell-hard-mode`);
+        showClick.add('cell-hard-mode');
         window.setTimeout(function () {
-            showClick.remove(`cell-hard-mode`);
+            showClick.remove('cell-hard-mode');
         }, 200);
     } else {
-        showClick.add("cell-black");
+        showClick.add('cell-black');
         window.setTimeout(function () {
-            showClick.remove("cell-black");
+            showClick.remove('cell-black');
         }, 200);
     }
 }

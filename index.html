@@ -8,15 +8,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="assets/favicon/site.webmanifest">
-    <link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
     <title>squares</title>
 </head>
 
@@ -24,80 +21,88 @@
     <header class="navbar slim-nav">
         <h1 id="logo" class="glow"><a class="logo" href="index.html">sq</a></h1>
         <div class="toggles">
- <div id="toDisable"><label><sup>sounds&nbsp;</sup></label><label class="switch">
-                    <input aria-label="Switch on sounds" id="soundSlider" type="checkbox" aria-checked="false" onclick="soundsToggle()">
+            <!-- CREDIT W3 Schools for toggle control CSS and HTML core code -->
+            <div id="toDisable"><label><sup>sounds&nbsp;</sup></label><label class="switch">
+                    <input aria-label="Switch on sounds" id="soundSlider" type="checkbox" aria-checked="false"
+                        onclick="soundsToggle()">
                     <span class="slider-1 round"></span>
                 </label></div>
             <label><sup>&nbsp;&nbsp;light&nbsp;</sup></label><label class="switch">
-                    <input aria-label="Switch on light theme" id="lightThemeSlider" aria-checked="false" type="checkbox">
-                    <span class="slider-2 round"></span>
-                </label>
+                <input aria-label="Switch on light theme" id="lightThemeSlider" aria-checked="false" type="checkbox">
+                <span class="slider-2 round"></span>
+            </label>
             <label><sup>&nbsp;&nbsp;hard&nbsp;</sup></label><label class="switch">
-                    <input aria-label="Switch on hard mode" id="hardModeSlider" aria-checked="false" type="checkbox">
-                    <span class="slider-3 round"></span>
-                </label>
+                <input aria-label="Switch on hard mode" id="hardModeSlider" aria-checked="false" type="checkbox">
+                <span class="slider-3 round"></span>
+            </label>
         </div>
     </header>
     <main>
-    <div class="container center">
-    <div id="game-container">
-        <div id="game-0" class="cell"></div>
-        <div id="game-1" class="cell"></div>
-        <div id="game-2" class="cell"></div>
-        <div id="game-3" class="cell"></div>
-        <div id="game-4" class="cell">
-            <div class="number-container"><span class="number">1</span></div>
-        </div>
-        <div id="game-5" class="cell"></div>
-        <div id="game-6" class="cell m10"></div>
-        <div id="game-7" class="cell m10"></div>
-        <div id="game-8" class="cell m10"></div>
-    </div>
-    <div class="container info">
-        <div class="row stack">
-            <div class="center-text col-3 glow info-score">score<span id="score" class="display-box">&nbsp;</span>
+        <div class="container center">
+            <div id="game-container">
+                <div id="game-0" class="cell"></div>
+                <div id="game-1" class="cell"></div>
+                <div id="game-2" class="cell"></div>
+                <div id="game-3" class="cell"></div>
+                <div id="game-4" class="cell">
+                    <div class="number-container"><span class="number">1</span></div>
+                </div>
+                <div id="game-5" class="cell"></div>
+                <div id="game-6" class="cell m10"></div>
+                <div id="game-7" class="cell m10"></div>
+                <div id="game-8" class="cell m10"></div>
             </div>
-            <div class="col-6 center-text"><button id="newgame" type="button" class="center-text btn btn-dark"
-                    onclick="startGame()">start</button></div>
-            <div class="center-text col-3 glow info-round">round<span id="round" class="display-box">&nbsp;</span>
+            <div class="container info">
+                <div class="row stack">
+                    <div class="center-text col-3 glow info-score">score<span id="score"
+                            class="display-box">&nbsp;</span>
+                    </div>
+                    <div class="col-6 center-text"><button id="newgame" type="button" class="center-text btn btn-dark"
+                            onclick="startGame()">start</button></div>
+                    <div class="center-text col-3 glow info-round">round<span id="round"
+                            class="display-box">&nbsp;</span>
+                    </div>
+                    <div class="instr info-text">copy what you see on pad 1...<br>on pad 2</div>
+                    <!--This element does not show in landscape view-->
+                </div>
             </div>
-            <div class="instr">copy what you see on pad 1...<br>on pad 2</div>
-        </div>
-    </div>
-    <div id="user-game-container">
-        <div id="0" class="cell" onclick="captureUserClicks(this.id); userPadSound()"></div>
-        <div id="1" class="cell" onclick="captureUserClicks(this.id); userPadSound()"></div>
-        <div id="2" class="cell" onclick="captureUserClicks(this.id); userPadSound()"></div>
-        <div id="3" class="cell" onclick="captureUserClicks(this.id); userPadSound()"></div>
-        <div id="4" class="cell cell-4" onclick="captureUserClicks(this.id); userPadSound()">
-            <div class="number-container"><span class="number">2</span></div>
-        </div>
-        <div id="5" class="cell" onclick="captureUserClicks(this.id); userPadSound()"></div>
-        <div id="6" class="cell m10" onclick="captureUserClicks(this.id); userPadSound()"></div>
-        <div id="7" class="cell m10" onclick="captureUserClicks(this.id); userPadSound()"></div>
-        <div id="8" class="cell m10" onclick="captureUserClicks(this.id); userPadSound()"></div>
-    </div>
-</div>
-    <div class="container">
-        <div class="row no-gutters">
-            <div class="col-4">
-                <p id="ts-text" class="top-score">Top score: <span id="top-score"></span></p>
+            <div id="user-game-container">
+                <div id="0" class="cell" onclick="captureUserClicks(this.id); userPadSound()"></div>
+                <div id="1" class="cell" onclick="captureUserClicks(this.id); userPadSound()"></div>
+                <div id="2" class="cell" onclick="captureUserClicks(this.id); userPadSound()"></div>
+                <div id="3" class="cell" onclick="captureUserClicks(this.id); userPadSound()"></div>
+                <div id="4" class="cell cell-4" onclick="captureUserClicks(this.id); userPadSound()">
+                    <div class="number-container"><span class="number">2</span></div>
+                </div>
+                <div id="5" class="cell" onclick="captureUserClicks(this.id); userPadSound()"></div>
+                <div id="6" class="cell m10" onclick="captureUserClicks(this.id); userPadSound()"></div>
+                <div id="7" class="cell m10" onclick="captureUserClicks(this.id); userPadSound()"></div>
+                <div id="8" class="cell m10" onclick="captureUserClicks(this.id); userPadSound()"></div>
             </div>
-            <div class="col-4">
-                <p class="instr-lower">copy what you see on pad 1...<br>on pad 2</p>
-            </div>
-            <div class="col-4"></div>
-            <p class="instr-lower subtle-text">Hint: you can use the keys Q, W, E, A, S, D, `, X to play the game!</p>
         </div>
-    </div>
+        <div class="container">
+            <div class="row no-gutters">
+                <div class="col-4">
+                    <p id="ts-text" class="top-score">Top score: <span id="top-score"></span></p>
+                </div>
+                <div class="col-4">
+                    <!--This element does not show in portrait view-->
+                    <p class="instr-lower info-text">copy what you see on pad 1...<br>on pad 2</p>
+                </div>
+                <div class="col-4"></div>
+                <!--This element does not show in portrait view-->
+                <p class="instr-lower subtle-text">Hint: you can use the keys Q, W, E, A, S, D, `, X to play the game!
+                </p>
+            </div>
+        </div>
     </main>
     <br />
     <hr class="double-line" />
     <hr class="double-line" />
     <footer class="game-footer text-center">
-        <p class="footer-links"><a href="/contact-instr.html">~ full instructions ~</a></p>
-        <p class="footer-links"><a href="/contact-instr.html#contactForm">~ tell me what you think ~</a></p>  
-        <button id="clear-button" class="footer-links" onclick="clearTopScore()">~ clear top score ~</button> 
+        <p class="footer-links"><a href="contact-instr.html">~ full instructions ~</a></p>
+        <p class="footer-links"><a href="contact-instr.html#contactForm">~ tell me what you think ~</a></p>
+        <button id="clear-button" class="footer-links" onclick="clearTopScore()">~ clear top score ~</button>
         <p id="copyright">&#169; Nell Glasper 2021</p>
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
