@@ -425,7 +425,8 @@ To deploy the site, it was necessary to undertake the following steps:
 Forking the GitHub Repository
 
 * Log in to GitHub and locate the GitHub Repository
-* At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
+* At the top of the Repository, locate and click the Fork button.
+* After a moment the forked repository should appear in your GitHub account
 
 Making a Local Clone
 * Log in to GitHub and locate the GitHub Repository
@@ -434,7 +435,6 @@ Making a Local Clone
 * Open Git Bash
 * Change the current working directory to the location where you want the cloned directory to be made
 * Type git clone, and then paste the copied URL
-* $ git clone https://github.com/mcglasp/squares
 * Press Enter
 
 ---
