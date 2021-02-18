@@ -268,16 +268,16 @@ The following were tested remotely due to Covid-19 restrictions, and therefore I
 
 >**Starting the game**
 >
->The Start button should start the first, simplest, round of the game. The function startGame() should be called once and the following should be logged to the console 
+>The Start button should start the first, simplest, round of the game. The function startGame should be called once and the following should be logged to the console 
 (during testing only; console logs will be removed after initial development): "speed 800", "flashes 2". 
 >
 >Console logs were as expected, though double-clicking the start button revealed unexpected behaviour (see below).
 >
->**Expected behaviour:** clicking the start button should only execute the startGame() function once. 
+>**Expected behaviour:** clicking the start button should only execute the startGame function once. 
 >
 >**Found behaviour:** double-clicking fires the event listener twice (or triple-clicking, three times, etc.) and the two games run over one-another. 
 >
->**Solution:** I added the variable startBtn and gave it the property 'disabled' as part of the startGame function. The first user click re-enables the button, as does the endGame function. This prevents a user inadvertently 
+>**Solution:** I added the variable startBtn and gave it the property 'disabled' as part of the startGame function. The endGame function enables the startGame button. This prevents a user inadvertently 
 >firing the startGame function too many times by double-clicking.
 
 ---
@@ -292,7 +292,7 @@ The following were tested remotely due to Covid-19 restrictions, and therefore I
 
 >**Game continuation**
 >
->Gameplay should only continue if both the game-generated and user arrays are identical. If they are not, endGame() should be called.
+>Gameplay should only continue if both the game-generated and user arrays are identical. If they are not, endGame should be called.
 >
 >I tested this by console-logging both arrays produced by the game and logged by the user and found this behaviour to be as expected.
 
@@ -300,7 +300,7 @@ The following were tested remotely due to Covid-19 restrictions, and therefore I
 
 >**Countdown timer**
 >
->If the timer counter variable is allowed to reach zero, endGame() should be called. When endGame is called or when the user successfully passes to the next level, clearTimer() should reset the counter.
+>If the timer counter variable is allowed to reach zero, endGame should be called. When endGame is called or when the user successfully passes to the next level, clearTimer should reset the counter.
 >
 >Expected behaviour observed.
 
@@ -361,7 +361,7 @@ flashes feature as it created an unecessary complication that was not matched by
 >
 >**Solution:** It was actually adding the level values of the previous game to the new game, thereby creating odd 
 behaviour: multiple dots, strange speeds, etc. I went through the entire code more carefully and identified a large number of variables 
-and functions that needed resetting within the newGame function.
+and functions that needed resetting within the startGame function.
 ---
 ## **Existing bugs & issues for future development**
 

@@ -144,7 +144,6 @@ function clearTimer() { // Reset timer when user has input correct sequence, or 
 
 function captureUserClicks(clicked_id) { // Capture player input and send it to an array.
     // Re-enable newgame/startGame() event listener on first user click.
-    startBtn.disabled = false;
     userClicks.push(`game-${clicked_id}`)
     // CREDIT Stack Overflow user technophyle helped me with the solution to capturing user clicks and pushing to array.
     arrayLengthCompare();
@@ -152,7 +151,6 @@ function captureUserClicks(clicked_id) { // Capture player input and send it to 
 
 window.onkeyup = function keyCommands(pressed_id) {
     userPadSound();
-    startBtn.disabled = false;
     let press = pressed_id.which || pressed_id.keyCode
     switch (press) {
         case 81:
@@ -185,7 +183,6 @@ window.onkeyup = function keyCommands(pressed_id) {
         default:
             pressed_id = null;
     }
-
     if (pressed_id !== null) {
         userClicks.push(`game-${pressed_id}`);
         simulateClick(pressed_id);
