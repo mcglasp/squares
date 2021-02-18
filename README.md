@@ -383,6 +383,10 @@ an ideal working practice, however, so I shall endeavour to research this furthe
 
 **Update report, having implemented this feature:** I have been able to test this on a total of five iPhones running iOS 14 and two Android devices (Pixel 4a, Samsung S10) and they all reported the expected behaviour (sounds toggle was not displaying on iOS but was available on Android).
 
+**Firefox Toggle Confusion**
+
+During a final stage of testing I checked the game was working correctly in Firefox and Safari after a minor change had been made. I clicked the toggles back and forth and they seemed to be working correctly. However, after a few more clicks I noticed that the light theme toggle had switched itself to being enabled when the control was in the disabled position. I tested this extensively to try to reproduce the error, but was only once able to, and then was not able to reproduce it a second time. My suspicion is that an element of either CSS or jQuery functions differently in Firefox, but as yet I have not identified what that might be, though I suspect the :before psuedo-class may be involved. As I am unable to confidently reproduce the behaviour I have made it a priority for future development.
+
 #### Responsiveness
 Much of the work on responsiveness with regard to the front-end design of this project was done using Chrome's Developer Tools. A considerable amount of work went into adjusting the design to work across all popular platforms, including iPhone, iPad, desktop, laptop and a number of Android devices. These were all working well on the Chrome Developer Tools, but the websites responsinator.com and ami.responsivedesign.is both showed that the game pads were 
 disappearing below the initial viewport on a number of devices, but were appearing too close to the top of desktop and laptop screens. I rearranged a number of elements to take this into account and pushed the project to github again, reloaded the app on the aforementioned websites and found that they were now mostly working perfectly well on these viewports. However, the iPad view still displayed considerable cut-off at the bottom of the screen. I manually 

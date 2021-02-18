@@ -2,14 +2,17 @@
 let initArray = [];
 let userClicks = [];
 
-// Loop iteration ('iter') variables. Required within global scope so that they can be accessed by startGame() and reset functions.
+// Loop iteration ("iter") variables. Required within global
+// scope so that they can be accessed by startGame() and
+// reset functions.
 let iterA = 0;
 let iterI = 0;
 let iterJ = 0;
 let iterX = 0;
 
 
-// Empty variables. Required in global scope to be updated by several functions.
+// Empty variables. Required in global scope
+// to be updated by several functions.
 let timer;
 let saySomething;
 let last;
@@ -19,25 +22,25 @@ let score = 0;
 let level = {
     flashes: 2,
     round: 0,
-    gap: 800,
+    gap: 800
 };
 
 // UX & UI - colours, sounds, text & feedback control
-let colors = ['blue', 'pink', 'green'];
-let sounds = ['assets/audio/beep1.mp3', 'assets/audio/beep2.mp3', 'assets/audio/beep3.mp3'];
+let colors = ["blue", "pink", "green"];
+let sounds = ["assets/audio/beep1.mp3", "assets/audio/beep2.mp3", "assets/audio/beep3.mp3"];
 let flashAudio = new Audio();
 let userAudio = new Audio();
-let scorebox = document.getElementById('score');
-let roundbox = document.getElementById('round');
-let information = document.querySelectorAll('.info-text');
+let scorebox = document.getElementById("score");
+let roundbox = document.getElementById("round");
+let information = document.querySelectorAll(".info-text");
 let endCalled = false;
-let startBtn = document.getElementById('newgame');
+let startBtn = document.getElementById("newgame");
 let soundsOn = false;
-let topScore = localStorage.getItem('topScoreName');
-let topScoreEl = document.getElementById('top-score');
+let topScore = localStorage.getItem("topScoreName");
+let topScoreEl = document.getElementById("top-score");
 
 window.onload = function () {
-    topScoreEl = document.getElementById('top-score');
+    topScoreEl = document.getElementById("top-score");
     topScoreEl.innerHTML = topScore;
     // The default sound state is disabled. If iOS or Safari are not detected, 
     // then the sound toggle is enabled, allowing users to then enable the playback 
@@ -49,7 +52,8 @@ window.onload = function () {
 // Game order controls
 
 function startGame() {
-    // reset all initial values so that user can reset their own game without refreshing the page.
+    // reset all initial values so that user can reset their
+    // own game without refreshing the page.
     iterX = 0;
     initArray = [];
     userClicks = [];
@@ -69,7 +73,7 @@ function startGame() {
     }, 1500);
     // light up cells ready for game.
     jQuery(function ($) {
-        $('.cell').removeClass('grey-cells');
+        $(".cell").removeClass("grey-cells");
     });
 }
 
@@ -83,16 +87,19 @@ function nextRound() {
     infoText(saySomething);
 }
 
-// Core gameplay functions (generally speaking, shown in order they are called)
+// Core gameplay functions (generally speaking, shown in
+// order they are called)
 
 function makeFlashArray(showEachFlash, timeControlCallback) {
-    let iterI = 0;
+    iterI = 0;
     let last_val = null;
     do {
-        // CREDIT Alan Wind, Stack Overflow user for generation of random, non-repeating, value.
+        // CREDIT Alan Wind, Stack Overflow user for generation
+        // of random, non-repeating, value.
         let val = Math.floor(Math.random() * 9);
-        if (val == last_val) continue; {
-            initArray.push(`game-${val}`);
+        if (val == last_val) {
+            continue;}
+         { initArray.push(`game-${val}`);
             iterI++;
             last_val = val;
         }
@@ -105,7 +112,9 @@ function makeFlashArray(showEachFlash, timeControlCallback) {
 
 function showFlash(num, iterJ) { // Creates a single 'flash on-off' instance.
     // CREDIT Stack Overflow user tghw for solution to cycling through colours array.
-    // saving current value of x as a different variable prevented x's value being overwritten, which would incorrectly return the same colour as previously shown.
+    // saving current value of x as a different variable prevented x's
+    // value being overwritten, which would incorrectly return the same colour as
+    // previously shown.
     let y = iterX;
     iterX++;
     setTimeout(function () {
@@ -145,7 +154,8 @@ function clearTimer() { // Reset timer when user has input correct sequence, or 
 function captureUserClicks(clicked_id) { // Capture player input and send it to an array.
     // Re-enable newgame/startGame() event listener on first user click.
     userClicks.push(`game-${clicked_id}`)
-    // CREDIT Stack Overflow user technophyle helped me with the solution to capturing user clicks and pushing to array.
+    // CREDIT Stack Overflow user technophyle helped me with the
+    // solution to capturing user clicks and pushing to array.
     arrayLengthCompare();
 }
 
@@ -190,14 +200,17 @@ window.onkeyup = function keyCommands(pressed_id) {
     arrayLengthCompare();
 }
 
-function arrayLengthCompare() { // Once the user has clicked the same number of times as there are items in the game-generated array, the two arrays will be compared.
+function arrayLengthCompare() { // Once the user has clicked the
+    // same number of times as there are items in the
+    // game-generated array, the two arrays will be compared.
     if (userClicks.length === initArray.length) {
         compareArraysClicks();
         clearTimer();
     }
 }
 
-function compareArraysClicks() { // Compare the randomly generated array with the player's inputted array.
+function compareArraysClicks() { // Compare the randomly
+    // generated array with the player's inputted array.
     let userArray = userClicks.toString();
     let gameArray = initArray.toString();
     if (gameArray === userArray) {
@@ -211,9 +224,10 @@ function endGame() { // Game over.
     endCalled = true;
     startBtn.disabled = false;
     updateTopScore();
-    // Greys out cells when player loses the game to give immediate game-over indication
+    // Greys out cells when player loses the game to
+    // give immediate game-over indication
     jQuery(function ($) {
-        $('.cell').addClass('grey-cells');
+        $(".cell").addClass("grey-cells");
     });
     infoText(saySomething);
 }
@@ -260,17 +274,17 @@ function showRound() {
 
 function updateTopScore() {
     topScore = Math.max(score, topScore);
-    localStorage.setItem('topScoreName', topScore);
+    localStorage.setItem("topScoreName", topScore);
     topScoreEl.innerHTML = topScore;
 }
 
 function clearTopScore() {
     localStorage.clear();
-    topScoreEl.innerHTML = '';
+    topScoreEl.innerHTML = "";
 }
 
 function userPadSound() {
-    userAudio.src = 'assets/audio/user-beep.mp3';
+    userAudio.src = "assets/audio/user-beep.mp3";
     if (soundsOn == true) {
         userAudio.play();
     }
@@ -286,7 +300,8 @@ function flashSound() {
     }
 }
 
-function infoText(saySomething) { // Retain <br> in each to maintain the same space between pads on landscape view.
+function infoText(saySomething) { // Retain <br> in each to maintain
+    // the same space between pads on landscape view.
     if (endCalled === true) {
         saySomething = `Too bad!<br>Better luck next time!`;
     } else {
@@ -333,17 +348,19 @@ function infoText(saySomething) { // Retain <br> in each to maintain the same sp
     }
 }
 
-function simulateClick(pressed_id) { // when player uses key commands, pad 2 is not used, so clicks are simulated on pad 2 with a flash to show which cell has been clicked, for a better player experience.
+function simulateClick(pressed_id) { // when player uses key commands,
+    // pad 2 is not used, so clicks are simulated on pad 2 with a flash
+    // to show which cell has been clicked, for a better player experience.
     let showClick = document.getElementById(pressed_id).classList;
-    if (showClick.contains('hard-mode') == true) {
-        showClick.add('cell-hard-mode');
+    if (showClick.contains("hard-mode") == true) {
+        showClick.add("cell-hard-mode");
         window.setTimeout(function () {
-            showClick.remove('cell-hard-mode');
+            showClick.remove("cell-hard-mode");
         }, 200);
     } else {
-        showClick.add('cell-black');
+        showClick.add("cell-black");
         window.setTimeout(function () {
-            showClick.remove('cell-black');
+            showClick.remove("cell-black");
         }, 200);
     }
 }
@@ -354,33 +371,35 @@ function soundsToggle() {
     soundsOn = !soundsOn;
 }
 
-$('.slider-2').click(function () { // Light theme toggle
-    $('body, .container, .container-info, #logo, #newgame, #user-game-container, #game-container, .center-text, .display-box, .instr, .instr-lower, sup, .info-round, .info-score, #ts-text, .footer-links').toggleClass('light-theme');
-    $('.number').toggleClass('number-light');
+$(".slider-2").click(function () { // Light theme toggle
+    $("body, .container, .container-info, #logo, #newgame, #user-game-container, #game-container, .center-text, .display-box, .instr, .instr-lower, sup, .info-round, .info-score, #ts-text, .footer-links").toggleClass("light-theme");
+    $(".number").toggleClass("number-light");
 });
 
-$('.slider-3').click(function () { // Hard mode toggle
-    $('.cell').toggleClass('hard-mode');
-    $('.number').toggleClass('number-hard');
+$(".slider-3").click(function () { // Hard mode toggle
+    $(".cell").toggleClass("hard-mode");
+    $(".number").toggleClass("number-hard");
 });
 
 // Operating system inference functions
 
 // CREDIT Pierre, Fregante & Paul Rumkin from Stack Overflow website
-function iOS() { // Infers whether the player's operating system is iOS or whether they are using desktop safari
+function iOS() { // Infers whether the player's operating
+// system is iOS or whether they are using desktop safari
     return [
-        'iPad Simulator',
-        'iPhone Simulator',
-        'iPod Simulator',
-        'iPad',
-        'iPhone',
-        'iPod'
-    ].includes(navigator.platform) || (navigator.userAgent.includes('Mac') && 'ontouchend' in document) || (/^((?!chrome|android).)*safari/i.test(navigator.userAgent));
+        "iPad Simulator",
+        "iPhone Simulator",
+        "iPod Simulator",
+        "iPad",
+        "iPhone",
+        "iPod"
+    ].includes(navigator.platform) || (navigator.userAgent.includes("Mac") && "ontouchend" in document) || (/^((?!chrome|android).)*safari/i.test(navigator.userAgent));
 }
 // End credit
 
-function disableSounds() { // Disables or enables sound toggle according to boolean result of iOS()
+function disableSounds() { // Disables or enables sound toggle
+    // according to boolean result of iOS()
     if (iOS() === true) {
-        $('#toDisable').addClass('disableToggle');
+        $("#toDisable").addClass("disableToggle");
     }
 }
