@@ -406,6 +406,7 @@ All HTML passed through the W3C validator without returning errors.
 I'd like to add the features identified in the feature priority matrix above to the game. In particular, I feel the keyboard commands could be implemented in a somewhat more user-friendly way. For example, the user could choose to use keyboard commands and thereby be presented with a grid layout that was far more user-friendly for this purpose (4x2 layout with corresponding QWER,ASDF key commands, for example.). It would also be fun to add theme changes for certain levels, or seasonal themes. For all suggested features, however, I feel it's important to first gain user feedback on the minimum viable product.
 
 In addition to this, I would like to explore options for ending the game during gameplay, in a way that does not call a new game or require a separate button. My initial thoughts are that this could be done through changing the onclick value to endGame when a game is in progress, but more research into this is required.
+
 ---
 
 ## Deployment
